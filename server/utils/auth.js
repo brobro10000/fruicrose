@@ -5,10 +5,14 @@ const jwt = require("jsonwebtoken");
 // require("dotenv");
 const jwt = require("jsonwebtoken");
 
+<<<<<<< HEAD
 require("dotenv");
 >>>>>>> develop/owen
+=======
+require("dotenv")
+const secret = process.env.AUTH_SECRET;
+>>>>>>> c8c68ba8a6ee2cffee74a5378722ef492312f788
 
-const secret = "mysecretsshhhhh";
 const expiration = "2h";
 
 module.exports = {
