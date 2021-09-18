@@ -12,15 +12,12 @@ function Login() {
     const [type, setType] = useState(0)
     const dispatch = useDispatch()
     const handleShow = (e) => {
-        if(e.target.innerHTML == 'Log In'){
+        if(e.target.innerHTML === 'Log In'){
             setType(0)
-            console.log(type)
-        } else if(e.target.innerHTML = 'Sign Up'){
+        } else if(e.target.innerHTML === 'Sign Up'){
             setType(1)
-            console.log(type)
         }
         setShow(true)
-            
             dispatch({
                 type: UPDATE_LOGIN,
                 currentForm: show,

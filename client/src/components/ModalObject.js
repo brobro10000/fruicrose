@@ -23,14 +23,11 @@ function ModalObject(props) {
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                {props.type == 0 ? <LoginForm /> : <SignupForm />}
+                {props.type === 0 ? <LoginForm /> : <SignupForm />}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
                     </Button>
                 </Modal.Footer>
             </Modal>
