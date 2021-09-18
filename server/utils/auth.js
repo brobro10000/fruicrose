@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 require("dotenv");
 const jwt = require("jsonwebtoken");
+=======
+// require("dotenv");
+const jwt = require("jsonwebtoken");
+
+require("dotenv");
+>>>>>>> develop/owen
 
 const secret = "mysecretsshhhhh";
 const expiration = "2h";
