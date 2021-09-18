@@ -6,7 +6,8 @@ export const reducer = (state, action) => {
     case UPDATE_LOGIN:
       return {
         ...state,
-        currentForm: [...action.loginForm],
+        currentForm: action.currentForm,
+        formType: action.formType
       };
 
     default:

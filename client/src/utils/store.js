@@ -2,7 +2,8 @@ import { createStore } from "redux";
 import { reducer } from './reducers'
 
 const initialState = {
-  currentBook: false
+  currentForm: false,
+  formType: 0
 }
 
 export default createStore(

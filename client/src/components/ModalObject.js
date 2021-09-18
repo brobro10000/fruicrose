@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
-import { Container, Button, Modal } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react';
+import { Container, Button, Modal, FormText } from 'react-bootstrap'
+import { UPDATE_LOGIN } from '../utils/actions';
 import LoginForm from './LoginForm';
+import { useSelector, useDispatch } from 'react-redux';
+import SignupForm from './SignupForm';
 function ModalObject(props) {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const currentForm = props.renderState()
+    console.log(props)
+    const isOpen = useSelector(state => state.currentForm)
+    const dispatch = useDispatch()
+    const [show, setShow] = useState(isOpen);
+    const handleClose = () => {
+        setShow(false)
+        dispatch({
+            type: UPDATE_LOGIN,
+            currentForm: show,
+        })
+    };
     return (
         <Container>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
-            </Button>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={isOpen} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    {currentForm}
+                {props.type == 0 ? <LoginForm /> : <SignupForm />}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
