@@ -1,29 +1,46 @@
-import React from 'react';
-import {Form, Button, Container} from 'react-bootstrap'
-
+import React, { useState, useEffect } from 'react';
+import { Container } from 'react-bootstrap'
+import ModalObject from '../components/ModalObject'
+import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignupForm';
+import { UPDATE_LOGIN } from '../utils/actions';
+import { useSelector, useDispatch } from 'react-redux'
+import { Button } from 'react-bootstrap'
 function Login() {
+    const isOpen = useSelector(state => state.currentForm)
+    const [show, setShow] = useState(isOpen);
+    const [type, setType] = useState(0)
+    const dispatch = useDispatch()
+    const handleShow = (e) => {
+        if(e.target.innerHTML === 'Log In'){
+            setType(0)
+        } else if(e.target.innerHTML === 'Sign Up'){
+            setType(1)
+        }
+        setShow(true)
+            dispatch({
+                type: UPDATE_LOGIN,
+                currentForm: show,
+            })
+            console.log(isOpen)  
+            return type
+    };
+    useEffect(() => {
+        dispatch({
+            type: UPDATE_LOGIN,
+            currentForm: show,
+        })
+    },[show])
+
     return (
         <Container>
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
+            <Button variant="primary" onClick={handleShow}>
+                Log In
             </Button>
-        </Form>
+            <ModalObject type = {type}/>
+            <Button variant="primary" onClick={handleShow}>
+                Sign Up
+            </Button>
         </Container>
     )
 }
