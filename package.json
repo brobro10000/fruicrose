@@ -21,7 +21,6 @@
     "concurrently": "^6.2.1"
   },
   "dependencies": {
-    "if-env": "^1.0.4",
-    "react-bootstrap": "^1.6.3"
+    "if-env": "^1.0.4"
   }
 }
