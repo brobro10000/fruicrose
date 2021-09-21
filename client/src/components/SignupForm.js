@@ -17,7 +17,7 @@ function SignupForm() {
         username: formState.username,
       },
     });
-    const token = mutationResponse.data.addUser.token;
+    const token = mutationResponse.data.createUser.token;
     Auth.login(token);
   };
 
