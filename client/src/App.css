@@ -15,10 +15,6 @@ main {
   max-width: 50px !important;
 }
 
-.myName {
-    
-}
-
 .navButtons {
     display: flex;
     flex-direction: row;
