@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Container } from 'react-bootstrap';
+import { Container, Card, Row, Col } from "react-bootstrap";
 
 function Products() {
   const products = useSelector((state) => state.products);
@@ -19,18 +19,29 @@ function Products() {
     }
   }, [data, loading, dispatch]);
 
-  console.log(products);
   if (!products?.length) {
     return <h1>There are no products!</h1>;
   }
 
   return (
     <Container>
-      {products.map((product) => {
-        return (
-            <li>{product.name}</li>
-        );
-      })}
+      <Row>
+        {products.map((product) => {
+          return (
+            <Card style={{ width: "18rem", margin: "10px" }}>
+              <Card.Body>
+                <Card.Title>{product.name}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  {product.categories._id}
+                </Card.Subtitle>
+                <Card.Text>Quantity: {product.stock}</Card.Text>
+                <Card.Text>Price: {product.price}</Card.Text>
+                <Card.Link href="#">Add to cart</Card.Link>
+              </Card.Body>
+            </Card>
+          );
+        })}
+      </Row>
     </Container>
   );
 }

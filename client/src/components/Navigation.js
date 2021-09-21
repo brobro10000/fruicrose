@@ -9,6 +9,7 @@ import {
   Col,
   Button,
 } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import banana from "../assets/images/banana.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
@@ -79,7 +80,6 @@ function Navigation(props) {
 
   return (
     <Navbar
-      fixed="top"
       id="headerNav"
       collapseOnSelect
       expand="lg"
@@ -100,14 +100,8 @@ function Navigation(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {nav.map((nav) => (
-              <Nav.Link
-                key={nav}
-                href={"#" + nav.toLowerCase().trim().replace(" ", "")}
-              >
-                {nav}
-              </Nav.Link>
-            ))}
+          <Link to="/">Products</Link>
+          <Link to="/contact">Contact</Link>
           </Nav>
           <Nav>{showNavButtons()}</Nav>
         </Navbar.Collapse>

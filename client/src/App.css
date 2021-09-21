@@ -20,3 +20,9 @@ main {
     flex-direction: row;
 }
 
+.productCard {
+    width: 18rem;
+    margin: 10px;
+}
+
+

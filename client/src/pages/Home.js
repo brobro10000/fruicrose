@@ -1,7 +1,9 @@
+import Products from "../components/Products";
+
 const Home = () => {
     return (
         <div>
-            hey guys
+            <Products />
         </div>
     )
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,10 +11,11 @@ import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Navigation from "./components/Navigation";
-import Products from "./components/Products";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -34,10 +36,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Provider store={store}>
-        <Navigation />
-        <Products />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <Navigation />
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/contact" component={Contact}/>
+        </Provider>
+      </Router>
     </ApolloProvider>
   );
 }
