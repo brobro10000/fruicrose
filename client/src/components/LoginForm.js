@@ -6,6 +6,7 @@ import Auth from "../utils/auth";
 
 function LoginForm() {
   const [formState, setFormState] = useState({ email: "", password: "" });
+  // eslint-disable-next-line
   const [login, { error }] = useMutation(LOGIN);
 
   const handleFormSubmit = async (event) => {
