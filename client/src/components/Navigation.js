@@ -63,7 +63,7 @@ function Navigation(props) {
         <>
           <Nav.Link>
             <Button variant="warning" onClick={handleShow}>
-              Login
+              LogIn
             </Button>
           </Nav.Link>
           <Nav.Link>
