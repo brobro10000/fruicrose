@@ -30,7 +30,7 @@ function Products() {
         <div>
             {products.map((product) => {
                 <ol>
-                    <li>{product.name}</li>
+                    <li>{products.name}</li>
                 </ol>
             })}
         </div>

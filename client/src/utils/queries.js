@@ -7,7 +7,7 @@ export const QUERY_ALL_PRODUCTS = gql`
       name
       price
       stock
-      category {
+      categories {
         name
       }
     }
