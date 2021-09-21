@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
-import ModalObject from '../components/ModalObject'
-import LoginForm from '../components/LoginForm';
-import SignupForm from '../components/SignupForm';
+import ModalObject from './ModalObject'
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 import { UPDATE_LOGIN } from '../utils/actions';
 import { useSelector, useDispatch } from 'react-redux'
 import { Button } from 'react-bootstrap'
