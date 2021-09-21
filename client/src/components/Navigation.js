@@ -10,7 +10,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import banana from "../assets/images/banana.gif";
+import banana from "../assets/images/bananaHome.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
 import Auth from "../utils/auth";

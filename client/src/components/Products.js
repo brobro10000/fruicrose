@@ -3,19 +3,36 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Container, Card, Row, Col } from "react-bootstrap";
+import { Image,Container, Card, Row, Col } from "react-bootstrap";
+import banana from '../assets/images/banana.jpeg'
+import blueberry from '../assets/images/blueberry.jpeg'
+import fujiapple from '../assets/images/fujiapple.jpg'
+import honeycrispapple from '../assets/images/honeycrispapple.jpg'
+import lemon from '../assets/images/lemon.jpeg'
+import mango from '../assets/images/mango.jpeg'
+import peach from '../assets/images/peach.jpeg'
+import raspberry from '../assets/images/raspberry.jpeg'
+import tangerine from '../assets/images/tangerine.jpeg'
+import watermelon from '../assets/images/watermelon.jpeg'
+
 
 function Products() {
+  const fruitImages = [banana,blueberry,fujiapple,honeycrispapple,lemon,mango,peach,raspberry,tangerine,watermelon]
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
 
   useEffect(() => {
     if (data) {
+      var productArr = data.products
+      var updatedProductArr = productArr.map(element => {
+        return {...element, imageLink: fruitImages.filter(fruit => fruit.includes(element.name.toLowerCase().replace(' ','')) == true)}
+      })
       dispatch({
         type: UPDATE_PRODUCTS,
-        products: data.products,
+        products: updatedProductArr,
       });
+      console.log(products)
     }
   }, [data, loading, dispatch]);
 
@@ -28,7 +45,8 @@ function Products() {
       <Row>
         {products.map((product) => {
           return (
-            <Card style={{ width: "18rem", margin: "10px" }}>
+            <Card key= {product.name} style={{ width: "18rem", margin: "10px" }}>
+                <Image variant='top' src={product.imageLink}/>
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
