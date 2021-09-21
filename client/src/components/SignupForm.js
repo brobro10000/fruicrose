@@ -1,34 +1,76 @@
-import React from 'react';
-import {Form, Button, Container} from 'react-bootstrap'
+import React, { useState } from "react";
+import { Form, Button, Container } from "react-bootstrap";
+import { useMutation } from "@apollo/client";
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
 function SignupForm() {
-    return (
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="username" placeholder="Enter username" />
-            </Form.Group>
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [addUser] = useMutation(ADD_USER);
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        username: formState.username,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  };
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
-    )
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  return (
+    <Form onSubmit={handleFormSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicUsername">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+          name="username"
+          type="username"
+          placeholder="Enter username"
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
+          name="email"
+          type="email"
+          placeholder="Enter email"
+          onChange={handleChange}
+        />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          name="password"
+          type="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
+  );
 }
 
-export default SignupForm
+export default SignupForm;

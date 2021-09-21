@@ -1,23 +1,32 @@
-import React from 'react';
-import { Nav, Navbar, Container, Image } from 'react-bootstrap';
-import banana from '../assets/images/banana.gif'
-import Login from '../pages/Login';
+import React from "react";
+import { Nav, Navbar, Container, Image } from "react-bootstrap";
+import banana from "../assets/images/banana.gif";
+import Login from "../components/Login";
 function Navigation(props) {
-  const nav = ['Products', 'Contact Us']
+  const nav = ["Products", "Contact Us"];
 
   return (
-    <Navbar fixed='top' id='headerNav' collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      fixed="top"
+      id="headerNav"
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+    >
       <Container fluid>
-        <Image className='brandImage' src = {banana}/>
-        <Navbar.Brand className='myName'>Fruictose</Navbar.Brand>
+        <Image className="brandImage" src={banana} />
+        <Navbar.Brand className="myName">Fruictose</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse align='end' id="responsive-navbar-nav">
+        <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
-            {nav.map(nav => (
+            {nav.map((nav) => (
               <Nav.Link
                 key={nav}
-                href={'#' + nav.toLowerCase().trim().replace(' ','')}
-              >{nav}</Nav.Link>
+                href={"#" + nav.toLowerCase().trim().replace(" ", "")}
+              >
+                {nav}
+              </Nav.Link>
             ))}
           </Nav>
           <Login />
@@ -27,4 +36,4 @@ function Navigation(props) {
   );
 }
 
-export default Navigation
+export default Navigation;
