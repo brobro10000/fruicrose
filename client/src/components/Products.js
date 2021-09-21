@@ -10,8 +10,29 @@ function Products() {
 
     const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
 
+    useEffect(() => {
+        if (data) {
+            dispatch({
+                type: UPDATE_PRODUCTS,
+                products: data.products
+            });
+        }
+    }, [data, loading, dispatch]);
+
+    const products = state?.products || [];
+
+    if (!products?.length) {
+        return <h1>There are no products!</h1>;
+      }
+
     return (
-        <div></div>
+        <div>
+            {products.map((product) => {
+                <ol>
+                    <li>{product.name}</li>
+                </ol>
+            })}
+        </div>
     )
 }
 
