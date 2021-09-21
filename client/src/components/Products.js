@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Image,Container, Card, Row, Col } from "react-bootstrap";
+import { Image,Container, Card, Row } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -26,14 +26,15 @@ function Products() {
     if (data) {
       var productArr = data.products
       var updatedProductArr = productArr.map(element => {
-        return {...element, imageLink: fruitImages.filter(fruit => fruit.includes(element.name.toLowerCase().replace(' ','')) == true)}
+        return {...element, imageLink: fruitImages.filter(fruit => fruit.includes(element.name.toLowerCase().replace(' ','')) === true)}
       })
+      // eslint-disable-next-line
       dispatch({
         type: UPDATE_PRODUCTS,
         products: updatedProductArr,
       });
-      console.log(products)
     }
+    // eslint-disable-next-line
   }, [data, loading, dispatch]);
 
   if (!products?.length) {

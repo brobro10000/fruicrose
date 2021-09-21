@@ -16,7 +16,6 @@ import ModalObject from "./ModalObject";
 import Auth from "../utils/auth";
 
 function Navigation(props) {
-  const nav = ["Products", "Contact Us"];
   const isOpen = useSelector((state) => state.currentForm);
   const [show, setShow] = useState(isOpen);
   const [type, setType] = useState(0);
@@ -43,6 +42,7 @@ function Navigation(props) {
       type: UPDATE_LOGIN,
       currentForm: show,
     });
+    // eslint-disable-next-line
   }, [show]);
 
   function showNavButtons() {
