@@ -1,4 +1,4 @@
-const { User, Thought } = require("../models");
+const { User, Product } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -12,6 +12,10 @@ const resolvers = {
         return userData;
       }
     },
+    products: async (parent,args) => {
+      const allProducts = await Product.find()
+      return allProducts
+    }
   },
 
   Mutation: {
