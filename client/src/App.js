@@ -13,7 +13,7 @@ import Navigation from "./components/Navigation";
 import Products from "./components/Products";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
