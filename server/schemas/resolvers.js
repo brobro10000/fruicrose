@@ -12,22 +12,22 @@ const resolvers = {
         return userData;
       }
     },
-    products: async (parent,args) => {
-      const allProducts = await Product.find()
-      return allProducts
+    products: async (parent, args) => {
+      const allProducts = await Product.find();
+      return allProducts;
     },
-    product: async (parent, {_id}) => {
-      const singleProduct = await Product.findById(_id)
-      return singleProduct
+    product: async (parent, { _id }) => {
+      const singleProduct = await Product.findById(_id);
+      return singleProduct;
     },
     categories: async () => {
-      const allCategories = await Category.find()
-      return allCategories
+      const allCategories = await Category.find();
+      return allCategories;
     },
-    category: async (parent, {_id}) => {
-      const singleCategory = await Category.findById(_id)
-      return singleCategory
-    }
+    category: async (parent, { _id }) => {
+      const singleCategory = await Category.findById(_id);
+      return singleCategory;
+    },
   },
 
   Mutation: {
@@ -50,10 +50,8 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
-
       const token = signToken(user);
-
-      return {token, user};
+      return { token, user };
     },
   },
 };
