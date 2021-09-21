@@ -8,7 +8,7 @@ const typeDefs = gql`
   type Product {
     _id: ID
     name: String
-    price: Int
+    price: Float
     stock: Int
     categories: [Category]
   }

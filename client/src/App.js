@@ -7,7 +7,6 @@ function App() {
   console.log(store)
   return (
     <Provider store={store}>
-      {/* <Login /> */}
       <Navigation />
     </Provider>
   );

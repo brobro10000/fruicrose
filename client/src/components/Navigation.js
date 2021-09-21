@@ -23,7 +23,7 @@ function Navigation(props) {
                 type: UPDATE_LOGIN,
                 currentForm: show,
             })
-            console.log(isOpen)  
+            console.log(isOpen)
             return type
     };
     useEffect(() => {

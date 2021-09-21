@@ -20,7 +20,7 @@ function ModalObject(props) {
         <Container>
             <Modal show={isOpen} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>{props.type === 0 ? 'Login Here' : 'Sign Up'}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 {props.type === 0 ? <LoginForm /> : <SignupForm />}
