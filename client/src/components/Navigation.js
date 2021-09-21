@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, Container, Image } from 'react-bootstrap';
 import banana from '../assets/images/banana.gif'
-import Login from '../pages/Login';
+import Login from './Login';
 function Navigation(props) {
   const nav = ['Products', 'Contact Us']
 
