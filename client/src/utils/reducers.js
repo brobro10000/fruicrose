@@ -1,5 +1,5 @@
-import { useReducer } from 'react';
-import { UPDATE_LOGIN } from './actions';
+import { useReducer } from "react";
+import { UPDATE_LOGIN, UPDATE_PRODUCTS } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -7,7 +7,13 @@ export const reducer = (state, action) => {
       return {
         ...state,
         currentForm: action.currentForm,
-        formType: action.formType
+        formType: action.formType,
+      };
+
+    case UPDATE_PRODUCTS:
+      return {
+        ...state,
+        products: [...action.products],
       };
 
     default:
