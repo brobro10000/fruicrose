@@ -7,15 +7,16 @@ import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 function Products() {
     const state = useSelector(state => state)
     const dispatch = useDispatch()
-
     const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
-
+    console.log(loading,data)
     useEffect(() => {
+        console.log(state)
         if (data) {
             dispatch({
                 type: UPDATE_PRODUCTS,
                 products: data.products
             });
+            console.log(state)
         }
     }, [data, loading, dispatch]);
 

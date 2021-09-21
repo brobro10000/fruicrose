@@ -32,7 +32,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  console.log(store)
   return (
     <ApolloProvider client={client}>
     <Provider store={store}>

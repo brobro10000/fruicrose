@@ -26,6 +26,8 @@ function Navigation(props) {
             console.log(isOpen)
             return type
     };
+
+    //eslint-disable-next-line
     useEffect(() => {
         dispatch({
             type: UPDATE_LOGIN,
