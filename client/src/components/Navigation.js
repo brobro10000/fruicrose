@@ -20,10 +20,11 @@ function Navigation(props) {
   const [show, setShow] = useState(isOpen);
   const [type, setType] = useState(0);
   const dispatch = useDispatch();
+
   const handleShow = (e) => {
-    if (e.target.innerHTML === "Log In") {
+    if (e.target.innerHTML === "LogIn") {
       setType(0);
-    } else if (e.target.innerHTML === "Sign Up") {
+    } else if (e.target.innerHTML === "SignUp") {
       setType(1);
     }
     setShow(true);
