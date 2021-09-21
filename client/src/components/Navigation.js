@@ -13,9 +13,9 @@ function Navigation(props) {
     const [type, setType] = useState(0)
     const dispatch = useDispatch()
     const handleShow = (e) => {
-        if(e.target.innerHTML === 'Log In'){
+        if(e.target.innerHTML === 'Login'){
             setType(0)
-        } else if(e.target.innerHTML === 'Sign Up'){
+        } else if(e.target.innerHTML === 'SignUp'){
             setType(1)
         }
         setShow(true)
@@ -23,7 +23,6 @@ function Navigation(props) {
                 type: UPDATE_LOGIN,
                 currentForm: show,
             })
-            console.log(isOpen)
             return type
     };
 

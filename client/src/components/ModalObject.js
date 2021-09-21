@@ -24,11 +24,6 @@ function ModalObject(props) {
                 <Modal.Body>
                 {props.type === 0 ? <LoginForm /> : <SignupForm />}
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </Container>
     )
