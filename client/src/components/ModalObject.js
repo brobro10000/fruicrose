@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Button, Modal, FormText } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Container, Button, Modal } from 'react-bootstrap'
 import { UPDATE_LOGIN } from '../utils/actions';
 import LoginForm from './LoginForm';
 import { useSelector, useDispatch } from 'react-redux';
 import SignupForm from './SignupForm';
 function ModalObject(props) {
-    console.log(props)
     const isOpen = useSelector(state => state.currentForm)
     const dispatch = useDispatch()
     const [show, setShow] = useState(isOpen);
