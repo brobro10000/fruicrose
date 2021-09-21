@@ -90,6 +90,7 @@ function Navigation(props) {
         <Navbar.Brand className="myName">
           <Image
             className="brandImage"
+            alt="exploding banana"
             src={banana}
             width="100"
             height="70"

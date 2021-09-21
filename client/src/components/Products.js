@@ -46,7 +46,7 @@ function Products() {
         {products.map((product) => {
           return (
             <Card key= {product.name} style={{ width: "18rem", margin: "10px" }}>
-                <Image variant='top' src={product.imageLink}/>
+                <Image alt= {product.name} variant='top' src={product.imageLink}/>
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
