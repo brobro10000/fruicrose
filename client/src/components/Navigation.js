@@ -36,35 +36,28 @@ function Navigation(props) {
   function showNavButtons() {
     if (Auth.loggedIn()) {
       return (
-        <Container>
+        <>
           <Row>
-            <Col></Col>
             <Col>
-              <Button variant="primary" onClick={() => Auth.logout()}>
+              <Button variant="warning" onClick={() => Auth.logout()}>
                 Log Out
               </Button>
             </Col>
           </Row>
           <ModalObject type={type} />
-        </Container>
+        </>
       );
     } else {
       return (
-        <Container>
-          <Row>
-            <Col>
-              <Button variant="primary" onClick={handleShow}>
-                Log In
-              </Button>
-            </Col>
-            <Col>
-              <Button variant="primary" onClick={handleShow}>
-                Sign Up
-              </Button>
-            </Col>
-          </Row>
+        <>
+            <Nav.Link>
+              <Button variant="warning" onClick={handleShow}>Login</Button>
+              </Nav.Link>
+              <Nav.Link>
+              <Button variant="warning" onClick={handleShow}>SignUp</Button>
+            </Nav.Link>   
           <ModalObject type={type} />
-        </Container>
+        </>
       );
     }
   }
@@ -79,8 +72,9 @@ function Navigation(props) {
       variant="dark"
     >
       <Container fluid>
-        <Image className="brandImage" src={banana} />
-        <Navbar.Brand className="myName">Fruictose</Navbar.Brand>
+        <Navbar.Brand className="myName">
+        <Image className="brandImage" src={banana} width="100" height="70" rounded/>
+          Fruictose</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -93,7 +87,9 @@ function Navigation(props) {
               </Nav.Link>
             ))}
           </Nav>
+          <Nav>
           {showNavButtons()}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
