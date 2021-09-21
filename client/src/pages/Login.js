@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import ModalObject from '../components/ModalObject'
 import LoginForm from '../components/LoginForm';
 import SignupForm from '../components/SignupForm';
@@ -34,13 +34,19 @@ function Login() {
 
     return (
         <Container>
+            <Row>
+                <Col>
             <Button variant="primary" onClick={handleShow}>
                 Log In
             </Button>
-            <ModalObject type = {type}/>
+            </Col>
+            <Col>
             <Button variant="primary" onClick={handleShow}>
                 Sign Up
             </Button>
+            </Col>
+            </Row>
+            <ModalObject type = {type}/>
         </Container>
     )
 }
