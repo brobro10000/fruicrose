@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Button, Modal } from 'react-bootstrap'
+import { Container, Modal } from 'react-bootstrap'
 import { UPDATE_LOGIN } from '../utils/actions';
 import LoginForm from './LoginForm';
 import { useSelector, useDispatch } from 'react-redux';
