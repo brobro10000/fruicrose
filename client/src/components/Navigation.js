@@ -1,9 +1,80 @@
-import React from "react";
-import { Nav, Navbar, Container, Image } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  Nav,
+  Navbar,
+  Container,
+  Image,
+  Row,
+  Col,
+  Button,
+} from "react-bootstrap";
 import banana from "../assets/images/banana.gif";
-import Login from "../components/Login";
+import { UPDATE_LOGIN } from "../utils/actions";
+import ModalObject from "./ModalObject";
+import Auth from "../utils/auth";
+
 function Navigation(props) {
   const nav = ["Products", "Contact Us"];
+  const isOpen = useSelector((state) => state.currentForm);
+  const [show, setShow] = useState(isOpen);
+  const [type, setType] = useState(0);
+  const dispatch = useDispatch();
+  const handleShow = (e) => {
+    if (e.target.innerHTML === "Log In") {
+      setType(0);
+    } else if (e.target.innerHTML === "Sign Up") {
+      setType(1);
+    }
+    setShow(true);
+    dispatch({
+      type: UPDATE_LOGIN,
+      currentForm: show,
+    });
+    console.log(isOpen);
+    return type;
+  };
+
+  //eslint-disable-next-line
+  useEffect(() => {
+    dispatch({
+      type: UPDATE_LOGIN,
+      currentForm: show,
+    });
+  }, [show]);
+
+  function showNavButtons() {
+    if (Auth.loggedIn()) {
+      return (
+        <>
+          <Row>
+            <Col>
+              <Button variant="warning" onClick={() => Auth.logout()}>
+                Log Out
+              </Button>
+            </Col>
+          </Row>
+          <ModalObject type={type} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Nav.Link>
+            <Button variant="warning" onClick={handleShow}>
+              Login
+            </Button>
+          </Nav.Link>
+          <Nav.Link>
+            <Button variant="warning" onClick={handleShow}>
+              SignUp
+            </Button>
+          </Nav.Link>
+          <ModalObject type={type} />
+        </>
+      );
+    }
+  }
 
   return (
     <Navbar
@@ -15,8 +86,16 @@ function Navigation(props) {
       variant="dark"
     >
       <Container fluid>
-        <Image className="brandImage" src={banana} />
-        <Navbar.Brand className="myName">Fruictose</Navbar.Brand>
+        <Navbar.Brand className="myName">
+          <Image
+            className="brandImage"
+            src={banana}
+            width="100"
+            height="70"
+            rounded
+          />
+          Fruictose
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -29,7 +108,7 @@ function Navigation(props) {
               </Nav.Link>
             ))}
           </Nav>
-          <Login />
+          <Nav>{showNavButtons()}</Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

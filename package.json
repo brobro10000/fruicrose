@@ -21,6 +21,7 @@
     "concurrently": "^6.2.1"
   },
   "dependencies": {
+    "graphql": "^15.6.0",
     "if-env": "^1.0.4",
     "react-redux": "^7.2.5"
   }

@@ -2,6 +2,8 @@ import { createStore } from "redux";
 import { reducer } from './reducers'
 
 const initialState = {
+  products: [],
+  categories: [],
   currentForm: false,
   formType: 0
 }

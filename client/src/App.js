@@ -1,18 +1,16 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
-  ApolloProvider,
   ApolloClient,
   InMemoryCache,
+  ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
-import { Provider } from "react-redux";
 import { setContext } from "@apollo/client/link/context";
-// import {} from "apollo-boost";
-
+import { Provider } from "react-redux";
 import store from "./utils/store";
-import Login from "./components/Login";
 import Navigation from "./components/Navigation";
+import Products from "./components/Products";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -34,12 +32,11 @@ const client = new ApolloClient({
 });
 
 function App() {
-  console.log(store);
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
-        {/* <Login /> */}
         <Navigation />
+        <Products />
       </Provider>
     </ApolloProvider>
   );
