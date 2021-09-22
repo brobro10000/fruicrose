@@ -20,6 +20,11 @@ main {
   flex-direction: row;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
 .productCard {
   width: 18rem;
   margin: 10px;
