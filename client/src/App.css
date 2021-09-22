@@ -1,28 +1,26 @@
-*{
-    font-family: 'Tenor Sans', sans-serif;
+* {
+  font-family: "Tenor Sans", sans-serif;
 }
 main {
-    margin-top: 175px;
-    margin-bottom:100px;
+  margin-top: 175px;
+  margin-bottom: 100px;
 }
 .App {
-    text-align: center;
-}   
+  text-align: center;
+}
 
 .brandImage {
-  height:auto !important;
+  height: auto !important;
   width: 100% !important;
   max-width: 50px !important;
 }
 
 .navButtons {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .productCard {
-    width: 18rem;
-    margin: 10px;
+  width: 18rem;
+  margin: 10px;
 }
-
-

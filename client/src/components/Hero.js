@@ -6,40 +6,38 @@ import peach from "../assets/images/peachhero.jpg";
 function Hero() {
   return (
     <Container>
-      <Carousel variant="dark">
-        <Carousel.Item interval={5000}>
+      <Carousel>
+        <Carousel.Item interval={5000}>       
           <img
             className="d-block w-100"
             src={strawberry}
             alt="First slide"
-          />
+          />         
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Fresh fruit at the click of a button</h3>
+            <p>It's never been easier to obtain your own delicious fruits.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={5000}>         
           <img
             className="d-block w-100"
             src={orange}
             alt="First slide"
-          />
+          />          
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Ethically sourced</h3>
+            <p>All organic and sustainably grown at local farms.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={5000}>
+        <Carousel.Item interval={5000}>          
           <img
             className="d-block w-100"
             src={peach}
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>Want to learn more?</h3>
+            <p>Check out our contact page to get ahold of us.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
