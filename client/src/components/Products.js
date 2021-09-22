@@ -36,7 +36,7 @@ function Products() {
     }
     // eslint-disable-next-line
   }, [data, loading, dispatch]);
-  console.log(products);
+
   if (!products?.length) {
     return <h1>There are no products!</h1>;
   }
