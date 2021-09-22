@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown, SplitButton } from "react-bootstrap";
+import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -42,8 +42,18 @@ function Products() {
         allCategories.push(element.categories[0].name)
       }
     })
-    return updateCategoryList(allCategories)
+   return updateCategoryList(allCategories)
   }, [data, loading, dispatch]);
+
+  useEffect(() => {
+    var allCategories = []
+    products.forEach((element)=>{
+      if(allCategories.indexOf(element.categories[0].name) === -1){
+        allCategories.push(element.categories[0].name)
+      }
+    })
+   return updateCategoryList(allCategories)
+  }, [products])
   if (!products?.length) {
     return <h1>There are no products!</h1>;
   }
