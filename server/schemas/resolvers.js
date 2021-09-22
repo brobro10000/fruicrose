@@ -41,6 +41,45 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    checkout: async (parent, args, context) => {
+      // const url = new URL(context.headers.referer).origin;
+      checkout: async (parent, args, context) => {
+        const order = new Order({ products: args.products });
+        const { products } = await order.populate("products").execPopulate();
+      };
+      
+      for (let i = 0; i < products.length; i++) {
+        // generate product id
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].description,
+        });
+
+        // generate price id using the product id
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: products[i].price * 100,
+          currency: "usd",
+        });
+
+        // add price id to the line items array
+        line_items.push({
+          price: price.id,
+          quantity: 1,
+        });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url:
+          "https://example.com/success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "https://example.com/cancel",
+      });
+
+      return { session: session.id };
+    },
   },
 
   Mutation: {
