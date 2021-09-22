@@ -13,11 +13,11 @@ const resolvers = {
       }
     },
     products: async (parent, args) => {
-      const allProducts = await Product.find();
+      const allProducts = await Product.find().populate('categories');
       return allProducts;
     },
     product: async (parent, { _id }) => {
-      const singleProduct = await Product.findById(_id);
+      const singleProduct = await Product.findById(_id).populate('categories');
       return singleProduct;
     },
     categories: async () => {

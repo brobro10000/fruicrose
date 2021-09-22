@@ -36,7 +36,7 @@ function Products() {
     }
     // eslint-disable-next-line
   }, [data, loading, dispatch]);
-
+  console.log(products);
   if (!products?.length) {
     return <h1>There are no products!</h1>;
   }
@@ -51,7 +51,7 @@ function Products() {
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  {product.categories._id}
+                  {product.categories[0].name}
                 </Card.Subtitle>
                 <Card.Text>Quantity: {product.stock}</Card.Text>
                 <Card.Text>Price: ${product.price.toFixed(2)}</Card.Text>
