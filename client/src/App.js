@@ -16,7 +16,7 @@ import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
