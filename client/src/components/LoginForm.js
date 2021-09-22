@@ -51,6 +51,13 @@ function LoginForm() {
           onChange={handleChange}
         />
       </Form.Group>
+      {error ? (
+        <div>
+          <p class="login-error">
+            🍓 We're Berry Sorry, You Have Entered Invalid Information.🍓
+          </p>
+        </div>
+      ) : null}
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
       </Form.Group>
