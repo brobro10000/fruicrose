@@ -1,7 +1,7 @@
-const { User, Product, Category } = require("../models");
+const { User, Product, Category, Order } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const Order = require("../models/Order");
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
@@ -14,11 +14,11 @@ const resolvers = {
       }
     },
     products: async (parent, args) => {
-      const allProducts = await Product.find().populate('categories');
+      const allProducts = await Product.find().populate("categories");
       return allProducts;
     },
     product: async (parent, { _id }) => {
-      const singleProduct = await Product.findById(_id).populate('categories');
+      const singleProduct = await Product.findById(_id).populate("categories");
       return singleProduct;
     },
     categories: async () => {
@@ -32,15 +32,15 @@ const resolvers = {
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
+          path: "orders.products",
+          populate: "category",
         });
 
         return user.orders.id(_id);
       }
 
-      throw new AuthenticationError('Not logged in');
-    }
+      throw new AuthenticationError("Not logged in");
+    },
   },
 
   Mutation: {
@@ -51,13 +51,15 @@ const resolvers = {
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
-      if(context.user) {
-        const order = new Order({products});
-        await User.findByIdAndUpdate(context.user._id, {$push: {orders: order}});
+      if (context.user) {
+        const order = new Order({ products });
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { orders: order },
+        });
 
         return order;
       }
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
