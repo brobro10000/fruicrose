@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Image,Container, Card, Row } from "react-bootstrap";
+import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown, SplitButton } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -17,8 +17,9 @@ import watermelon from '../assets/images/watermelon.jpeg'
 
 
 function Products() {
-  const fruitImages = [banana,blueberry,fujiapple,honeycrispapple,lemon,mango,peach,raspberry,tangerine,watermelon]
+  const fruitImages = [banana, blueberry, fujiapple, honeycrispapple, lemon, mango, peach, raspberry, tangerine, watermelon]
   const products = useSelector((state) => state.products);
+  const [categoryList, updateCategoryList] = useState(0)
   const dispatch = useDispatch();
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
 
@@ -26,7 +27,7 @@ function Products() {
     if (data) {
       var productArr = data.products
       var updatedProductArr = productArr.map(element => {
-        return {...element, imageLink: fruitImages.filter(fruit => fruit.includes(element.name.toLowerCase().replace(' ','')) === true)}
+        return { ...element, imageLink: fruitImages.filter(fruit => fruit.includes(element.name.toLowerCase().replace(' ', '')) === true) }
       })
       // eslint-disable-next-line
       dispatch({
@@ -35,19 +36,40 @@ function Products() {
       });
     }
     // eslint-disable-next-line
+    var allCategories = []
+    products.forEach((element)=>{
+      if(allCategories.indexOf(element.categories[0].name) === -1){
+        allCategories.push(element.categories[0].name)
+      }
+    })
+    return updateCategoryList(allCategories)
   }, [data, loading, dispatch]);
-  console.log(products);
   if (!products?.length) {
     return <h1>There are no products!</h1>;
   }
-
   return (
     <Container>
+      <ButtonGroup aria-label="Basic example">
+        <Dropdown>
+          <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
+            <Button variant="secondary">Category</Button>
+          </Dropdown.Toggle>
+          <Dropdown.Menu variant="dark">
+            {categoryList.map((product) => {
+              return(<Dropdown.Item key={product} >{product}</Dropdown.Item>)
+            })}
+            <Dropdown.Divider />
+            <Dropdown.Item >Reset</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Button variant="secondary">Price Ascending</Button>
+        <Button variant="secondary">Alphabetical</Button>
+      </ButtonGroup>
       <Row>
         {products.map((product) => {
           return (
-            <Card key= {product.name} style={{ width: "18rem", margin: "10px" }}>
-                <Image alt= {product.name} variant='top' src={product.imageLink}/>
+            <Card key={product.name} style={{ width: "18rem", margin: "10px" }}>
+              <Image alt={product.name} variant='top' src={product.imageLink} />
               <Card.Body>
                 <Card.Title>{product.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
