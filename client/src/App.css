@@ -29,3 +29,6 @@ main {
   width: 18rem;
   margin: 10px;
 }
+.sortIcon {
+  text-align:right !important;
+}

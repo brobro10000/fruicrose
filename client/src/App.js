@@ -14,9 +14,10 @@ import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import Cart from "./pages/Cart";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/contact" component={Contact}/>
           <Route exact path="/dashboard" component={Dashboard}/>
+          <Route exact path="/cart" component={Cart}/>
         </Provider>
       </Router>
     </ApolloProvider>
