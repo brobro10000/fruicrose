@@ -31,7 +31,7 @@ export const reducer = (state, action) => {
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.products]
+        cart: [...state.cart, ...action.product]
       };
 
     case REMOVE_FROM_CART:
@@ -46,8 +46,14 @@ export const reducer = (state, action) => {
 
       case UPDATE_CART_QUANTITY:
         return {
-
-        }
+          ...state,
+          cart: state.cart.map((product) => {
+            if (action._id === product._id) {
+              product.purchaseQuantity = action.purchaseQuantity;
+            }
+            return product;
+          }),
+        };
       
 
     default:
