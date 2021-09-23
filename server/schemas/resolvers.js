@@ -11,11 +11,11 @@ const resolvers = {
           .select("-__v -password")
           .populate({
             path: "orders",
-            populate: "products"
+            populate: "products",
           });
         return userData;
       }
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
     products: async (parent, args) => {
       const allProducts = await Product.find().populate("categories");
@@ -47,11 +47,9 @@ const resolvers = {
     },
     checkout: async (parent, args, context) => {
       // const url = new URL(context.headers.referer).origin;
-      checkout: async (parent, args, context) => {
-        const order = new Order({ products: args.products });
-        const { products } = await order.populate("products").execPopulate();
-      };
-      
+      const order = new Order({ products: args.products });
+      const { products } = await order.populate("products").execPopulate();
+
       for (let i = 0; i < products.length; i++) {
         // generate product id
         const product = await stripe.products.create({
