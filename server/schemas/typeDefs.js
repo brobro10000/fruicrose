@@ -10,6 +10,7 @@ const typeDefs = gql`
     name: String
     price: Float
     stock: Int
+    unit: String
     categories: [Category]
   }
 
