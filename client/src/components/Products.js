@@ -98,7 +98,7 @@ function Products() {
                   {product.categories[0].name}
                 </Card.Subtitle>
                 <Card.Text>Quantity: {product.stock}</Card.Text>
-                <Card.Text>Price: ${product.price.toFixed(2)}</Card.Text>
+                <Card.Text>Price: ${product.price.toFixed(2)} per {product.unit}</Card.Text>
                 <Card.Link href="#">Add to cart</Card.Link>
               </Card.Body>
             </Card>
