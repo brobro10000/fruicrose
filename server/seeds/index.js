@@ -45,7 +45,7 @@ db.once("open", async () => {
     },
     {
       name: 'Raspberry',
-      price: 0.05,
+      price: 4.00,
       stock: 576,
       unit: 'lb',
       categories: categories[3]._id
@@ -66,7 +66,7 @@ db.once("open", async () => {
     },
     {
       name: 'Blueberry',
-      price: 0.03,
+      price: 3.50,
       stock: 1285,
       unit: 'lb',
       categories: categories[3]._id
@@ -87,7 +87,7 @@ db.once("open", async () => {
     },
     {
       name: 'Banana',
-      price: 0.55,
+      price: 2.65,
       stock: 254,
       unit: 'lb',
       categories: categories[2]._id
