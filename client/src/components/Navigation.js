@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Nav,
-  Navbar,
-  Container,
-  Image,
-  Button,
-} from "react-bootstrap";
+import { Nav, Navbar, Container, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import banana from "../assets/images/bananaHome.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
@@ -47,32 +41,36 @@ function Navigation(props) {
     if (Auth.loggedIn()) {
       return (
         <>
-          
-            <Button variant="warning">
-              <Link to="/dashboard">Dashboard</Link>
-            </Button>
-          
-          <Nav.Link>
-            <Button variant="warning" onClick={() => Auth.logout()}>
-              LogOut
-            </Button>
-          </Nav.Link>
+          <Button variant="warning">
+            <Link to="/cart">Cart</Link>
+          </Button>
+
+          <Button variant="warning">
+            <Link to="/dashboard">Dashboard</Link>
+          </Button>
+
+          <Button variant="warning" onClick={() => Auth.logout()}>
+            LogOut
+          </Button>
+
           <ModalObject type={type} />
         </>
       );
     } else {
       return (
         <>
-          <Nav.Link>
-            <Button variant="warning" onClick={handleShow}>
-              LogIn
-            </Button>
-          </Nav.Link>
-          <Nav.Link>
-            <Button variant="warning" onClick={handleShow}>
-              SignUp
-            </Button>
-          </Nav.Link>
+          <Button variant="warning">
+            <Link to="/cart">Cart</Link>
+          </Button>
+
+          <Button variant="warning" onClick={handleShow}>
+            LogIn
+          </Button>
+
+          <Button variant="warning" onClick={handleShow}>
+            SignUp
+          </Button>
+
           <ModalObject type={type} />
         </>
       );
