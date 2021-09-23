@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown } from "react-bootstrap";
+import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown, Col } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -18,6 +18,7 @@ import watermelon from '../assets/images/watermelon.jpeg'
 
 function Products() {
   const fruitImages = [banana, blueberry, fujiapple, honeycrispapple, lemon, mango, peach, raspberry, tangerine, watermelon]
+  const sortByArr = ["Alphabetical"]
   const products = useSelector((state) => state.products);
   const [categoryList, updateCategoryList] = useState(0)
   const dispatch = useDispatch();
@@ -50,9 +51,9 @@ function Products() {
     })
     return updateCategoryList(allCategories)
   }, [products])
-  // function sortBy(e) {
-
-  // }
+  function sortBy(e) {
+    console.log(e.target)
+  }
   function filterItem(e) {
     const filterCategory = e.target.innerHTML
     if (filterCategory === 'Reset') {
@@ -75,18 +76,34 @@ function Products() {
   }
   return (
     <Container>
+      <Row>
+        <Col>
       <Dropdown>
         <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
           Category
         </Dropdown.Toggle>
         <Dropdown.Menu variant="dark">
-          {categoryList.map((product) => {
+          {categoryList ? (categoryList.map((product) => {
             return (<Dropdown.Item key={product} onClick={filterItem} >{product}</Dropdown.Item>)
-          })}
+          })) : null }
           <Dropdown.Divider />
           <Dropdown.Item onClick={filterItem} >Reset</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
+      </Col>
+      <Col>
+      <Dropdown>
+        <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
+          Sort By
+        </Dropdown.Toggle>
+        <Dropdown.Menu variant="dark">
+          {sortByArr ? (sortByArr.map((type) => {
+            return (<Dropdown.Item key={type} onClick={sortBy} >{type}</Dropdown.Item>)
+          })) : null }
+        </Dropdown.Menu>
+      </Dropdown>
+      </Col>
+      </Row>
       <Row>
         {products.map((product) => {
           return (
