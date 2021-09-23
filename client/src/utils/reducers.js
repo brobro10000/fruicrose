@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { UPDATE_LOGIN, UPDATE_PRODUCTS } from "./actions";
+import { UPDATE_LOGIN, UPDATE_PRODUCTS, UPDATE_USER } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -14,6 +14,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         products: [...action.products],
+      };
+
+    case UPDATE_USER:
+      return {
+        ...state,
+        user: action.user
       };
 
     default:
