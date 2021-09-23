@@ -22,6 +22,7 @@ function Products() {
   const [categoryList, updateCategoryList] = useState(0)
   const dispatch = useDispatch();
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+
   function loadInitialData() {
     if (data) {
       var productArr = data.products
@@ -35,8 +36,9 @@ function Products() {
       });
     }
   }
+
   useEffect(() => {
-    loadInitialData()
+    return loadInitialData()
   }, [data, loading, dispatch]);
 
   useEffect(() => {
@@ -48,7 +50,9 @@ function Products() {
     })
     return updateCategoryList(allCategories)
   }, [products])
+  // function sortBy(e) {
 
+  // }
   function filterItem(e) {
     const filterCategory = e.target.innerHTML
     if (filterCategory === 'Reset') {
