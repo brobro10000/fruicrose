@@ -23,7 +23,7 @@ function Cart() {
             ))}
             </div>
             ): (
-                <h1>Your cart is empty!</h1>
+                <h1>Your cart is empty...</h1>
             )}
         </div>
     )
