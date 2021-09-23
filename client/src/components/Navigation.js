@@ -5,8 +5,6 @@ import {
   Navbar,
   Container,
   Image,
-  Row,
-  Col,
   Button,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -49,11 +47,11 @@ function Navigation(props) {
     if (Auth.loggedIn()) {
       return (
         <>
-          <Nav.Link>
+          
             <Button variant="warning">
               <Link to="/dashboard">Dashboard</Link>
             </Button>
-          </Nav.Link>
+          
           <Nav.Link>
             <Button variant="warning" onClick={() => Auth.logout()}>
               LogOut

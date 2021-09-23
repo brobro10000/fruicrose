@@ -1,17 +1,17 @@
-const { User, Product, Category } = require("../models");
+const { User, Product, Category, Order } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
-const Order = require("../models/Order");
 
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
+        const userData = await User.findById(context.user._id)
           .select("-__v -password")
           .populate("orders");
         return userData;
       }
+      throw new AuthenticationError('Not logged in');
     },
     products: async (parent, args) => {
       const allProducts = await Product.find().populate('categories');
