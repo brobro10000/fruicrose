@@ -3,4 +3,4 @@ const Order = require("./Order");
 const Product = require("./Product");
 const Category = require("./Category");
 
-module.exports = { User, Category, Product };
+module.exports = { User, Category, Product, Order };
