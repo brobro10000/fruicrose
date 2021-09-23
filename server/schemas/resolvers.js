@@ -8,7 +8,10 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findById(context.user._id)
           .select("-__v -password")
-          .populate("orders");
+          .populate({
+            path: "orders",
+            populate: "products"
+          });
         return userData;
       }
       throw new AuthenticationError('Not logged in');
