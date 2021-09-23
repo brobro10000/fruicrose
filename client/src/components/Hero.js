@@ -6,7 +6,7 @@ import peach from "../assets/images/peachhero.jpg";
 function Hero() {
   return (
     <Container>
-      <Carousel>
+      <Carousel slide>
         <Carousel.Item interval={5000}>       
           <img
             className="d-block w-100"
