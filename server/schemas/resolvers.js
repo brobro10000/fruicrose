@@ -7,11 +7,15 @@ const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
+        const userData = await User.findById(context.user._id)
           .select("-__v -password")
-          .populate("orders");
+          .populate({
+            path: "orders",
+            populate: "products"
+          });
         return userData;
       }
+      throw new AuthenticationError('Not logged in');
     },
     products: async (parent, args) => {
       const allProducts = await Product.find().populate("categories");

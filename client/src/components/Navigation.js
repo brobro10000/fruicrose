@@ -5,11 +5,9 @@ import {
   Navbar,
   Container,
   Image,
-  Row,
-  Col,
   Button,
 } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import banana from "../assets/images/bananaHome.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
@@ -49,13 +47,16 @@ function Navigation(props) {
     if (Auth.loggedIn()) {
       return (
         <>
-          <Row>
-            <Col>
-              <Button variant="warning" onClick={() => Auth.logout()}>
-                Log Out
-              </Button>
-            </Col>
-          </Row>
+          
+            <Button variant="warning">
+              <Link to="/dashboard">Dashboard</Link>
+            </Button>
+          
+          <Nav.Link>
+            <Button variant="warning" onClick={() => Auth.logout()}>
+              LogOut
+            </Button>
+          </Nav.Link>
           <ModalObject type={type} />
         </>
       );
@@ -101,8 +102,8 @@ function Navigation(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
-          <Link to="/">Products</Link>
-          <Link to="/contact">Contact</Link>
+            <Link to="/">Products</Link>
+            <Link to="/contact">Contact</Link>
           </Nav>
           <Nav>{showNavButtons()}</Nav>
         </Navbar.Collapse>

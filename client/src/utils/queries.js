@@ -7,6 +7,7 @@ export const QUERY_ALL_PRODUCTS = gql`
       name
       price
       stock
+      unit
       categories {
         name
       }
@@ -26,6 +27,7 @@ export const QUERY_ALL_CATEGORIES = gql`
 export const QUERY_USER = gql`
   {
     user {
+      _id
       username
       email
       orders {
@@ -35,6 +37,7 @@ export const QUERY_USER = gql`
               _id
               name
               price
+              unit
           }
       }
     }
