@@ -14,6 +14,7 @@ import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import Cart from "./pages/Cart";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
