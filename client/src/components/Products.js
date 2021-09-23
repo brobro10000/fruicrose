@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
-import { UPDATE_PRODUCTS } from "../utils/actions";
+import { UPDATE_CART_QUANTITY, UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
 import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown, Col } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
@@ -20,6 +20,7 @@ function Products() {
   const fruitImages = [banana, blueberry, fujiapple, honeycrispapple, lemon, mango, peach, raspberry, tangerine, watermelon]
   const sortByArr = ["Alphabetical"]
   const products = useSelector((state) => state.products);
+  const cart = useSelector((state) => state.cart);
   const [categoryList, updateCategoryList] = useState(0)
   const dispatch = useDispatch();
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
@@ -74,6 +75,9 @@ function Products() {
   if (!products?.length) {
     return <h1>There are no products!</h1>;
   }
+
+  
+
   return (
     <Container>
       <Row>
