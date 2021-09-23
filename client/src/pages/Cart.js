@@ -2,22 +2,29 @@ import { useSelector, useDispatch } from "react-redux";
 
 function Cart() {
     const cart = useSelector((state) => state.cart);
-    const dispatch = useDispatch();
-
-    function totalPrice() {
+    
+    const totalPrice = function(item) {
         let sum = 0;
-        cart.forEach((item) => {
-            sum += item.price * item.purchaceQuantity;
-        });
+            sum += item.price * item.purchaseQuantity;
         return sum.toFixed(2);
     }
 
     return (
         <div>
             <h1>Your Cart</h1>
-            <ul>
-                
-            </ul>
+            {cart.length ? (
+            <div>
+            {cart.map((product) => (
+                <>
+                <h3>{product.name}</h3>
+                <h4>{product.purchaseQuantity} {product.unit}s</h4>
+                <h4>Total price: ${totalPrice(product)}</h4>
+                </>
+            ))}
+            </div>
+            ): (
+                <h1>Your cart is empty!</h1>
+            )}
         </div>
     )
 }
