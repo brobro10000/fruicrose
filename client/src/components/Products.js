@@ -59,10 +59,9 @@ function Products() {
   }
   return (
     <Container>
-      <ButtonGroup aria-label="Basic example">
         <Dropdown>
-          <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
-            <Button variant="secondary">Category</Button>
+          <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
+            Category
           </Dropdown.Toggle>
           <Dropdown.Menu variant="dark">
             {categoryList.map((product) => {
@@ -72,9 +71,6 @@ function Products() {
             <Dropdown.Item >Reset</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Button variant="secondary">Price Ascending</Button>
-        <Button variant="secondary">Alphabetical</Button>
-      </ButtonGroup>
       <Row>
         {products.map((product) => {
           return (
