@@ -47,7 +47,7 @@ function Dashboard() {
               </Card.Header>
               <ListGroup>
                 {order.products.map((product) => (
-                  <ListGroup.Item>
+                  <ListGroup.Item key={product._id}>
                     {product.name}, ${product.price.toFixed(2)}
                   </ListGroup.Item>
                 ))}

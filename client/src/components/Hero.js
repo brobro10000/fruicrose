@@ -5,12 +5,14 @@ import orange from "../assets/images/orangehero.jpg";
 import peach from "../assets/images/peachhero.jpg";
 
 function Hero() {
+
   const images = [`${strawberry}?text=First slide&bg=${strawberry}`, `${orange}?text=First slide&bg=${orange}`, `${peach}?text=First slide&bg=${peach}`]
   const [hero, loadHero] = useState((<></>))
   useEffect(() => {
     return loadHero(
       <Carousel controls={false} slide={true}>
         <Carousel.Item >
+
           <img
             className="d-block w-100"
             src={images[0]}

@@ -30,6 +30,7 @@ export const ADD_ORDER = gql`
         _id
         name
         price
+        unit
         category {
           name
         }
