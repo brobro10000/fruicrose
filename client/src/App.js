@@ -41,10 +41,10 @@ function App() {
       <Router>
         <Provider store={store}>
           <Navigation />
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/contact" component={Contact}/>
-          <Route exact path="/dashboard" component={Dashboard}/>
-          <Route exact path="/cart" component={Cart}/>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/cart" component={Cart} />
         </Provider>
       </Router>
     </ApolloProvider>
