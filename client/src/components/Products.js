@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
+import { QUERY_ALL_CATEGORIES } from"../utils/queries";
 import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown, Col } from "react-bootstrap";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
 import banana from '../assets/images/banana.jpeg'
@@ -26,6 +27,7 @@ function Products() {
   const dispatch = useDispatch();
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
 
+
   function loadInitialData() {
     if (data) {
       var productArr = data.products
@@ -43,7 +45,7 @@ function Products() {
   useEffect(() => {
     return loadInitialData()
   }, [data, loading, dispatch]);
-
+  
   useEffect(() => {
     var allCategories = []
     products.forEach((element) => {
@@ -51,9 +53,10 @@ function Products() {
         allCategories.push(element.categories[0].name)
       }
     })
+    
     return updateCategoryList(allCategories)
   }, [products])
-
+ 
   function sortBy(e) {
     const sortedParam = e.target.innerHTML
     var unsorted = []
