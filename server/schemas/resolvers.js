@@ -49,7 +49,7 @@ const resolvers = {
       // const url = new URL(context.headers.referer).origin;
       
         const order = new Order({ products: args.products });
-        const { products } = await order.populate("products").execPopulate();
+        const { products } = await order.populate("products");
       
       
       for (let i = 0; i < products.length; i++) {
