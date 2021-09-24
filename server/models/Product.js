@@ -10,6 +10,7 @@ const productSchema = new Schema(
     price: {
       type: Number,
       required: true,
+      min: 0,
     },
     stock: {
       type: Number,
@@ -17,7 +18,7 @@ const productSchema = new Schema(
     },
     unit: {
       type: String,
-      required: true
+      required: true,
     },
     categories: [
       {
