@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { UPDATE_LOGIN, UPDATE_PRODUCTS, UPDATE_USER, ADD_TO_CART, ADD_MULTIPLE_TO_CART, REMOVE_FROM_CART, UPDATE_CART_QUANTITY, CLEAR_CART } from "./actions";
+import { UPDATE_LOGIN, UPDATE_PRODUCTS, UPDATE_USER, ADD_TO_CART, ADD_MULTIPLE_TO_CART, REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -33,7 +33,7 @@ export const reducer = (state, action) => {
         ...state,
         cart: [...state.cart, ...action.product]
       };
-
+      
     case REMOVE_FROM_CART:
         let newState = state.cart.filter((product) => {
           return product._id !== action._id;
