@@ -4,6 +4,7 @@ import { useLazyQuery } from "@apollo/client";
 import { Card, ListGroup } from "react-bootstrap";
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
+import CartProduct from '../components/CartProduct';
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
@@ -53,29 +54,22 @@ function Cart() {
       <h1>Your Cart</h1>
       {cart.length ? (
         <div>
-          {cart.map((product) => (
-            <Card>
-              <Card.Header>
-                <Card.Title>{product.name}</Card.Title>
-              </Card.Header>
-              <ListGroup>
-                <ListGroup.Item>
-                  {product.purchaseQuantity} {product.unit}s
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  Price: ${totalItemPrice(product)}
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          ))}
-          <h2>Total Price: ${totalCartPrice()}</h2>
-          <button onClick={submitCheckout}>Checkout</button>
-        </div>
-      ) : (
-        <h1>Your cart is empty...</h1>
-      )}
+            <h1>Your Cart</h1>
+            {cart.length ? (
+            <div>
+            {cart.map((product) => (
+                <CartProduct key={product._id} product={product}/>
+            ))}
+            <h2>Total Price: ${totalCartPrice()}</h2>
+            <button onClick={submitCheckout}>Checkout</button>
+            </div>
+            ): (
+                <h1>Your cart is empty...</h1>
+         </div>
+            )}
     </div>
   );
 }
+
 
 export default Cart;
