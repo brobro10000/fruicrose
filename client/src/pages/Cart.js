@@ -1,13 +1,24 @@
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLazyQuery } from "@apollo/client";
 import { Card, ListGroup } from "react-bootstrap";
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
 
-// const stripePromise = loadStripe(pk_test_TYooMQauvdEDq54NiTphI7jx);
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 function Cart() {
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
   const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
 
   const totalItemPrice = function (item) {
     let sum = 0;
@@ -26,11 +37,15 @@ function Cart() {
   function submitCheckout() {
     const productIds = [];
 
-    // state.cart.forEach((item) => {
-    //   for (let i = 0; i < item.purchaseQuantity; i++) {
-    //     productIds.push(item._id);
-    //   }
-    // });
+    cart.forEach((item) => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        productIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds },
+    });
   }
 
   return (
