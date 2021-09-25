@@ -74,6 +74,12 @@ const resolvers = {
         });
         // add price id to the line items array
 
+        // if (line_items.name === product[i].name) {
+        //   line_items.name[line_items.indexOf(product[i].name)];
+        // }
+
+        console.log(line_items[line_items.indexOf(line_items.name)]);
+
         console.log(line_items, line_items.length);
       }
 
