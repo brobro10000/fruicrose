@@ -113,12 +113,11 @@ function Products() {
   }
 
   if (!products?.length) {
-    return <h1>There are no products!</h1>;
+    return <Loading/>;
   }
 
   return (
     <Container>
-      <Loading/>
       <Row>
         <Col>
           <Dropdown>
