@@ -40,13 +40,14 @@ function CartProduct({product}) {
             <Card.Header><Card.Title>{product.name}</Card.Title></Card.Header>
             <ListGroup>
                 <InputGroup>
-                    <InputGroup.Text>Quanitiy:</InputGroup.Text>
+                    <InputGroup.Text>Quantity:</InputGroup.Text>
                     <FormControl 
                     type="number"
                     placeholder="1"
                     value={product.purchaseQuantity}
                     onChange={quantityChange}
                     aria-label="Product quantity"/>
+                    <InputGroup.Text>{product.unit}s</InputGroup.Text>
                 </InputGroup>
                 <ListGroup.Item>Price: ${totalItemPrice(product)}</ListGroup.Item>
                 <ListGroup.Item><Button onClick={() => removeFromCart(product)}>Remove From Cart</Button></ListGroup.Item>
