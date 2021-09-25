@@ -1,4 +1,4 @@
-import { Card, Image } from "react-bootstrap";
+import { Card, Image, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
 
@@ -37,7 +37,7 @@ function SingleProduct(item) {
         <Card.Text>
           Price: ${price.toFixed(2)} per {unit}
         </Card.Text>
-        <Card.Link onClick={addToCart}>Add to cart</Card.Link>
+        <Button onClick={addToCart}>Add to cart</Button>
       </Card.Body>
     </Card>
   );
