@@ -22,6 +22,7 @@ app.use(express.json());
 
 async function start() {
   await server.start();
+  server.applyMiddleware({ app });
 }
 start();
 
@@ -34,8 +35,6 @@ app.get("*", (req, res) => {
 });
 
 db.once("open", () => {
-  // integrate our Apollo server with the Express application as middleware
-  server.applyMiddleware({ app });
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
     // log where we can go to test our GQL API
