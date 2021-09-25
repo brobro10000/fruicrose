@@ -31,15 +31,23 @@ export const QUERY_USER = gql`
       username
       email
       orders {
+        _id
+        purchaseDate
+        products {
           _id
-          purchaseDate
-          products {
-              _id
-              name
-              price
-              unit
-          }
+          name
+          price
+          unit
+        }
       }
+    }
+  }
+`;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
     }
   }
 `;
