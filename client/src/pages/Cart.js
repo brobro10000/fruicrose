@@ -1,7 +1,10 @@
 import { useSelector } from "react-redux";
+import { useLazyQuery } from "@apollo/client";
 import { Card, ListGroup } from "react-bootstrap";
-import { QUERY_CHECKOUT } from "../../utils/queries";
+import { QUERY_CHECKOUT } from "../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
+
+// const stripePromise = loadStripe(pk_test_TYooMQauvdEDq54NiTphI7jx);
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -19,6 +22,16 @@ function Cart() {
     });
     return sum.toFixed(2);
   };
+
+  function submitCheckout() {
+    const productIds = [];
+
+    // state.cart.forEach((item) => {
+    //   for (let i = 0; i < item.purchaseQuantity; i++) {
+    //     productIds.push(item._id);
+    //   }
+    // });
+  }
 
   return (
     <div>
@@ -41,6 +54,7 @@ function Cart() {
             </Card>
           ))}
           <h2>Total Price: ${totalCartPrice()}</h2>
+          <button onClick={submitCheckout}>Checkout</button>
         </div>
       ) : (
         <h1>Your cart is empty...</h1>
