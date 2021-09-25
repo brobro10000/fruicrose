@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import {  Container, Row, Dropdown, Col } from "react-bootstrap";
+import {  Container, Row, Dropdown, Col, Button } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -128,8 +128,6 @@ function Products() {
               {categoryList ? (categoryList.map((product) => {
                 return (<Dropdown.Item key={product} onClick={filterItem} >{product}</Dropdown.Item>)
               })) : null}
-              <Dropdown.Divider />
-              <Dropdown.Item onClick={filterItem}>Reset</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Col>
@@ -151,6 +149,9 @@ function Products() {
               })) : null}
             </Dropdown.Menu>
           </Dropdown>
+        </Col>
+        <Col>
+        <Button onClick={filterItem}>Reset</Button>
         </Col>
       </Row>
       <Row>
