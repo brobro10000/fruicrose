@@ -31,16 +31,18 @@ function Cart() {
 
   function submitCheckout() {
     const productIds = [];
-
+    const quantity = []
+    console.log(cart)
     cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      // for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
-      }
+        quantity.push(item.purchaseQuantity)
+      // }
       console.log(productIds);
     });
 
     getCheckout({
-      variables: { products: productIds },
+      variables: { products: productIds, quantity:quantity },
     });
   }
 
