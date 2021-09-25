@@ -1,14 +1,8 @@
 import { useSelector } from "react-redux";
-import { Card, ListGroup } from 'react-bootstrap';
+import CartProduct from '../components/CartProduct';
 
 function Cart() {
     const cart = useSelector((state) => state.cart);
-    
-    const totalItemPrice = function(item) {
-        let sum = 0;
-            sum += item.price * item.purchaseQuantity;
-        return sum.toFixed(2);
-    }
 
     const totalCartPrice = function() {
         let sum = 0;
@@ -24,13 +18,21 @@ function Cart() {
             {cart.length ? (
             <div>
             {cart.map((product) => (
-                <Card>
-                    <Card.Header><Card.Title>{product.name}</Card.Title></Card.Header>
-                    <ListGroup>
-                        <ListGroup.Item>{product.purchaseQuantity} {product.unit}s</ListGroup.Item>
-                        <ListGroup.Item>Price: ${totalItemPrice(product)}</ListGroup.Item>
-                    </ListGroup>
-                </Card>
+                <CartProduct key={product._id} product={product}/>
+                // <Card>
+                //     <Card.Header><Card.Title>{product.name}</Card.Title></Card.Header>
+                //     <ListGroup>
+                //         <InputGroup>
+                //             <InputGroup.Text>Quanitiy:</InputGroup.Text>
+                //             <FormControl placeholder="1"
+                //             value={product.purchaseQuantity}
+                //             onChange={quantityChange}
+                //             aria-label="Product quantity"/>
+                //         </InputGroup>
+                //         <ListGroup.Item>{product.purchaseQuantity} {product.unit}s</ListGroup.Item>
+                //         <ListGroup.Item>Price: ${totalItemPrice(product)}</ListGroup.Item>
+                //     </ListGroup>
+                // </Card>
             ))}
             <h2>Total Price: ${totalCartPrice()}</h2>
             </div>
