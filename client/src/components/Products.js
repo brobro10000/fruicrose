@@ -3,9 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { QUERY_ALL_CATEGORIES } from"../utils/queries";
-import { Image, Container, Card, Row, Button, ButtonGroup, Dropdown, Col } from "react-bootstrap";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai'
+import {  Container, Row, Dropdown, Col } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -44,8 +42,9 @@ function Products() {
 
   useEffect(() => {
     return loadInitialData()
+     // eslint-disable-next-line
   }, [data, loading, dispatch]);
-  
+
   useEffect(() => {
     var allCategories = []
     products.forEach((element) => {
@@ -53,17 +52,16 @@ function Products() {
         allCategories.push(element.categories[0].name)
       }
     })
-    
+
     return updateCategoryList(allCategories)
   }, [products])
- 
+
   function sortBy(e) {
     const sortedParam = e.target.innerHTML
     var unsorted = []
     const sortedProducts = []
 
-
-    if (sortedParam == sortByArr[0]) {
+    if (sortedParam === sortByArr[0]) {
       products.forEach(element => {
         unsorted.push(element.name)
       })
@@ -76,14 +74,13 @@ function Products() {
         })
       })
     }
-    if (sortedParam == sortByArr[1]){
+    if (sortedParam === sortByArr[1]) {
       products.forEach(element => {
         unsorted.push(element.price)
       })
       unsorted.sort()
       unsorted.forEach(element => {
         products.forEach(item => {
-          console.log(item,element)
           if (item.price === element) {
             sortedProducts.push(item)
           }
@@ -158,28 +155,16 @@ function Products() {
       <Row>
         {products.map((product) => {
           return (
-            <SingleProduct 
-            key={product._id}
-            _id={product._id}
-            name={product.name}
-            price={product.price}
-            stock={product.stock}
-            unit={product.unit}
-            categories={product.categories}
-            imageLink={product.imageLink}
+            <SingleProduct
+              key={product._id}
+              _id={product._id}
+              name={product.name}
+              price={product.price}
+              stock={product.stock}
+              unit={product.unit}
+              categories={product.categories}
+              imageLink={product.imageLink}
             />
-            // <Card key={product.name} style={{ width: "18rem", margin: "10px" }}>
-            //   <Image alt={product.name} variant='top' src={product.imageLink} />
-            //   <Card.Body>
-            //     <Card.Title>{product.name}</Card.Title>
-            //     <Card.Subtitle className="mb-2 text-muted">
-            //       {product.categories[0].name}
-            //     </Card.Subtitle>
-            //     <Card.Text>Quantity: {product.stock}</Card.Text>
-            //     <Card.Text>Price: ${product.price.toFixed(2)} per {product.unit}</Card.Text>
-            //     <Card.Link href="#">Add to cart</Card.Link>
-            //   </Card.Body>
-            // </Card>
           );
         })}
       </Row>

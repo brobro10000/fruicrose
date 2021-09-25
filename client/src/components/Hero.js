@@ -1,12 +1,10 @@
-import react, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Carousel, Container } from "react-bootstrap";
 import strawberry from "../assets/images/strawberryhero.jpg";
 import orange from "../assets/images/orangehero.jpg";
 import peach from "../assets/images/peachhero.jpg";
 
 function Hero() {
-
-  const images = [`${strawberry}?text=First slide&bg=${strawberry}`, `${orange}?text=First slide&bg=${orange}`, `${peach}?text=First slide&bg=${peach}`]
   const [hero, loadHero] = useState((<></>))
   useEffect(() => {
     return loadHero(
@@ -15,7 +13,7 @@ function Hero() {
 
           <img
             className="d-block w-100"
-            src={images[0]}
+            src={strawberry}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -26,7 +24,7 @@ function Hero() {
         <Carousel.Item >
           <img
             className="d-block w-100"
-            src={images[1]}
+            src={orange}
             alt="Second slide"
           />
           <Carousel.Caption>
@@ -37,7 +35,7 @@ function Hero() {
         <Carousel.Item >
           <img
             className="d-block w-100"
-            src={images[2]}
+            src={peach}
             alt="Third slide"
           />
           <Carousel.Caption>
