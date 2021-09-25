@@ -16,6 +16,7 @@ import tangerine from '../assets/images/tangerine.jpeg'
 import watermelon from '../assets/images/watermelon.jpeg'
 import SingleProduct from "./SingleProduct";
 import Loading from './Loading'
+import { idbPromise } from "../utils/helpers";
 
 function Products() {
   const fruitImages = [banana, blueberry, fujiapple, honeycrispapple, lemon, mango, peach, raspberry, tangerine, watermelon]

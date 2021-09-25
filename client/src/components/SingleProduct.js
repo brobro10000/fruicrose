@@ -1,6 +1,7 @@
+
 import { Card, Image, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
+import { UPDATE_PRODUCTS ,UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
 
 function SingleProduct(item) {
   const { _id, name, price, stock, unit, categories, imageLink } = item;
