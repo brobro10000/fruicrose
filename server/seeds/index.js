@@ -26,7 +26,8 @@ db.once("open", async () => {
       name: "Fuji apple",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      price: 1.15,
+      price: 1.2,
+      imageLink: "..assets/images/fujiapple.jpg",
       stock: 56,
       unit: "apple",
       categories: categories[0]._id,
@@ -89,6 +90,7 @@ db.once("open", async () => {
       name: "Peach",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      imageLink: "../assets/images/peach.jpeg",
       price: 1.99,
       stock: 48,
       unit: "peach",
