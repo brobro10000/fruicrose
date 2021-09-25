@@ -1,11 +1,20 @@
 import { useSelector } from "react-redux";
+import { Card, ListGroup } from 'react-bootstrap';
 
 function Cart() {
     const cart = useSelector((state) => state.cart);
     
-    const totalPrice = function(item) {
+    const totalItemPrice = function(item) {
         let sum = 0;
             sum += item.price * item.purchaseQuantity;
+        return sum.toFixed(2);
+    }
+
+    const totalCartPrice = function() {
+        let sum = 0;
+        cart.forEach(item => {
+            sum += item.price * item.purchaseQuantity;
+        });
         return sum.toFixed(2);
     }
 
@@ -15,12 +24,15 @@ function Cart() {
             {cart.length ? (
             <div>
             {cart.map((product) => (
-                <>
-                <h3>{product.name}</h3>
-                <h4>{product.purchaseQuantity} {product.unit}s</h4>
-                <h4>Total price: ${totalPrice(product)}</h4>
-                </>
+                <Card>
+                    <Card.Header><Card.Title>{product.name}</Card.Title></Card.Header>
+                    <ListGroup>
+                        <ListGroup.Item>{product.purchaseQuantity} {product.unit}s</ListGroup.Item>
+                        <ListGroup.Item>Price: ${totalItemPrice(product)}</ListGroup.Item>
+                    </ListGroup>
+                </Card>
             ))}
+            <h2>Total Price: ${totalCartPrice()}</h2>
             </div>
             ): (
                 <h1>Your cart is empty...</h1>
