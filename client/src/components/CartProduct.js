@@ -1,9 +1,21 @@
 import { Card, ListGroup, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
+import { QUERY_ONE_PRODUCT } from '../utils/queries';
+import { useQuery } from '@apollo/client';
 import { useDispatch } from "react-redux";
 
 function CartProduct({product}) {
+    const id = product._id
+    const { loading, data } = useQuery(QUERY_ONE_PRODUCT, {variables: { productId: id },});
     const dispatch = useDispatch();
+
+    if (data) {
+        const queriedProduct = data.product;
+        if (queriedProduct.stock <= product.purchaseQuantity) {
+            product.purchaseQuantity = queriedProduct.stock;
+            console.log('no more!!!')
+        }
+    }
 
     const totalItemPrice = function(product) {
         let sum = 0;

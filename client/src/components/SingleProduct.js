@@ -10,7 +10,12 @@ function SingleProduct(item) {
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
 
-    if (itemInCart) {
+    if (itemInCart && itemInCart.purchaseQuantity >= stock) {
+      itemInCart.purchaseQuantity = stock;
+      return (
+        <div>no more!!</div>
+      )
+    } else if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
@@ -21,7 +26,6 @@ function SingleProduct(item) {
         type: ADD_TO_CART,
         product: { ...item, purchaseQuantity: 1 },
       });
-      console.log(cart);
     }
   };
 
