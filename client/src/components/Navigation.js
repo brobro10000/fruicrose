@@ -100,6 +100,7 @@ function Navigation(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
+          <Link to="/About">About</Link>
             <Link to="/">Products</Link>
             <Link to="/contact">Contact</Link>
           </Nav>
