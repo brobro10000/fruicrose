@@ -64,7 +64,7 @@ const resolvers = {
         // generate price id using the product id
         const price = await stripe.prices.create({
           product: product.id,
-          unit_amount: products[i].price * 100,
+          unit_amount: parseInt(Math.round(products[i].price * 100)),
           currency: "usd",
         });
 
@@ -74,16 +74,18 @@ const resolvers = {
           quantity: 1,
         });
 
-        const session = await stripe.checkout.sessions.create({
-          payment_method_types: ["card"],
-          line_items,
-          mode: "payment",
-          success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-          cancel_url: `${url}/`,
-        });
-
-        return { session: session.id };
+        console.log(line_items, line_items.length);
       }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+
+      return { session: session.id };
     },
   },
 
