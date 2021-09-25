@@ -1,13 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
-import { UPDATE_USER } from "../utils/actions";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 
 function Dashboard() {
   // const user = useSelector((state) => state.user);
   // const dispatch = useDispatch();
+   // eslint-disable-next-line
   const { loading, data } = useQuery(QUERY_USER);
   let user;
 
