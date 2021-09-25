@@ -1,6 +1,7 @@
-import { Card, Image } from "react-bootstrap";
+
+import { Card, Image, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
+import { UPDATE_PRODUCTS ,UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
 
 function SingleProduct(item) {
   const { _id, name, price, stock, unit, categories, imageLink } = item;
@@ -10,7 +11,12 @@ function SingleProduct(item) {
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
 
-    if (itemInCart) {
+    if (itemInCart && itemInCart.purchaseQuantity >= stock) {
+      itemInCart.purchaseQuantity = stock;
+      return (
+        <div>no more!!</div>
+      )
+    } else if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
@@ -21,7 +27,6 @@ function SingleProduct(item) {
         type: ADD_TO_CART,
         product: { ...item, purchaseQuantity: 1 },
       });
-      console.log(cart);
     }
   };
 
@@ -37,7 +42,7 @@ function SingleProduct(item) {
         <Card.Text>
           Price: ${price.toFixed(2)} per {unit}
         </Card.Text>
-        <Card.Link onClick={addToCart}>Add to cart</Card.Link>
+        <Button onClick={addToCart}>Add to cart</Button>
       </Card.Body>
     </Card>
   );

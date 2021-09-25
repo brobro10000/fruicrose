@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import {  Container, Row, Dropdown, Col } from "react-bootstrap";
+import {  Container, Row, Dropdown, Col, Button } from "react-bootstrap";
 import banana from '../assets/images/banana.jpeg'
 import blueberry from '../assets/images/blueberry.jpeg'
 import fujiapple from '../assets/images/fujiapple.jpg'
@@ -16,6 +16,7 @@ import tangerine from '../assets/images/tangerine.jpeg'
 import watermelon from '../assets/images/watermelon.jpeg'
 import SingleProduct from "./SingleProduct";
 import Loading from './Loading'
+import { idbPromise } from "../utils/helpers";
 
 function Products() {
   const fruitImages = [banana, blueberry, fujiapple, honeycrispapple, lemon, mango, peach, raspberry, tangerine, watermelon]
@@ -112,12 +113,11 @@ function Products() {
   }
 
   if (!products?.length) {
-    return <h1>There are no products!</h1>;
+    return <Loading/>;
   }
 
   return (
     <Container>
-      <Loading/>
       <Row>
         <Col>
           <Dropdown>
@@ -128,8 +128,6 @@ function Products() {
               {categoryList ? (categoryList.map((product) => {
                 return (<Dropdown.Item key={product} onClick={filterItem} >{product}</Dropdown.Item>)
               })) : null}
-              <Dropdown.Divider />
-              <Dropdown.Item onClick={filterItem}>Reset</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Col>
@@ -151,6 +149,9 @@ function Products() {
               })) : null}
             </Dropdown.Menu>
           </Dropdown>
+        </Col>
+        <Col>
+        <Button onClick={filterItem}>Reset</Button>
         </Col>
       </Row>
       <Row>

@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLazyQuery } from "@apollo/client";
-import { Card, ListGroup } from "react-bootstrap";
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
 import CartProduct from "../components/CartProduct";
-
+import Loading from "../components/Loading";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 function Cart() {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
+  const [completeCheckout, updateComplete] = useState(0)
   const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
@@ -30,17 +29,20 @@ function Cart() {
   };
 
   function submitCheckout() {
+    updateComplete(1)
     const productIds = [];
-
+    const quantity = []
+    console.log(cart)
     cart.forEach((item) => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
+      // for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
-      }
+        quantity.push(item.purchaseQuantity)
+      // }
       console.log(productIds);
     });
 
     getCheckout({
-      variables: { products: productIds },
+      variables: { products: productIds, quantity:quantity },
     });
   }
 
@@ -53,7 +55,7 @@ function Cart() {
             <CartProduct key={product._id} product={product} />
           ))}
           <h2>Total Price: ${totalCartPrice()}</h2>
-          <button onClick={submitCheckout}>Checkout</button>
+          {completeCheckout === 0 ? <button onClick={submitCheckout}>Checkout</button> : <Loading/>}
         </div>
       ) : (
         <h1>Your cart is empty...</h1>
