@@ -15,7 +15,7 @@ import raspberry from '../assets/images/raspberry.jpeg'
 import tangerine from '../assets/images/tangerine.jpeg'
 import watermelon from '../assets/images/watermelon.jpeg'
 import SingleProduct from "./SingleProduct";
-
+import Loading from './Loading'
 
 function Products() {
   const fruitImages = [banana, blueberry, fujiapple, honeycrispapple, lemon, mango, peach, raspberry, tangerine, watermelon]
@@ -117,6 +117,7 @@ function Products() {
 
   return (
     <Container>
+      <Loading/>
       <Row>
         <Col>
           <Dropdown>
