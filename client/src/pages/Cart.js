@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLazyQuery } from "@apollo/client";
-import { Card, ListGroup } from "react-bootstrap";
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
 import CartProduct from "../components/CartProduct";
