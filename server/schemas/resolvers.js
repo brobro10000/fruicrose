@@ -46,7 +46,7 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     checkout: async (parent, args, context) => {
-      console.log(context.headers,args);
+      console.log(context.headers, args);
       const url = `http://${context.headers.host}`;
       const order = new Order({ products: args.products });
       const { products } = await order.populate("products");
@@ -67,7 +67,7 @@ const resolvers = {
           unit_amount: parseInt(Math.round(products[i].price * 100)),
           currency: "usd",
         });
-        
+
         line_items.push({
           price: price.id,
           quantity: args.quantity[i],
