@@ -31,5 +31,8 @@ main {
   margin: 10px;
 }
 .sortIcon {
-  text-align: right !important;
+  text-align:right !important;
+}
+.contactHeader {
+  text-align: center;
 }
