@@ -10,6 +10,9 @@ const productSchema = new Schema(
     description: {
       type: String,
     },
+    imageLink: {
+      type: String
+    },
     price: {
       type: Number,
       required: true,
