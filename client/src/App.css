@@ -22,8 +22,8 @@ main {
 }
 
 .flex {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .productCard {
@@ -31,5 +31,5 @@ main {
   margin: 10px;
 }
 .sortIcon {
-  text-align:right !important;
+  text-align: right !important;
 }
