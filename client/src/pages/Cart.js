@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_CHECKOUT } from "../utils/queries";
 import { loadStripe } from "@stripe/stripe-js";
+import { idbPromise } from "../utils/helpers";
 import CartProduct from "../components/CartProduct";
 import Loading from "../components/Loading";
 import dancingFruit from "../assets/images/dancing-fruit.gif";
+import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
 import { Container, Image, Row, Col } from "react-bootstrap";
+
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 function Cart() {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
   const [completeCheckout, updateComplete] = useState(0);
   const cart = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise("cart", "get");
+      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+    }
+
+    if (!cart.length) {
+      getCart();
+    }
+  }, [cart.length, dispatch]);
 
   useEffect(() => {
     if (data) {
