@@ -42,7 +42,7 @@ function Navigation(props) {
       return (
         <>
           <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-          <Nav.Link to="/dashboard">Dashboard</Nav.Link>
+          <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
           <Nav.Link variant="warning" onClick={() => Auth.logout()}>
             LogOut
           </Nav.Link>
