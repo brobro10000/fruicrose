@@ -1,7 +1,11 @@
-
 import { Card, Image, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { UPDATE_PRODUCTS ,UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
+import {
+  UPDATE_PRODUCTS,
+  UPDATE_CART_QUANTITY,
+  ADD_TO_CART,
+} from "../utils/actions";
+import { idbPromise } from "../utils/helpers";
 
 function SingleProduct(item) {
   const { _id, name, price, stock, unit, categories, imageLink } = item;
@@ -13,13 +17,16 @@ function SingleProduct(item) {
 
     if (itemInCart && itemInCart.purchaseQuantity >= stock) {
       itemInCart.purchaseQuantity = stock;
-      return (
-        <div>no more!!</div>
-      )
+      console.log("No More!");
+      return <div>no more!!</div>;
     } else if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+      });
+      idbPromise("cart", "put", {
+        ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
@@ -27,6 +34,7 @@ function SingleProduct(item) {
         type: ADD_TO_CART,
         product: { ...item, purchaseQuantity: 1 },
       });
+      idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
     }
   };
 
