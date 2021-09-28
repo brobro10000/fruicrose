@@ -37,12 +37,12 @@ const resolvers = {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: "orders.products",
-          populate: "category",
+          populate: "categories",
         });
 
         return user.orders.id(_id);
       }
-
+      
       throw new AuthenticationError("Not logged in");
     },
     checkout: async (parent, args, context) => {
@@ -103,14 +103,17 @@ const resolvers = {
       return { token, user };
     },
     addOrder: async (parent, { products }, context) => {
+      console.log(context);
       if (context.user) {
         const order = new Order({ products });
+
         await User.findByIdAndUpdate(context.user._id, {
           $push: { orders: order },
         });
 
         return order;
       }
+
       throw new AuthenticationError("Not logged in");
     },
     login: async (parent, { email, password }) => {
