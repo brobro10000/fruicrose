@@ -17,7 +17,6 @@ function SingleProduct(item) {
 
     if (itemInCart && itemInCart.purchaseQuantity >= stock) {
       itemInCart.purchaseQuantity = stock;
-      console.log("No More!");
       return <div>no more!!</div>;
     } else if (itemInCart) {
       dispatch({
