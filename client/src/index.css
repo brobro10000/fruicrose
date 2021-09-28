@@ -26,7 +26,7 @@ code {
 
 .productImage {
   width: 100% !important;
-  height: 50% !important;
+  height: 200px !important;
   object-fit: cover !important;
 }
 
@@ -2554,7 +2554,7 @@ code {
   background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
 }
 
-.pikachu {
+.modalBorder {
   border-radius: 5px;
   padding: 4px;
   place-content: center;

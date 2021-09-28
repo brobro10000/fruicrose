@@ -86,7 +86,7 @@ function SingleProduct(item) {
       </Card.Body>
     </Card>
     </Container>
-    <Modal show={show} onHide={handleClose} size="lg">
+    <Modal show={show} onHide={handleClose} size="lg" id="modalObject">
         <Modal.Header>
           <Modal.Title>{name}</Modal.Title>
           <Modal.Title>{categories[0].name}</Modal.Title>
