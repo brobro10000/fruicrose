@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Nav, Navbar, Container, Image, Button, Row,Col } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import banana from "../assets/images/bananaHome.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
 import Auth from "../utils/auth";

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Card, Image, Button, Modal } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  UPDATE_PRODUCTS,
   UPDATE_CART_QUANTITY,
   ADD_TO_CART,
 } from "../utils/actions";
