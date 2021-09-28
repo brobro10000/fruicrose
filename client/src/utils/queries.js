@@ -26,7 +26,7 @@ query Query($productId: ID) {
     unit
   }
 }
-`
+`;
 
 export const QUERY_ALL_CATEGORIES = gql`
   {
