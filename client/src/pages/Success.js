@@ -1,16 +1,3 @@
-// import { Container } from "react-bootstrap";
-// import Loading from "../components/Loading";
-// function Success(){
-//     setTimeout(() => {
-//         console.log(window.location)
-//     },1000)
-//     return(
-//         <Container>
-//             <Loading/>
-//         </Container>
-//     )
-// }
-
 import React, { useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_ORDER } from "../utils/mutations";
@@ -24,7 +11,7 @@ function Success() {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
       const products = cart.map((item) => item._id);
-
+      console.log(products)
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
         const productData = data.addOrder.products;
@@ -32,15 +19,15 @@ function Success() {
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
         });
-      } 
+      }
 
       setTimeout(() => {
         window.location.assign("/");
-      }, 3000);
+      }, 30000);
     }
 
     saveOrder();
-  }, [addOrder]);
+  }, []);
 
   return (
     <div>
