@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container, Image, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
 import Auth from "../utils/auth";
 
 function Navigation(props) {
+  const fruitIcons = ['fas fa-apple-alt', 'fas fa-lemon', 'far fa-lemon', 'fas fa-seedling']
   const isOpen = useSelector((state) => state.currentForm);
   const [show, setShow] = useState(isOpen);
   const [type, setType] = useState(0);
+  const [fruit, setFruit] = useState(fruitIcons[0])
   const dispatch = useDispatch();
 
   const handleShow = (e) => {
@@ -35,6 +37,15 @@ function Navigation(props) {
     });
     // eslint-disable-next-line
   }, [show]);
+
+  function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  useEffect(() => {
+    var randomIndex = getRandom(0, fruitIcons.length - 1)
+    return setFruit(fruitIcons[randomIndex])
+  }, [fruit])
 
   function showNavButtons() {
     if (Auth.loggedIn()) {
@@ -75,14 +86,14 @@ function Navigation(props) {
     >
       <Container fluid>
         <Navbar.Brand>
-          <h1 className="myName">Fruicrose</h1>
+          <h1 className="myName"><i className={fruit}></i> Fruicrose </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
-              <Nav.Link as={Link}  to="/About">About</Nav.Link>          
-              <Nav.Link as={Link}  to="/">Products</Nav.Link>
-              <Nav.Link as={Link}  to="/contact">Contact</Nav.Link>
+            <Nav.Link as={Link} to="/About">About</Nav.Link>
+            <Nav.Link as={Link} to="/">Products</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
           </Nav>
           <Nav>{showNavButtons()}</Nav>
         </Navbar.Collapse>

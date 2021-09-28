@@ -2476,3 +2476,32 @@ code {
 }
     
 }
+
+#aboutContainer{
+  margin-top: 25px;
+}
+ #aboutCard {
+  border-style: ridge;
+  border-color: cornflowerblue;
+}
+#aboutCard {
+  padding: 15px;
+  border-width: 5px;
+  background: aliceblue;
+}
+#aboutImage {
+  height:auto;
+  width: 100%;
+}
+#aboutTitle {
+  margin:5px;
+  text-align: center;
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+  text-decoration-color: cornflowerblue;
+  
+}
+#aboutText{
+  align-self: center;
+}
