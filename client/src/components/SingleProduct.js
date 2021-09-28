@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Card, Image, Button, Modal } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Card, Image, Button, Modal, FormControl, Row, Col, Container, InputGroup } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
   UPDATE_CART_QUANTITY,
@@ -10,19 +10,33 @@ import { idbPromise } from "../utils/helpers";
 function SingleProduct(item) {
   const { _id, name, description, price, stock, unit, categories, imageLink } = item;
   const cart = useSelector((state) => state.cart);
+  const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+  const [inputValue, setInputValue] = useState(1);
+  const [stockValue, setStockValue] = useState(stock)
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    if (itemInCart) {
+       setStockValue(stockValue - itemInCart.purchaseQuantity)
+    }
+  }, [])
 
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+    const numValue = parseInt(inputValue);
+    setStockValue(stockValue - numValue);
+    setInputValue(1)
 
-    if (itemInCart && itemInCart.purchaseQuantity >= stock) {
+    if (isNaN(numValue) || numValue === 0) {
+      console.log('sorry!')
+      return;
+    } else if (itemInCart && itemInCart.purchaseQuantity >= stock) {
       itemInCart.purchaseQuantity = stock;
       return <div>no more!!</div>;
     } else if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: _id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + numValue,
       });
       idbPromise("cart", "put", {
         ...itemInCart,
@@ -31,9 +45,9 @@ function SingleProduct(item) {
     } else {
       dispatch({
         type: ADD_TO_CART,
-        product: { ...item, purchaseQuantity: 1 },
+        product: { ...item, purchaseQuantity: numValue },
       });
-      idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
+      idbPromise("cart", "put", { ...item, purchaseQuantity: numValue });
     }
   };
 
@@ -51,13 +65,23 @@ function SingleProduct(item) {
         <Card.Subtitle className="mb-2 text-muted">
           {categories[0].name}
         </Card.Subtitle>
-        <Card.Text>Quantity: {stock}</Card.Text>
+        <Card.Text>Quantity: {stockValue}</Card.Text>
         <Card.Text>
           Price: ${price.toFixed(2)} per {unit}
         </Card.Text>
+        <Container>
+        <Row>    
         <Button onClick={addToCart}>Add to cart</Button>
-        {' '}
+        <input type="number"
+         min="1"
+         max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
+         id={name.toLowerCase().replace(" ", "")}
+         value={inputValue}
+         onChange={(e) => setInputValue(e.target.value)}
+         />
         <Button variant="secondary" onClick={handleShow}>Details</Button>
+        </Row>
+        </Container>
       </Card.Body>
     </Card>
 
@@ -67,12 +91,19 @@ function SingleProduct(item) {
           <Modal.Title>{categories[0].name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h5>Quantity: {stock}</h5>
+          <h5>Quantity: {stockValue}</h5>
           <h5>Price: ${price.toFixed(2)} per {unit}</h5>
           <p>{description}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={addToCart}>Add To Cart</Button>
+          <input type="number"
+          min="1"
+          max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
+          id={name.toLowerCase().replace(" ", "")}
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          />
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
