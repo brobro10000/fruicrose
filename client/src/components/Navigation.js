@@ -85,14 +85,14 @@ function Navigation() {
       sticky="top"
     >
       <Container fluid>
-        <Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
           <h1 className="myName"><i className={fruit}></i> Fruicrose </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/About">About</Nav.Link>
-            <Nav.Link as={Link} to="/">Products</Nav.Link>
+            <Nav.Link as={Link} to="/products">Products</Nav.Link>
             <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
           </Nav>
           <Nav>{showNavButtons()}</Nav>
