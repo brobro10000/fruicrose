@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Nav, Navbar, Container, Image, Button } from "react-bootstrap";
+import { Nav, Navbar, Container, Image, Button, Row,Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import banana from "../assets/images/bananaHome.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
@@ -41,17 +41,11 @@ function Navigation(props) {
     if (Auth.loggedIn()) {
       return (
         <>
-          <Button variant="warning">
-            <Link to="/cart">Cart</Link>
-          </Button>
-
-          <Button variant="warning">
-            <Link to="/dashboard">Dashboard</Link>
-          </Button>
-
-          <Button variant="warning" onClick={() => Auth.logout()}>
+          <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+          <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+          <Nav.Link variant="warning" onClick={() => Auth.logout()}>
             LogOut
-          </Button>
+          </Nav.Link>
 
           <ModalObject type={type} />
         </>
@@ -59,17 +53,11 @@ function Navigation(props) {
     } else {
       return (
         <>
-          <Button variant="warning">
-            <Link to="/cart">Cart</Link>
-          </Button>
-
-          <Button variant="warning" onClick={handleShow}>
-            LogIn
-          </Button>
-
-          <Button variant="warning" onClick={handleShow}>
+          <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+          <Nav.Link variant="warning" onClick={handleShow}>LogIn</Nav.Link>
+          <Nav.Link variant="warning" onClick={handleShow}>
             SignUp
-          </Button>
+          </Nav.Link>
 
           <ModalObject type={type} />
         </>
@@ -95,14 +83,14 @@ function Navigation(props) {
             height="70"
             rounded
           />
-          Fruictose
+          Fruicrose
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/About">About</Link>
-            <Link to="/">Products</Link> 
-            <Link to="/contact">Contact</Link>
+              <Nav.Link as={Link}  to="/About">About</Nav.Link>          
+              <Nav.Link as={Link}  to="/">Products</Nav.Link>
+              <Nav.Link as={Link}  to="/contact">Contact</Nav.Link>
           </Nav>
           <Nav>{showNavButtons()}</Nav>
         </Navbar.Collapse>
