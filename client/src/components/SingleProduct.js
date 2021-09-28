@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Image, Button, Modal, Row, Container } from "react-bootstrap";
+import { Card, Image, Button, Modal, Row, Container, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
   UPDATE_CART_QUANTITY,
@@ -69,10 +69,10 @@ function SingleProduct(item) {
 
   return (
     <>
-    <Container id={name.toLowerCase().replace(" ", "")+count} className={classItem} >
-    <Card key={name} style={{ width: "18rem", margin: "10px" }}>
+    <Container>
+    <Card key={name} style={{ width: "18rem", margin: "10px" }} className="modalObject">
       <Image className="productImage" alt={name} variant="top" src={imageLink} onClick={handleShow}/>
-      <Card.Body className={randomColor()}>
+      <Card.Body className='cardBackground'>
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
           {categories[0].name}
@@ -82,8 +82,8 @@ function SingleProduct(item) {
           Price: ${price.toFixed(2)} per {unit}
         </Card.Text>
         <Container>
-        <Row>    
-        <Button onClick={addToCart}>Add to cart</Button>
+        <Row>
+        <Col md={4}>
         <input type="number"
          min="1"
          max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
@@ -91,6 +91,11 @@ function SingleProduct(item) {
          value={inputValue}
          onChange={(e) => setInputValue(e.target.value)}
          />
+         </Col>
+         <Col md={8}>
+         {unit}s
+        </Col>
+        <Button variant="success" onClick={addToCart}>Add to cart</Button>
         <Button variant="secondary" onClick={handleShow}>Details</Button>
         </Row>
         </Container>
@@ -108,7 +113,7 @@ function SingleProduct(item) {
           <p>{description}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={addToCart}>Add To Cart</Button>
+          <Button variant="success" onClick={addToCart}>Add To Cart</Button>
           <input type="number"
           min="1"
           max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
