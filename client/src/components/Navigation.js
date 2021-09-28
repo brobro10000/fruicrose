@@ -72,18 +72,11 @@ function Navigation(props) {
       expand="lg"
       bg="dark"
       variant="dark"
+      sticky="top"
     >
       <Container fluid>
-        <Navbar.Brand className="myName">
-          <Image
-            className="brandImage"
-            alt="exploding banana"
-            src={banana}
-            width="100"
-            height="70"
-            rounded
-          />
-          Fruicrose
+        <Navbar.Brand>
+          <h1 className="myName">Fruicrose</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
