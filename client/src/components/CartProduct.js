@@ -83,7 +83,7 @@ function CartProduct({ product }) {
         </InputGroup>
         <ListGroup.Item>Price: ${totalItemPrice(product)}</ListGroup.Item>
         <ListGroup.Item>
-          <Button onClick={() => removeFromCart(product)}>
+          <Button onClick={() => removeFromCart(product)} variant="danger">
             Remove From Cart
           </Button>
         </ListGroup.Item>

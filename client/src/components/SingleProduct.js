@@ -1,4 +1,5 @@
-import { Card, Image, Button } from "react-bootstrap";
+import { useState } from "react";
+import { Card, Image, Button, Modal } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
   UPDATE_PRODUCTS,
@@ -8,7 +9,7 @@ import {
 import { idbPromise } from "../utils/helpers";
 
 function SingleProduct(item) {
-  const { _id, name, price, stock, unit, categories, imageLink } = item;
+  const { _id, name, description, price, stock, unit, categories, imageLink } = item;
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -37,9 +38,15 @@ function SingleProduct(item) {
     }
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
+    <>
     <Card key={name} style={{ width: "18rem", margin: "10px" }}>
-      <Image alt={name} variant="top" src={imageLink} />
+      <Image className="productImage" alt={name} variant="top" src={imageLink} onClick={handleShow}/>
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
@@ -52,6 +59,22 @@ function SingleProduct(item) {
         <Button onClick={addToCart}>Add to cart</Button>
       </Card.Body>
     </Card>
+
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header>
+          <Modal.Title>{name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{description}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 
