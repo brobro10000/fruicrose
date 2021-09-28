@@ -2553,3 +2553,15 @@ code {
   padding: 4px;
   background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
 }
+
+.pikachu {
+  border-radius: 5px;
+  padding: 4px;
+  place-content: center;
+}
+
+.background {
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  text-align: -webkit-center;
+  width: fit-content !important;
+}
