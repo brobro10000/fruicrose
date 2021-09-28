@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Image, Button, Modal, FormControl, Row, Col, Container, InputGroup } from "react-bootstrap";
+import { Card, Image, Button, Modal, Row, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
   UPDATE_CART_QUANTITY,

@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Container, Row, Dropdown, Col, Button } from "react-bootstrap";
+import { Container, Row, Dropdown, Col, Button, Card } from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
 import banana from "../assets/images/banana.jpeg";
@@ -155,8 +155,9 @@ function Products() {
 
   return (
     <Container>
-      <Row>
-        <Col>
+      <Card body>
+      <Row className="sortButtons">
+        <Col className="sortButtons">
           <Dropdown>
             <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
               Category
@@ -174,7 +175,7 @@ function Products() {
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-        <Col>
+        <Col className="sortButtons">
           <Dropdown>
             <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
               Sort By
@@ -194,10 +195,11 @@ function Products() {
             </Dropdown.Menu>
           </Dropdown>
         </Col>
-        <Col>
+        <Col className="sortButtons">
           <Button onClick={filterItem}>Reset</Button>
         </Col>
       </Row>
+      </Card>
       <Row>
         {products.map((product) => {
           return (

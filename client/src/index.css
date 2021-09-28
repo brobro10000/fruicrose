@@ -19,6 +19,11 @@ code {
   -webkit-text-fill-color: transparent;
 }
 
+.sortButtons {
+  display: flex !important;
+  justify-content: center !important;
+}
+
 .productImage {
   width: 100% !important;
   height: 50% !important;
