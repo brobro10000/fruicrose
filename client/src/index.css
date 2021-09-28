@@ -2504,7 +2504,12 @@ code {
 #aboutCard1{
   padding: 15px;
   border-width: 5px;
-  background: aliceblue;
+  background: #fffcf3;
+}
+.aboutImage {
+  height:auto;
+  width:100%;
+  max-width: 500px;
 }
 #aboutImage1 {
   height:auto;
@@ -2537,7 +2542,7 @@ code {
 #aboutCard2 {
   padding: 15px;
   border-width: 5px;
-  background: aliceblue;
+  background: #fffcf3;
 }
 #aboutImage2 {
   height:auto;

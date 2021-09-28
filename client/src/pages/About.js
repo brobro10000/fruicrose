@@ -4,11 +4,13 @@ import logo from '../assets/images/LogoFruicrose.png'
 function About() {
   return (
     <>
+    <Row>
+      <Col md={6}>
       <Container id='aboutContainer1'>
         <Card id='aboutCard1'>
           <Row>
             <Col md={12}>
-              <Image id='aboutImage1' alt='Logo' src={logo} fluid />
+              <Image className='aboutImage' alt='Logo' src={logo} fluid />
             </Col>
             <Col id="aboutText1" md={12}>
               <Card.Title id='aboutTitle1' >
@@ -24,11 +26,13 @@ function About() {
           </Row>
         </Card>
       </Container>
+      </Col>
+      <Col md={6}>
       <Container id='aboutContainer2'>
         <Card id='aboutCard2'>
           <Row>
             <Col md={12}>
-              <Image id='aboutImage2' alt='Distributer' src={botanist} fluid />
+              <Image className='aboutImage' alt='Distributer' src={botanist} fluid />
             </Col>
             <Col id="aboutText2" md={12}>
               <Card.Title id='aboutTitle2' >
@@ -44,6 +48,8 @@ function About() {
           </Row>
         </Card>
       </Container>
+        </Col>
+      </Row>
     </>
   );
 }
