@@ -14,6 +14,12 @@ function SingleProduct(item) {
   const [inputValue, setInputValue] = useState(1);
   const [stockValue, setStockValue] = useState(stock)
   const dispatch = useDispatch();
+
+  const randomColor = function() {
+    const colorArray = ['green', 'yellow', 'orange', 'red', 'purple'];
+    const randomValue = colorArray[Math.floor(colorArray.length * Math.random())];
+    return randomValue;
+  }
   
   useEffect(() => {
     if (itemInCart) {
@@ -58,10 +64,10 @@ function SingleProduct(item) {
 
   return (
     <>
-    <Container className='background'>
+    <Container>
     <Card key={name} style={{ width: "18rem", margin: "10px" }}>
       <Image className="productImage" alt={name} variant="top" src={imageLink} onClick={handleShow}/>
-      <Card.Body>
+      <Card.Body className={randomColor()}>
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
           {categories[0].name}

@@ -37,6 +37,26 @@ code {
   text-align: center;
 }
 
+.green {
+  background-color: #93ff68;
+}
+
+.yellow {
+  background-color: #e4ff55;
+}
+
+.orange {
+  background-color: #ffb543;
+}
+
+.red {
+  background-color: #ff5a5a;
+}
+
+.purple {
+  background-color: #c660ff;
+}
+
 .banana {
   animation: pbjtime 0.8s steps(1, start) infinite;
   width: 0.3em;
