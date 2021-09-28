@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Card, Image, Button, Modal, Row, Container, Col } from "react-bootstrap";
+import { useState, useEffect, useRef } from "react";
+import { Card, Image, Button, Modal, Row, Container, Col, Overlay } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import {
   UPDATE_CART_QUANTITY,
@@ -15,14 +15,8 @@ function SingleProduct(item) {
   const [stockValue, setStockValue] = useState(stock)
   const dispatch = useDispatch();
 
-  const randomColor = function() {
-    const colorArray = ['green', 'yellow', 'orange', 'red', 'purple'];
-    const randomValue = colorArray[Math.floor(colorArray.length * Math.random())];
-    return randomValue;
-  }
-  
-  var classItem = `background backgroundMod${count}`
-
+  const [showPop, setShowPop] = useState(false);
+  const target = useRef(null);
 
   useEffect(() => {
     if (itemInCart) {
@@ -38,6 +32,9 @@ function SingleProduct(item) {
     if (isNaN(numValue) || numValue === 0) {
       console.log('sorry!')
       return;
+    } else if (stockValue <= 0) {
+      setStockValue(0)
+      setShowPop(true)
     } else if (itemInCart && itemInCart.purchaseQuantity >= stock) {
       itemInCart.purchaseQuantity = stock;
       return <div>no more!!</div>;
@@ -84,14 +81,15 @@ function SingleProduct(item) {
         <Container>
         <Row>
         <Col className ='quantityCol' md={12}>
-        <input type="number"
+        <input ref={target}
+         type="number"
          min="1"
          max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
          id={name.toLowerCase().replace(" ", "")}
          value={inputValue}
          onChange={(e) => setInputValue(e.target.value)}
          />
-         <spa className='quantityUnit'>{unit}s</spa>
+         <span className='quantityUnit'>{unit}s</span>
          </Col>
          <Col className ='quantityCol' md={12}>
         <Button variant="success" onClick={addToCart}>Add to cart</Button>
@@ -104,6 +102,8 @@ function SingleProduct(item) {
       </Card.Body>
     </Card>
     </Container>
+
+
     <Modal show={show} onHide={handleClose} size="lg" id="modalObject">
         <Modal.Header>
           <Modal.Title>{name}</Modal.Title>
@@ -115,19 +115,38 @@ function SingleProduct(item) {
           <p>{description}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="success" onClick={addToCart}>Add To Cart</Button>
-          <input type="number"
+          <input
+          type="number"
           min="1"
           max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
           id={name.toLowerCase().replace(" ", "")}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           />
+          <span>{unit}s</span>
+          <Button variant="success" onClick={addToCart}>Add To Cart</Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Overlay target={target.current} show={showPop} placement="right">
+        {({ placement, arrowProps, show: _show, popper, ...props }) => (
+          <div
+            {...props}
+            style={{
+              backgroundColor: 'rgba(255, 100, 100, 0.85)',
+              padding: '2px 10px',
+              color: 'white',
+              borderRadius: 3,
+              ...props.style,
+            }}
+          >
+            No more items in stock!
+          </div>
+        )}
+      </Overlay>
     </>
   );
 }
