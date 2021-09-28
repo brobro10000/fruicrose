@@ -31,7 +31,7 @@ function Products() {
     tangerine,
     watermelon,
   ];
-  const sortByArr = ["Alphabetical", "Price"];
+  const sortByArr = ["Alphabetical", "Reverse Alphabetical", "Price Ascending", "Price Descending"];
   const products = useSelector((state) => state.products);
   const [categoryList, updateCategoryList] = useState(0);
   const dispatch = useDispatch();
