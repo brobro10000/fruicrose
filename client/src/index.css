@@ -12,6 +12,19 @@ code {
     monospace;
 }
 
+.myName {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.productImage {
+  width: 100% !important;
+  height: 50% !important;
+  object-fit: cover !important;
+}
+
 .login-error {
   color: rosybrown;
   font-size: medium;

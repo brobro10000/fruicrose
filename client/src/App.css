@@ -10,11 +10,10 @@ main {
   text-align: center;
 }
 
-.brandImage {
-  height: auto !important;
-  width: 100% !important;
-  max-width: 50px !important;
+.myName {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red) !important;
 }
+
 
 .navButtons {
   display: flex;
