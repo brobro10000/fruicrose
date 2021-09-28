@@ -56,6 +56,8 @@ function SingleProduct(item) {
           Price: ${price.toFixed(2)} per {unit}
         </Card.Text>
         <Button onClick={addToCart}>Add to cart</Button>
+        {' '}
+        <Button variant="secondary" onClick={handleShow}>Details</Button>
       </Card.Body>
     </Card>
 
