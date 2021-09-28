@@ -12,13 +12,13 @@ function About() {
             </Col>
             <Col id="aboutText1" md={12}>
               <Card.Title id='aboutTitle1' >
-                My name is Hamzah Ullah, and I love to code!
+                Welcome to Fruicrose! Where health is in every harvest.
               </Card.Title>
               <Card.Body>
-                <p> I am currently pursuing a Bachelor's Degree in Computer Engineering from the University of Central Florida with an emphasis on machine learning and robotics.
-                  I am outgoing, dedicated, and open-minded. I get across to people and adjust to changes with ease.</p>
-              
-                <p>  Currently, I am looking for new career opportunities my current job position cannot provide.</p>
+                <p> Order some the freshest fruits in season! Perfect for smoothies, home-made icecream or even by itself.</p>
+                
+                <p>Shipped and delivered right to your door, our fruits are guaranteed to be some of the healthiest on earth!
+                Freeze dried when it arrives, simply rehydrate in lukewarm water! Prepare for the experience of your life in every bite.</p>
               </Card.Body>
             </Col>
           </Row>
@@ -35,9 +35,10 @@ function About() {
                 Meet our Distributor!
               </Card.Title>
               <Card.Body>
-                <p> The Botonist are a locally sourced distributor that provides us </p>
-                
-                <p>  Currently, I am looking for new career opportunities my current job position cannot provide.</p>
+                <p> The Botonist are a locally sourced distributor that provides us the plants necessary for the best seasonal variety of the most succulent fruits you will ever taste!</p>
+                <p> Using our secret ratio of grow mix, we take these plants above and beyond, <span style={{textAlign:"center", webkitTextStroke:'thin', fontWeight:'bolder', webkitTextStrokeColor:'black'}} className='myName'>SUPERCHARGING</span> the taste, flavor, and yields of our fruits! </p>
+                <h4>Want to grow your own?</h4>
+                <p>Visit them at:  </p>
               </Card.Body>
             </Col>
           </Row>
