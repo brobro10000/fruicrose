@@ -12,9 +12,9 @@ function SingleProduct(item) {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const addToCart = () => {
+  const addToCart = (e) => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
-
+    console.log(e)
     if (itemInCart && itemInCart.purchaseQuantity >= stock) {
       itemInCart.purchaseQuantity = stock;
       return <div>no more!!</div>;
