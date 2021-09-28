@@ -36,7 +36,7 @@ function Products() {
   const [categoryList, updateCategoryList] = useState(0);
   const dispatch = useDispatch();
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
-
+  const [ count, updateCount ] = useState(0)
   function loadInitialData() {
     if (data) {
       var productArr = data.products;
@@ -152,7 +152,7 @@ function Products() {
   if (!products?.length) {
     return <Loading />;
   }
-
+  var increment = 0
   return (
     <Container>
       <Card body>
@@ -202,6 +202,7 @@ function Products() {
       </Card>
       <Row>
         {products.map((product) => {
+          
           return (
             <Col>
             <SingleProduct
@@ -214,10 +215,12 @@ function Products() {
               unit={product.unit}
               categories={product.categories}
               imageLink={product.imageLink}
+              count = {increment++ % 3}
             />
             </Col>
           );
-        })}
+        })
+        }
       </Row>
     </Container>
   );

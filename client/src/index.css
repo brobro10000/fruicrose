@@ -2584,4 +2584,30 @@ code {
   background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
   text-align: -webkit-center;
   width: fit-content !important;
+  border-radius: 10px;
+  padding: .25px !important;
+}
+
+.backgroundMod0 {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55);
+  text-align: -webkit-center;
+  width: fit-content !important;
+  border-radius: 10px;
+  padding: .25px !important;
+}
+
+.backgroundMod1 {
+  background-image: linear-gradient(to left, 	#e4ff55, #ffb543);
+  text-align: -webkit-center;
+  width: fit-content !important;
+  border-radius: 10px;
+  padding: .25px !important;
+}
+
+.backgroundMod2 {
+  background-image: linear-gradient(to left, 	#ff5a5a, #c660ff);
+  text-align: -webkit-center;
+  width: fit-content !important;
+  border-radius: 10px;
+  padding: .25px !important;
 }
