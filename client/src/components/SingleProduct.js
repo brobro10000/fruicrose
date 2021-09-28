@@ -69,7 +69,7 @@ function SingleProduct(item) {
 
   return (
     <>
-    <Container>
+    <Container className='background-center'>
     <Card key={name} style={{ width: "18rem", margin: "10px" }} className="modalObject">
       <Image className="productImage" alt={name} variant="top" src={imageLink} onClick={handleShow}/>
       <Card.Body className='cardBackground'>
@@ -83,7 +83,7 @@ function SingleProduct(item) {
         </Card.Text>
         <Container>
         <Row>
-        <Col md={4}>
+        <Col className ='quantityCol' md={12}>
         <input type="number"
          min="1"
          max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
@@ -91,12 +91,14 @@ function SingleProduct(item) {
          value={inputValue}
          onChange={(e) => setInputValue(e.target.value)}
          />
+         <spa className='quantityUnit'>{unit}s</spa>
          </Col>
-         <Col md={8}>
-         {unit}s
-        </Col>
+         <Col className ='quantityCol' md={12}>
         <Button variant="success" onClick={addToCart}>Add to cart</Button>
+        </Col>
+        <Col className ='quantityCol' md={12}>
         <Button variant="secondary" onClick={handleShow}>Details</Button>
+        </Col>
         </Row>
         </Container>
       </Card.Body>
