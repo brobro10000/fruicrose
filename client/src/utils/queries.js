@@ -5,6 +5,7 @@ export const QUERY_ALL_PRODUCTS = gql`
     products {
       _id
       name
+      description
       price
       stock
       unit
