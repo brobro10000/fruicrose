@@ -59,17 +59,20 @@ function SingleProduct(item) {
       </Card.Body>
     </Card>
 
-    <Modal show={show} onHide={handleClose}>
+    <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header>
           <Modal.Title>{name}</Modal.Title>
+          <Modal.Title>{categories[0].name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{description}</Modal.Body>
+        <Modal.Body>
+          <h5>Quantity: {stock}</h5>
+          <h5>Price: ${price.toFixed(2)} per {unit}</h5>
+          <p>{description}</p>
+        </Modal.Body>
         <Modal.Footer>
+          <Button onClick={addToCart}>Add To Cart</Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
