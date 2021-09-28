@@ -46,6 +46,7 @@ function Dashboard() {
                 <Card.Title>
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                 </Card.Title>
+                <Card.Subtitle>Order Number: #{order._id}</Card.Subtitle>
                 <Card.Subtitle>Purchased Items</Card.Subtitle>
               </Card.Header>
               <ListGroup>

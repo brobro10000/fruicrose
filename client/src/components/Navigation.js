@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Nav, Navbar, Container, Image, Button, Row,Col } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import banana from "../assets/images/bananaHome.gif";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
 import Auth from "../utils/auth";
@@ -72,18 +71,11 @@ function Navigation(props) {
       expand="lg"
       bg="dark"
       variant="dark"
+      sticky="top"
     >
       <Container fluid>
-        <Navbar.Brand className="myName">
-          <Image
-            className="brandImage"
-            alt="exploding banana"
-            src={banana}
-            width="100"
-            height="70"
-            rounded
-          />
-          Fruicrose
+        <Navbar.Brand>
+          <h1 className="myName">Fruicrose</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse align="end" id="responsive-navbar-nav">
