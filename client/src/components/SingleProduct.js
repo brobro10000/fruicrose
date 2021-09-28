@@ -8,7 +8,7 @@ import {
 import { idbPromise } from "../utils/helpers";
 
 function SingleProduct(item) {
-  const { _id, name, description, price, stock, unit, categories, imageLink } = item;
+  const { _id, name, description, price, stock, unit, categories, imageLink, count } = item;
   const cart = useSelector((state) => state.cart);
   const itemInCart = cart.find((cartItem) => cartItem._id === _id);
   const [inputValue, setInputValue] = useState(1);
@@ -21,6 +21,9 @@ function SingleProduct(item) {
     return randomValue;
   }
   
+  var classItem = `background backgroundMod${count}`
+
+
   useEffect(() => {
     if (itemInCart) {
        setStockValue(stockValue - itemInCart.purchaseQuantity)
@@ -61,6 +64,8 @@ function SingleProduct(item) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  
 
   return (
     <>
