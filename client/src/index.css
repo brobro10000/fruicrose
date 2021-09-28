@@ -2492,7 +2492,6 @@ code {
 #aboutImage {
   height:auto;
   width: 100%;
-  border-color: cornflowerblue;
 }
 #aboutTitle {
   margin:5px;
@@ -2501,6 +2500,7 @@ code {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-decoration: underline;
   text-decoration-color: cornflowerblue;
+  
 }
 #aboutText{
   align-self: center;
