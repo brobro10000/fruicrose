@@ -2543,3 +2543,8 @@ code {
   align-self: center;
 }
 
+#modalObject {
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+}

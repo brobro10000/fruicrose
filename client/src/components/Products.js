@@ -50,6 +50,7 @@ function Products() {
           ),
         };
       });
+
       // eslint-disable-next-line
       dispatch({
         type: UPDATE_PRODUCTS,
@@ -57,14 +58,14 @@ function Products() {
       });
     }
   }
-
+  
   useEffect(() => {
     if (data) {
       dispatch({
         type: UPDATE_PRODUCTS,
         products: data.products,
       });
-
+      
       data.products.forEach((product) => {
         idbPromise("products", "put", product);
       });
@@ -77,12 +78,12 @@ function Products() {
       });
     }
   }, [data, loading, dispatch]);
-
+  
   useEffect(() => {
-    return loadInitialData();
+      return loadInitialData();
     // eslint-disable-next-line
   }, [data, loading, dispatch]);
-
+  
   useEffect(() => {
     var allCategories = [];
     products.forEach((element) => {
