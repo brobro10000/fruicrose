@@ -3,7 +3,7 @@ import botanist from '../assets/images/Botanist.svg'
 import logo from '../assets/images/LogoFruicrose.png'
 function About() {
   return (
-    <>
+    <Container>
     <Row>
       <Col md={6}>
       <Container id='aboutContainer1'>
@@ -50,7 +50,7 @@ function About() {
       </Container>
         </Col>
       </Row>
-    </>
+    </Container>
   );
 }
 
