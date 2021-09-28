@@ -196,7 +196,7 @@ function Products() {
           </Dropdown>
         </Col>
         <Col className="sortButtons">
-          <Button onClick={filterItem}>Reset</Button>
+          <Button variant='warning' onClick={filterItem}>Reset</Button>
         </Col>
       </Row>
       </Card>
