@@ -32,7 +32,7 @@ function Success() {
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
         });
-      } 
+      }
 
       setTimeout(() => {
         window.location.assign("/");
@@ -40,7 +40,7 @@ function Success() {
     }
 
     saveOrder();
-  }, [addOrder]);
+  }, []);
 
   return (
     <div>
