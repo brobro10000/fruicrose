@@ -31,7 +31,7 @@ export const ADD_ORDER = gql`
         name
         price
         unit
-        category {
+        categories {
           name
         }
       }

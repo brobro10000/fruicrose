@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Slider from "react-slick";
 import { Container, Row, Col } from "react-bootstrap";
-
+import Products from './Products'
 export default function SimpleSlider() {
   var settings = {
     dots: true,
@@ -35,6 +35,8 @@ export default function SimpleSlider() {
             <div>
               <h3>6</h3>
             </div>
+
+            
           </Slider>
         </Col>
       </Row>
