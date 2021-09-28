@@ -201,6 +201,7 @@ function Products() {
       <Row>
         {products.map((product) => {
           return (
+            <Col>
             <SingleProduct
               key={product._id}
               _id={product._id}
@@ -212,6 +213,7 @@ function Products() {
               categories={product.categories}
               imageLink={product.imageLink}
             />
+            </Col>
           );
         })}
       </Row>

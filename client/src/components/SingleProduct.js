@@ -58,6 +58,7 @@ function SingleProduct(item) {
 
   return (
     <>
+    <Container className='background'>
     <Card key={name} style={{ width: "18rem", margin: "10px" }}>
       <Image className="productImage" alt={name} variant="top" src={imageLink} onClick={handleShow}/>
       <Card.Body>
@@ -84,7 +85,7 @@ function SingleProduct(item) {
         </Container>
       </Card.Body>
     </Card>
-
+    </Container>
     <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header>
           <Modal.Title>{name}</Modal.Title>

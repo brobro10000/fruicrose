@@ -6,7 +6,7 @@ import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
 import Auth from "../utils/auth";
 
-function Navigation(props) {
+function Navigation() {
   const fruitIcons = ['fas fa-apple-alt', 'fas fa-lemon', 'far fa-lemon', 'fas fa-seedling']
   const isOpen = useSelector((state) => state.currentForm);
   const [show, setShow] = useState(isOpen);
