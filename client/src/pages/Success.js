@@ -26,8 +26,9 @@ function Success() {
       }, 30000);
     }
 
+    console.log(addOrder);
     saveOrder();
-  }, []);
+  }, [addOrder]);
 
   return (
     <div>
