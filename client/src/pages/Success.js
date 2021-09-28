@@ -36,11 +36,12 @@ function Success() {
 
       setTimeout(() => {
         window.location.assign("/");
-      }, 3000);
+      }, 300000);
     }
 
+    console.log(addOrder);
     saveOrder();
-  }, []);
+  }, [addOrder]);
 
   return (
     <div>
