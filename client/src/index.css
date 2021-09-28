@@ -2477,23 +2477,27 @@ code {
     
 }
 
-#aboutContainer{
+#aboutContainer1{
   margin-top: 25px;
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
 }
- #aboutCard {
+#aboutCard1 {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
   border-style: ridge;
-  border-color: cornflowerblue;
+  background-clip:border-box;
 }
-#aboutCard {
+#aboutCard1{
   padding: 15px;
   border-width: 5px;
   background: aliceblue;
 }
-#aboutImage {
+#aboutImage1 {
   height:auto;
   width: 100%;
 }
-#aboutTitle {
+#aboutTitle1 {
   margin:5px;
   text-align: center;
   font-size: x-large;
@@ -2502,6 +2506,40 @@ code {
   text-decoration-color: cornflowerblue;
   
 }
-#aboutText{
+#aboutText1 {
   align-self: center;
 }
+
+#aboutContainer2 {
+  margin-top: 25px;
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+}
+#aboutCard2 {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  border-style: ridge;
+  background-clip:border-box;
+}
+#aboutCard2 {
+  padding: 15px;
+  border-width: 5px;
+  background: aliceblue;
+}
+#aboutImage2 {
+  height:auto;
+  width: 100%;
+}
+#aboutTitle2 {
+  margin:5px;
+  text-align: center;
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+  text-decoration-color: cornflowerblue;
+  
+}
+#aboutText2 {
+  align-self: center;
+}
+
