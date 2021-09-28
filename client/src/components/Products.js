@@ -61,7 +61,7 @@ function Products() {
   useEffect(() => {
     if (data) {
       dispatch({
-        type: QUERY_ALL_PRODUCTS,
+        type: UPDATE_PRODUCTS,
         products: data.products,
       });
 
@@ -71,7 +71,7 @@ function Products() {
     } else if (!loading) {
       idbPromise("products", "get").then((products) => {
         dispatch({
-          QUERY_ALL_PRODUCTS,
+          type: UPDATE_PRODUCTS,
           products: products,
         });
       });
@@ -204,6 +204,7 @@ function Products() {
               key={product._id}
               _id={product._id}
               name={product.name}
+              description={product.description}
               price={product.price}
               stock={product.stock}
               unit={product.unit}

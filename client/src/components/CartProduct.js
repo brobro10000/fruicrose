@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 
 function CartProduct({ product }) {
   const id = product._id;
-  const { loading, data } = useQuery(QUERY_ONE_PRODUCT, {
+  const { data } = useQuery(QUERY_ONE_PRODUCT, {
     variables: { productId: id },
   });
   const dispatch = useDispatch();
