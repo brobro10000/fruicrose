@@ -13,13 +13,21 @@ function Success() {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
       const products = cart.map((item) => item._id);
+      const updatedStock = []
       console.log(products)
-      console.log(cart)
+      cart.forEach((item) => {
+        updatedStock.push({id: item._id, stock: item.purchaseQuantity})
+      })
+      console.log(updatedStock)
+      // updatedStock.forEach((item) => {
+      //   console.log(item)
+      //   await updateProduct({ variables: item});
+      // })
+      
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
-        // console.log(data);
         const productData = data.addOrder.products;
-        await updateProduct({ variables: { products } });
+        
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
