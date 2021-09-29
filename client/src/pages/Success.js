@@ -21,7 +21,7 @@ function Success() {
       cart.forEach((item) => {
         productIds.push(item._id);
         quantity.push(item.purchaseQuantity);
-      };
+      });
 
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
