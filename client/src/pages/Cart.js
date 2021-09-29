@@ -60,7 +60,7 @@ function Cart() {
     });
 
     getCheckout({
-      variables: { products: productIds, quantity: quantity },
+      variables: { products: productIds, stock: quantity },
     });
   }
 
