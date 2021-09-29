@@ -10,8 +10,8 @@ const resolvers = {
         const userData = await User.findById(context.user._id)
           .select("-__v -password")
           .populate({
-            path: "orders",
-            populate: "products",
+            path: "orders.products",
+            populate: "categories",
           });
         return userData;
       }
@@ -42,7 +42,7 @@ const resolvers = {
 
         return user.orders.id(_id);
       }
-      
+
       throw new AuthenticationError("Not logged in");
     },
     checkout: async (parent, args, context) => {
@@ -105,7 +105,11 @@ const resolvers = {
     updateProduct: async (parent, { _id, stock }) => {
       const decrement = Math.abs(stock) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { stock: decrement } }, { new: true });
+      return await Product.findByIdAndUpdate(
+        _id,
+        { $inc: { stock: decrement } },
+        { new: true }
+      );
     },
     addOrder: async (parent, { products }, context) => {
       console.log(context);
