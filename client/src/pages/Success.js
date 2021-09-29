@@ -22,24 +22,24 @@ function Success() {
         productIds.push(item._id);
         quantity.push(item.purchaseQuantity);
       };
-
-      if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
-        const productData = data.addOrder.products;
-
-        await updateProduct({ variables: { products: productIds, stock: quantity } });
-
-        productData.forEach((item) => {
-          idbPromise("cart", "delete", item);
-        });
-        return console.log(products[0].purchaseQuantity);
+        
+        if (products.length) {
+          const { data } = await addOrder({ variables: { products } });
+          const productData = data.addOrder.products;
+          
+          await updateProduct({ variables: { products: productIds, stock: quantity } });
+          
+          productData.forEach((item) => {
+            idbPromise("cart", "delete", item);
+          });
+          return console.log(products[0].purchaseQuantity);
+        }
+        
+        setTimeout(() => {
+          window.location.assign("/");
+        }, 30000);
       }
-
-      setTimeout(() => {
-        window.location.assign("/");
-      }, 30000);
-    }
-
+      
     console.log(addOrder);
     saveOrder();
   }, [addOrder, updateProduct]);
