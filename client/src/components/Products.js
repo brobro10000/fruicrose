@@ -225,7 +225,7 @@ return (
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown>
-          <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
+          <Dropdown.Toggle className="dropdown-button-dark" variant="secondary">
             Sort By
           </Dropdown.Toggle>
           <Dropdown.Menu variant="dark">
