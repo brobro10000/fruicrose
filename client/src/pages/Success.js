@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { ADD_ORDER, UPDATE_PRODUCT } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import Loading from "../components/Loading";
+import { UPDATE_PRODUCTS } from "../utils/actions";
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
@@ -12,6 +13,8 @@ function Success() {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
       const products = cart.map((item) => item._id);
+      console.log(products)
+      console.log(cart)
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
         // console.log(data);
