@@ -85,7 +85,7 @@ function Cart() {
             </div>
           ) : (
             <Col xs s md lg={{ span: 6, offset: 4 }}>
-              <Image className="mt-5" src={dancingFruit} roundedCircle fluid />
+              <Image id='dancingFruit'className="mt-5" src={dancingFruit} roundedCircle fluid />
               <h1 className="mt-5">Your cart is empty...</h1>
             </Col>
           )}
