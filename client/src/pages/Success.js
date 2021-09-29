@@ -15,7 +15,7 @@ function Success() {
       console.log(products)
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
-        const productData = data.addOrder.products;
+        const productData = data.addOrder.products;mer
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
