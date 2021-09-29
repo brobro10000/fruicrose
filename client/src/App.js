@@ -42,6 +42,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    <>
     <ApolloProvider client={client}>
       <Router>
         <Provider store={store}>
@@ -54,10 +55,13 @@ function App() {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/success" component={Success} />
           <Route exact path="/slider" component={SimpleSlider} />
-          <Footer />
         </Provider>
       </Router>
     </ApolloProvider>
+    <footer>
+      <Footer />
+    </footer>
+    </>
   );
 }
 
