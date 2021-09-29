@@ -38,7 +38,7 @@ function Success() {
 
       setTimeout(() => {
         window.location.assign("/");
-      }, 30000);
+      }, 3000);
     }
 
     console.log(addOrder);

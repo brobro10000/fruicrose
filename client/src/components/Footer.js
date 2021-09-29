@@ -2,7 +2,7 @@ import { Navbar, Container } from 'react-bootstrap';
 
 function Footer() {
     return (
-        <Navbar bg="dark" variant="dark" className="footer">
+        <Navbar bg="dark" variant="dark" className="footer" id="footer">
             <Container>
                 <Navbar.Brand >
                 <h1 className="myName">Fruicrose </h1>

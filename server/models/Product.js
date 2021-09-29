@@ -11,7 +11,7 @@ const productSchema = new Schema(
       type: String,
     },
     imageLink: {
-      type: String
+      type: String,
     },
     price: {
       type: Number,
@@ -21,6 +21,7 @@ const productSchema = new Schema(
     stock: {
       type: Number,
       required: true,
+      min: 0,
     },
     unit: {
       type: String,
