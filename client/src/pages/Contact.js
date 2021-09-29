@@ -27,8 +27,8 @@ function Contact() {
         }
     }
     return (
-        <Container id='formContainer'>
-            <h1 style={{textAlign:'center'}}>Questions? Leave us a message!</h1>
+        <Container id='formContainer' className='formContainer'>
+            <h1 style={{textAlign:'center', margin: '30px'}}>Questions? Leave us a message!</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label className='form-labels' htmlFor="name">
