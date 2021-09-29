@@ -35,10 +35,10 @@ function Products() {
   const products = useSelector((state) => state.products);
   const [categoryList, updateCategoryList] = useState(0);
   const dispatch = useDispatch();
-  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
-  const [sortType, selectSort] = useState([])
   const allSorts = []
-  function loadInitialData() {
+  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+  const [sortType, selectSort] = useState(0)
+  async function loadInitialData() {
     if (data) {
       var productArr = data.products;
       var updatedProductArr = productArr.map((element) => {
@@ -52,25 +52,14 @@ function Products() {
         };
       });
 
-      // eslint-disable-next-line
       dispatch({
         type: UPDATE_PRODUCTS,
         products: updatedProductArr,
       });
-    }
-  }
-
-  useEffect(() => {
-    if (data) {
-      dispatch({
-        type: UPDATE_PRODUCTS,
-        products: data.products,
-      });
-
       data.products.forEach((product) => {
         idbPromise("products", "put", product);
       });
-    } else if (!loading) {
+    } else if(!loading) {
       idbPromise("products", "get").then((products) => {
         dispatch({
           type: UPDATE_PRODUCTS,
@@ -78,7 +67,27 @@ function Products() {
         });
       });
     }
-  }, [data, loading, dispatch]);
+  }
+
+  // useEffect(() => {
+  //   if (data) {
+  //     dispatch({
+  //       type: UPDATE_PRODUCTS,
+  //       products: data.products,
+  //     });
+
+  //     data.products.forEach((product) => {
+  //       idbPromise("products", "put", product);
+  //     });
+  //   } else if (!loading) {
+  //     idbPromise("products", "get").then((products) => {
+  //       dispatch({
+  //         type: UPDATE_PRODUCTS,
+  //         products: products,
+  //       });
+  //     });
+  //   }
+  // }, [data, loading, dispatch]);
 
   useEffect(() => {
     return loadInitialData();
@@ -144,16 +153,12 @@ function Products() {
       });
     });
 
-    allSorts.push(alphabetical)
-    allSorts.push(reverseAlphabetical)
-    allSorts.push(price)
-    allSorts.push(reversePrice)
-
+    allSorts.push(alphabetical,reverseAlphabetical,price,reversePrice)
     return selectSort(allSorts)
-  }, [])
+  }, [products])
+
   function sortBy(e) {
     const sortedParam = e.target.innerHTML;
-
     if (sortedParam === sortByArr[0]) {
       dispatch({
         type: UPDATE_PRODUCTS,
@@ -170,7 +175,6 @@ function Products() {
         products: sortType[2],
       });
     } else if (sortedParam === sortByArr[3]) {
-      console.log(sortType)
       dispatch({
         type: UPDATE_PRODUCTS,
         products: sortType[3],

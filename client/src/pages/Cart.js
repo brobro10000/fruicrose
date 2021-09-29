@@ -56,12 +56,12 @@ function Cart() {
       productIds.push(item._id);
       quantity.push(item.purchaseQuantity);
       // }
-      console.log(productIds);
     });
 
     getCheckout({
       variables: { products: productIds, quantity: quantity },
     });
+    console.log(getCheckout)
   }
 
   return (
