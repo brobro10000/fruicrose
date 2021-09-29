@@ -89,7 +89,7 @@ function SingleProduct(item) {
          value={inputValue}
          onChange={(e) => setInputValue(e.target.value)}
          />
-         <span className='quantityUnit'>{unit}s</span>
+        <label className='quantityUnit' for={name.toLowerCase().replace(" ", "")} value={name.toLowerCase().replace(" ", "")}>{unit}s</label>
          </Col>
          <Col className ='quantityCol' md={12}>
         <Button variant="success" onClick={addToCart}>Add to cart</Button>

@@ -102,11 +102,11 @@ const resolvers = {
 
       return { token, user };
     },
-    updateProduct: async (parent, { _id, stock }) => {
+    updateProduct: async (parent, { products, stock }) => {
       const decrement = Math.abs(stock) * -1;
 
       return await Product.findByIdAndUpdate(
-        _id,
+        products,
         { $inc: { stock: decrement } },
         { new: true }
       );
