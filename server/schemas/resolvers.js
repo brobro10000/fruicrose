@@ -10,8 +10,8 @@ const resolvers = {
         const userData = await User.findById(context.user._id)
           .select("-__v -password")
           .populate({
-            path: "orders",
-            populate: "products",
+            path: "orders.products",
+            populate: "categories",
           });
         return userData;
       }
@@ -42,7 +42,7 @@ const resolvers = {
 
         return user.orders.id(_id);
       }
-      
+
       throw new AuthenticationError("Not logged in");
     },
     checkout: async (parent, args, context) => {
@@ -131,6 +131,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    
   },
 };
 
