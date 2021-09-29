@@ -16,19 +16,18 @@ function Success() {
       console.log(cart)
       const products = cart.map((item) => item._id);
 
-      console.log(products,'products')
-
-      cart.forEach(item => {
-        updateProduct.push({_id:item._id,stock:item.purchaseQuantity})
-      })
-
+      const productIds = [];
+      const quantity = [];
+      cart.forEach((item) => {
+        productIds.push(item._id);
+        quantity.push(item.purchaseQuantity);
+      };
 
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
-        // console.log(data);
         const productData = data.addOrder.products;
 
-        await updateProduct({ variables: { products } });
+        await updateProduct({ variables: { products: productIds, stock: quantity } });
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
