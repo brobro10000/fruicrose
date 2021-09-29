@@ -8,7 +8,7 @@ import CartProduct from "../components/CartProduct";
 import Loading from "../components/Loading";
 import dancingFruit from "../assets/images/dancing-fruit.gif";
 import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
-import { Container, Image, Row, Col } from "react-bootstrap";
+import { Container, Image, Row, Col, Button} from "react-bootstrap";
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
@@ -56,12 +56,12 @@ function Cart() {
       productIds.push(item._id);
       quantity.push(item.purchaseQuantity);
       // }
-      console.log(productIds);
     });
 
     getCheckout({
       variables: { products: productIds, quantity: quantity },
     });
+    console.log(getCheckout)
   }
 
   return (
@@ -71,19 +71,21 @@ function Cart() {
           {cart.length ? (
             <div>
               <h1>Your Cart</h1>
+              
               {cart.map((product) => (
                 <CartProduct key={product._id} product={product} />
               ))}
+              
               <h2>Total Price: ${totalCartPrice()}</h2>
               {completeCheckout === 0 ? (
-                <button onClick={submitCheckout}>Checkout</button>
+                <Button variant="success" onClick={submitCheckout}>Checkout</Button>
               ) : (
                 <Loading />
               )}
             </div>
           ) : (
             <Col xs s md lg={{ span: 6, offset: 4 }}>
-              <Image className="mt-5" src={dancingFruit} roundedCircle fluid />
+              <Image id='dancingFruit'className="mt-5" src={dancingFruit} roundedCircle fluid />
               <h1 className="mt-5">Your cart is empty...</h1>
             </Col>
           )}

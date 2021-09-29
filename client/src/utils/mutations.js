@@ -31,10 +31,24 @@ export const ADD_ORDER = gql`
         name
         price
         unit
-        category {
+        categories {
           name
         }
       }
     }
   }
 `;
+
+export const UPDATE_PRODUCT = gql`
+  mutation updateProduct($products: [ID]!, $stock: [Int]!) {
+    updateProduct(_id: $products, stock: $stock) {
+      _id
+      name
+      description
+      price
+      stock
+      unit
+    }
+  }
+`;
+

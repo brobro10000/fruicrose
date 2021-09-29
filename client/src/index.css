@@ -12,11 +12,44 @@ code {
     monospace;
 }
 
+#dancingFruit {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  padding:5px
+}
+.myName {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sortButtons {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.productImage {
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+}
+
 .login-error {
   color: rosybrown;
   font-size: medium;
   font-style: italic;
   text-align: center;
+}
+
+.cardBackground {
+  background-color: #fffcf3;
+}
+
+.center {
+  text-align: center;
+  padding: 30px;
+  color: #ff5a5a;
+  font-weight: bolder;
 }
 
 .banana {
@@ -2462,4 +2495,103 @@ code {
 155px 75px #000;
 }
     
+}
+
+#aboutContainer1{
+  margin-top: 25px;
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+}
+#aboutCard1 {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  border-style: ridge;
+  background-clip:border-box;
+}
+#aboutCard1{
+  padding: 15px;
+  border-width: 5px;
+  background: #fffcf3;
+}
+.aboutImage {
+  height:auto;
+  width:100%;
+  max-width: 500px;
+}
+#aboutImage1 {
+  height:auto;
+  width: 100%;
+}
+#aboutTitle1 {
+  margin:5px;
+  text-align: center;
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+  text-decoration-color: cornflowerblue;
+  
+}
+#aboutText1 {
+  align-self: center;
+}
+
+#aboutContainer2 {
+  margin-top: 25px;
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+}
+#aboutCard2 {
+  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  border-style: ridge;
+  background-clip:border-box;
+}
+#aboutCard2 {
+  padding: 15px;
+  border-width: 5px;
+  background: #fffcf3;
+}
+#aboutImage2 {
+  height:auto;
+  width: 100%;
+}
+#aboutTitle2 {
+  margin:5px;
+  text-align: center;
+  font-size: x-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+  text-decoration-color: cornflowerblue;
+  
+}
+#aboutText2 {
+  align-self: center;
+}
+
+#modalObject {
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+}
+
+.modalObject {
+  border-radius: 5px;
+  padding: 4px;
+  background-image: linear-gradient(to top, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+}
+
+.modalBorder {
+  border-radius: 5px;
+  padding: 4px;
+  place-content: center;
+}
+
+.background-center {
+  text-align: -webkit-center;
+}
+.quantityUnit {
+  padding:10px
+}
+.quantityCol {
+  margin:5px;
 }

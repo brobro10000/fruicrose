@@ -5,6 +5,7 @@ export const QUERY_ALL_PRODUCTS = gql`
     products {
       _id
       name
+      description
       price
       stock
       unit
@@ -25,7 +26,7 @@ query Query($productId: ID) {
     unit
   }
 }
-`
+`;
 
 export const QUERY_ALL_CATEGORIES = gql`
   {

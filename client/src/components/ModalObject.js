@@ -17,8 +17,8 @@ function ModalObject(props) {
     };
     return (
         <Container>
-            <Modal show={isOpen} onHide={handleClose}>
-                <Modal.Header closeButton>
+            <Modal className='modalBorder' id='modalObject' show={isOpen} onHide={handleClose}>
+                <Modal.Header style={{textAlign:"center"}}>
                     <Modal.Title>{props.type === 0 ? 'Login Here' : 'Sign Up'}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
