@@ -11,6 +11,7 @@ import { setContext } from "@apollo/client/link/context";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
@@ -53,7 +54,7 @@ function App() {
           <Route exact path="/cart" component={Cart} />
           <Route exact path="/success" component={Success} />
           <Route exact path="/slider" component={SimpleSlider} />
-          {/* <Route exact path="/banana" component={Loading} /> */}
+          <Footer />
         </Provider>
       </Router>
     </ApolloProvider>
