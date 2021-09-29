@@ -1,4 +1,4 @@
-import { Container, Card, Row, Col, Image } from 'react-bootstrap'
+import { Container, Card, Row, Col, Image,Nav } from 'react-bootstrap'
 import botanist from '../assets/images/Botanist.svg'
 import logo from '../assets/images/LogoFruicrose.png'
 function About() {
@@ -42,7 +42,7 @@ function About() {
                 <p> The Botonist are a locally sourced distributor that provides us the plants necessary for the best seasonal variety of the most succulent fruits you will ever taste!</p>
                 <p> Using our secret ratio of grow mix, we take these plants above and beyond, <span style={{textAlign:"center", webkitTextStroke:'thin', fontWeight:'bolder', webkitTextStrokeColor:'black'}} className='myName'>SUPERCHARGING</span> the taste, flavor, and yields of our fruits! </p>
                 <h4>Want to grow your own?</h4>
-                <p>Visit them at:  </p>
+                <p>Visit them at: <a href='https://the-botanist-project.herokuapp.com/'>https://the-botanist-project.herokuapp.com/</a> </p>
               </Card.Body>
             </Col>
           </Row>
