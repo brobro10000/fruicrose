@@ -38,3 +38,19 @@ export const ADD_ORDER = gql`
     }
   }
 `;
+
+export const UPDATE_PRODUCT = gql`
+mutation updateProduct($id: ID!, $stock: Int!) {
+  updateProduct(_id: $id, stock: $stock) {
+    _id
+    name
+    description
+    price
+    stock
+    unit
+    categories {
+      name
+    }
+  }
+}
+`
