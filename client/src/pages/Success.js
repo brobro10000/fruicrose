@@ -12,8 +12,8 @@ function Success() {
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
-      const updateProduct = []
-      console.log(cart)
+      const updateProduct = [];
+      console.log(cart);
       const products = cart.map((item) => item._id);
 
       const productIds = [];
@@ -27,7 +27,9 @@ function Success() {
         const { data } = await addOrder({ variables: { products } });
         const productData = data.addOrder.products;
 
-        await updateProduct({ variables: { products: productIds, stock: quantity } });
+        await updateProduct({
+          variables: { products: productIds, stock: quantity },
+        });
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
