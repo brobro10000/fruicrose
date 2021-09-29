@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/react-hooks";
 import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import Loading from "../components/Loading";
+import { UPDATE_PRODUCTS } from "../utils/actions";
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
