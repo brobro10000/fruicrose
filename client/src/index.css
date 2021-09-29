@@ -28,12 +28,16 @@ code {
   padding: 5px;
 }
 
-#footer {
+/* #footer {
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
+} */
+.footer-container {
+  justify-content: center !important;
 }
+
 
 .myName {
   background-image: linear-gradient(
