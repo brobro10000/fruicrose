@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require("mongoose");
 const bcrypt = require("bcrypt");
-const Order = require("./Order");
+const Order = require('./Order');
 
 const userSchema = new Schema({
   username: {

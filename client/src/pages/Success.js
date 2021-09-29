@@ -1,25 +1,30 @@
 import React, { useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
-import { ADD_ORDER } from "../utils/mutations";
+import { ADD_ORDER, UPDATE_PRODUCT } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import Loading from "../components/Loading";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
+  const [updateProduct] = useMutation(UPDATE_PRODUCT);
 
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
       const products = cart.map((item) => item._id);
       console.log(products)
+      console.log(cart)
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
-        const productData = data.addOrder.products;mer
+        // console.log(data);
+        const productData = data.addOrder.products;
+        await updateProduct({ variables: { products } });
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
         });
+        return console.log(products[0].purchaseQuantity);
       }
 
       setTimeout(() => {
@@ -29,7 +34,7 @@ function Success() {
 
     console.log(addOrder);
     saveOrder();
-  }, [addOrder]);
+  }, [addOrder, updateProduct]);
 
   return (
     <div>
