@@ -51,3 +51,4 @@ export const UPDATE_PRODUCT = gql`
     }
   }
 `;
+
