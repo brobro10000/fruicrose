@@ -3,9 +3,11 @@ import { useMutation } from "@apollo/react-hooks";
 import { ADD_ORDER, UPDATE_PRODUCT } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import Loading from "../components/Loading";
+import { UPDATE_PRODUCTS } from "../utils/actions";
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
+  const [updateProduct] = useMutation(UPDATE_PRODUCT);
 
   useEffect(() => {
     async function saveOrder() {
@@ -13,20 +15,25 @@ function Success() {
       const updateProduct = []
       console.log(cart)
       const products = cart.map((item) => item._id);
+
       console.log(products,'products')
 
       cart.forEach(item => {
         updateProduct.push({_id:item._id,stock:item.purchaseQuantity})
       })
 
+
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
+        // console.log(data);
         const productData = data.addOrder.products;
-        
+
+        await updateProduct({ variables: { products } });
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
         });
+        return console.log(products[0].purchaseQuantity);
       }
 
       setTimeout(() => {
@@ -36,7 +43,7 @@ function Success() {
 
     console.log(addOrder);
     saveOrder();
-  }, [addOrder]);
+  }, [addOrder, updateProduct]);
 
   return (
     <div>
