@@ -39,6 +39,17 @@ code {
   text-align: center;
 }
 
+.cardBackground {
+  background-color: #fffcf3;
+}
+
+.center {
+  text-align: center;
+  padding: 30px;
+  color: #ff5a5a;
+  font-weight: bolder;
+}
+
 .banana {
   animation: pbjtime 0.8s steps(1, start) infinite;
   width: 0.3em;
