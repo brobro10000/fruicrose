@@ -16,6 +16,7 @@ import peach from "../assets/images/peach.jpeg";
 import raspberry from "../assets/images/raspberry.jpeg";
 import tangerine from "../assets/images/tangerine.jpeg";
 import watermelon from "../assets/images/watermelon.jpeg";
+import goodmeatloaf from "../assets/images/goodmeatloaf.jpeg";
 import SingleProduct from "./SingleProduct";
 
 function Products() {
@@ -30,6 +31,7 @@ function Products() {
     raspberry,
     tangerine,
     watermelon,
+    goodmeatloaf,
   ];
   const sortByArr = ["Alphabetical", "Reverse Alphabetical", "Price Ascending", "Price Descending"];
   const products = useSelector((state) => state.products);
