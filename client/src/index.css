@@ -1,3 +1,7 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -43,6 +47,9 @@ code {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .sortButtons {
@@ -50,10 +57,21 @@ code {
   justify-content: center !important;
 }
 
+.sortBar {
+  background-color: #fffcf3;
+  margin: 30px;
+  border-radius: 5px;
+  border: #333 solid;
+}
+
 .productImage {
   width: 100% !important;
   height: 200px !important;
   object-fit: cover !important;
+}
+
+.dashboardCard {
+  margin-bottom: 30px;
 }
 
 .login-error {
@@ -72,6 +90,10 @@ code {
   padding: 30px;
   color: #ff5a5a;
   font-weight: bolder;
+}
+
+.formContainer {
+  margin-bottom: 30px;
 }
 
 .banana {

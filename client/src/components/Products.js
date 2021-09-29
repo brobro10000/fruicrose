@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Container, Row, Dropdown, Col, Button, Card, ButtonGroup } from "react-bootstrap";
+import { Container, Row, Dropdown, Col, Button, Card, ButtonGroup, Navbar } from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
 import banana from "../assets/images/banana.jpeg";
@@ -206,10 +206,11 @@ var increment = 0
 return (
   <Container>
     <h1 className="center">Shop fruits!</h1>
-    <Card body>
+    <Navbar bg="dark" className="sortBar">
+      <Container>
       <ButtonGroup>
         <Dropdown>
-          <Dropdown.Toggle id="dropdown-button-dark" variant="secondary">
+          <Dropdown.Toggle id="dropdown-button-dark" variant="success">
             Category
           </Dropdown.Toggle>
           <Dropdown.Menu variant="dark">
@@ -225,7 +226,7 @@ return (
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown>
-          <Dropdown.Toggle className="dropdown-button-dark" variant="secondary">
+          <Dropdown.Toggle className="dropdown-button-dark" variant="success">
             Sort By
           </Dropdown.Toggle>
           <Dropdown.Menu variant="dark">
@@ -245,7 +246,8 @@ return (
 
         <Button variant='warning' onClick={filterItem}>Reset</Button>
       </ButtonGroup>
-    </Card>
+      </Container>
+    </Navbar>
     <Row>
       {products.map((product) => {
 
