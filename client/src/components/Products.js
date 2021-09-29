@@ -201,6 +201,7 @@ if (!products?.length) {
 var increment = 0
 return (
   <Container>
+    <h1 className="center">Shop fruits!</h1>
     <Card body>
       <ButtonGroup>
         <Dropdown>

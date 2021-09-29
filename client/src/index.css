@@ -41,8 +41,11 @@ code {
   background-color: #fffcf3;
 }
 
-.topMargin {
-  margin-top: 50px !important;
+.center {
+  text-align: center;
+  padding: 30px;
+  color: #ff5a5a;
+  font-weight: bolder;
 }
 
 .banana {

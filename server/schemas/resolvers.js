@@ -102,6 +102,11 @@ const resolvers = {
 
       return { token, user };
     },
+    updateProduct: async (parent, { _id, stock }) => {
+      const decrement = Math.abs(stock) * -1;
+
+      return await Product.findByIdAndUpdate(_id, { $inc: { stock: decrement } }, { new: true });
+    },
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
