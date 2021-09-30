@@ -15,6 +15,7 @@ db.once("open", async () => {
     { name: "Berries" },
     { name: "Melons" },
     { name: "Stone Fruit" },
+    { name: "Meatloaf" },
   ]);
 
   console.log("categories seeded");
@@ -115,7 +116,14 @@ db.once("open", async () => {
       unit: "lb",
       categories: categories[2]._id,
     },
-    
+    {
+      name: "Good meatloaf",
+      description: "This ones for you, Lee.",
+      price: 500,
+      stock: 6,
+      unit: "meatloaf",
+      categories: categories[6]._id,
+    },
   ]);
 
   console.log("products seeded");

@@ -102,14 +102,27 @@ const resolvers = {
 
       return { token, user };
     },
-    updateProduct: async (parent, { products, stock }) => {
-      const decrement = Math.abs(stock) * -1;
-
-      return await Product.findByIdAndUpdate(
-        products,
-        { $inc: { stock: decrement } },
-        { new: true }
-      );
+    updateProduct: async (parent, args) => {
+      // const decrement = Math.abs(stock) * -1;
+      // console.log(products.stock,stock)
+      // console.log(args)
+      // return await Product.updateMany(
+      //   {_id:args.products},
+      //   {$inc: {stock:-1*args.stock[0]}},
+      //   { new: true }
+      // );
+      return Product.find(
+        {_id:args.products}
+      ).then(data => {
+        var i = 0
+        data.forEach(item => {
+          Product.findOneAndUpdate(
+            {_id:args.products[i]},
+            {$inc: {stock:-1*args.stock[i++]}},
+            {new:true}
+          ).then(data => console.log(parent))
+        })
+      })
     },
     addOrder: async (parent, { products }, context) => {
       console.log(context);

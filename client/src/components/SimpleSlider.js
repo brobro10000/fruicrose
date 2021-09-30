@@ -34,8 +34,6 @@ export default function SimpleSlider() {
             <div>
               <h3>6</h3>
             </div>
-
-            
           </Slider>
         </Col>
       </Row>

@@ -22,6 +22,7 @@ const productSchema = new Schema(
       type: Number,
       required: true,
       min: 0,
+      default: 0,
     },
     unit: {
       type: String,

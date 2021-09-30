@@ -81,11 +81,13 @@ function CartProduct({ product }) {
           />
           <InputGroup.Text>{product.unit}s</InputGroup.Text>
         </InputGroup>
-        <ListGroup.Item>Price: ${totalItemPrice(product)}</ListGroup.Item>
         <ListGroup.Item>
-          <Button onClick={() => removeFromCart(product)} variant="danger">
+          <div className="removeContainer">
+          <Card.Title>Price: ${totalItemPrice(product)}</Card.Title>
+          <Button onClick={() => removeFromCart(product)} variant="danger" size="sm">
             Remove From Cart
           </Button>
+          </div>
         </ListGroup.Item>
       </ListGroup>
     </Card>

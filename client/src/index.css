@@ -1,20 +1,25 @@
-* {
-  font-family: 'Quicksand', sans-serif;
-}
-
 body {
   margin: 0;
+  margin-bottom: 100px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/images/fruitbackground.jpeg);
 }
-
+.wrapper {
+  margin-bottom: 100px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* .background {
+  background-image: url(./assets/images/fruitbackground.jpeg);
+  
+} */
 
 #dancingFruit {
   background-image: linear-gradient(
@@ -28,12 +33,23 @@ code {
   padding: 5px;
 }
 
-#footer {
+/* #footer {
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
+} */
+.footer-container {
+  justify-content: center !important;
 }
+
+/* .productContainer {
+  margin-bottom: 100px !important;
+}
+
+.margin {
+  margin-bottom: 50px !important;
+} */
 
 .myName {
   background-image: linear-gradient(
@@ -47,9 +63,6 @@ code {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
 }
 
 .sortButtons {
@@ -57,21 +70,10 @@ code {
   justify-content: center !important;
 }
 
-.sortBar {
-  background-color: #fffcf3;
-  margin: 30px;
-  border-radius: 5px;
-  border: #333 solid;
-}
-
 .productImage {
   width: 100% !important;
   height: 200px !important;
   object-fit: cover !important;
-}
-
-.dashboardCard {
-  margin-bottom: 30px;
 }
 
 .login-error {
@@ -85,15 +87,24 @@ code {
   background-color: #fffcf3;
 }
 
-.center {
-  text-align: center;
-  padding: 30px;
-  color: #ff5a5a;
-  font-weight: bolder;
+.removeContainer {
+  display: flex !important;
+  justify-content: space-between !important;
 }
 
-.formContainer {
-  margin-bottom: 30px;
+.centerContainer {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.center {
+  width: fit-content;
+  background-color: #fffcf3;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 20px;
+  color: #ff5a5a;
+  font-weight: bolder;
 }
 
 .banana {
@@ -832,7 +843,7 @@ code {
   align-self: center;
 }
 
-#modalObject {
+/* #modalObject {
   border-radius: 5px;
   padding: 4px;
   background-image: linear-gradient(
@@ -843,27 +854,49 @@ code {
     #ff5a5a,
     #c660ff
   );
-}
+} */
 
 .modalObject {
+  /* border-style: solid;
   border-radius: 5px;
   padding: 4px;
-  background-image: linear-gradient(
-    to top,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  color: #000; */
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
 
 .modalBorder {
+  border-style: solid;
   border-radius: 5px;
   padding: 4px;
   place-content: center;
 }
-
+.contactUsBtn {
+  font-size: larger !important;
+}
+.formContent {
+  margin: 5px;
+  padding: 15px;
+}
+.toastContainer {
+  text-align: -webkit-center;
+}
+.formContainer {
+  padding-bottom: 2.5px !important;
+  padding-left: 2.5px !important;
+  padding-right: 2.5px !important;
+  padding-top: 2.5px !important;
+  text-align: center;
+  margin: 25px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to top,
+    #93ff68,
+    #e4ff55,
+    #ffb543,
+    #ff5a5a,
+    #c660ff
+  );
+}
 .background-center {
   text-align: -webkit-center;
 }

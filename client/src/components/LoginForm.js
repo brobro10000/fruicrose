@@ -53,13 +53,12 @@ function LoginForm() {
       </Form.Group>
       {error ? (
         <div>
-          <p class="login-error">
+          <p className="login-error">
             🍓 We're Berry Sorry, You Have Entered Invalid Information.🍓
           </p>
         </div>
       ) : null}
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
       <Button variant="primary" type="submit">
         Submit
       </Button>
