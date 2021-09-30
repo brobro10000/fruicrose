@@ -47,13 +47,9 @@ code {
   justify-content: center !important;
 }
 
-/* .productContainer {
-  margin-bottom: 100px !important;
+.dashboardCard {
+  margin: 20px;
 }
-
-.margin {
-  margin-bottom: 50px !important;
-} */
 
 .myName {
   background-image: linear-gradient(
