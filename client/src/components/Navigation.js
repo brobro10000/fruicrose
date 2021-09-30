@@ -102,7 +102,8 @@ function Navigation() {
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           <h1 className="myName">
-            <i className={fruit}></i> Fruicrose{" "}
+            <i className={fruit}></i>
+            {" "}Fruicrose{" "}
           </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

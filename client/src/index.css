@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(./assets/images/fruitbackground.jpeg);
 }
 .wrapper {
   margin-bottom: 100px;
@@ -14,6 +15,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* .background {
+  background-image: url(./assets/images/fruitbackground.jpeg);
+  
+} */
+
+#dancingFruit {
+  background-image: linear-gradient(
+    to left,
+    #93ff68,
+    #e4ff55,
+    #ffb543,
+    #ff5a5a,
+    #c660ff
+  );
+  padding: 5px;
+}
+
+/* #footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */
+.footer-container {
+  justify-content: center !important;
+}
+
+/* .productContainer {
+  margin-bottom: 100px !important;
+}
+
+.margin {
+  margin-bottom: 50px !important;
+} */
 
 .myName {
   background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
@@ -49,9 +85,25 @@ code {
   justify-content: space-between !important;
 }
 
+.checkoutContainer {
+  background-color: #fffcf3;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.centerContainer {
+  display: flex !important;
+  justify-content: center !important;
+}
+
 .center {
-  text-align: center;
-  padding: 30px;
+  width: fit-content;
+  background-color: #fffcf3;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 20px;
   color: #ff5a5a;
   font-weight: bolder;
 }

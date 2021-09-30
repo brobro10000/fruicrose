@@ -70,16 +70,20 @@ function Cart() {
         <div>
           {cart.length ? (
             <div>
+              <div className="centerContainer">
               <h1 className="center">Your Cart</h1>
+              </div>
               <Container>
               {cart.map((product) => (
                 <CartProduct key={product._id} product={product} />
               ))}
-              <h2>Total Price: ${totalCartPrice()}</h2>
               {completeCheckout === 0 ? (
+                <div className="checkoutContainer">
+                <h2>Total Price: ${totalCartPrice()}</h2>
                 <Button variant="success" onClick={submitCheckout} size="lg">
                   Checkout
                 </Button>
+                </div>
               ) : (
                 <Loading />
               )}
