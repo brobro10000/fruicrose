@@ -74,6 +74,7 @@ code {
   width: 100% !important;
   height: 200px !important;
   object-fit: cover !important;
+  border-radius: 10px !important;
 }
 
 .login-error {
@@ -113,6 +114,7 @@ code {
   margin: 20px;
   color: #ff5a5a;
   font-weight: bolder;
+  font-size: 50px;
 }
 
 .banana {
@@ -120,6 +122,7 @@ code {
   width: 0.3em;
   height: 0.3em;
   position: relative;
+  z-index: 9999999;
 
   box-shadow: 40px 120px #000, 40px 125px #000, 40px 130px #000, 40px 135px #000,
     40px 160px #000, 40px 165px #000, 45px 115px #000, 45px 135px #000,
@@ -867,6 +870,10 @@ code {
   z-index: 9999;
 }
 
+/* .hero {
+  border: solid 3px #333;
+} */
+
 #modalObject {
   border-radius: 5px;
   padding: 4px;
@@ -882,11 +889,10 @@ code {
 }
 
 .modalObject {
-  /* border-style: solid;
+  border-style: solid;
   border-radius: 5px;
   padding: 4px;
-  color: #000; */
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  color: #000;
 }
 
 .modalBorder {
@@ -897,6 +903,7 @@ code {
 }
 .contactUsBtn {
   font-size: larger !important;
+  margin: 30px;
 }
 .formContent {
   margin: 5px;
@@ -932,6 +939,31 @@ code {
   margin: 5px;
 }
 
-.marginBottom {
-  margin-bottom: 100px;
+.roundedBorder {
+  border-radius: 10px !important;
+  border: 2px solid rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.newBorder {
+  border: 1px solid rgba(0, 0, 0, 0.5) !important;
+}
+
+.heroBorder {
+  border: 1px solid rgba(0, 0, 0, 0.8) !important;
+  border-radius: 3px !important;
+}
+
+.cartImage {
+  flex: content;
+  justify-content: space-around;
+  height: auto !important ;
+  width: 100% !important;
+  max-width: 400px !important;
+}
+
+.cartBorder {
+  border-radius: 10px !important;
+  border: 1px solid rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1) !important;
 }

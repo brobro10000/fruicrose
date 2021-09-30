@@ -94,7 +94,7 @@ function SingleProduct(item) {
         <Card
           key={name}
           style={{ width: "18rem", margin: "10px" }}
-          className="modalObject border border-dark"
+          className="modalObject roundedBorder"
         >
           <Image
             className="productImage"

@@ -12,7 +12,7 @@ const Home = () => {
       <Hero />
       <Products />
       <Container className='toastContainer'>
-        <Button variant='success' onClick={toggleShowA} className="contactUsBtn mb-2">
+        <Button variant='success' size="lg" onClick={toggleShowA} className="contactUsBtn newBorder mb-2">
           Contact Us
         </Button>
         <Toast className='modalObject' show={showA} onClose={toggleShowA}>

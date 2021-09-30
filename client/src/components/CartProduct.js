@@ -4,6 +4,10 @@ import {
   InputGroup,
   FormControl,
   Button,
+  Container,
+  Row,
+  Col,
+  Image,
 } from "react-bootstrap";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { QUERY_ONE_PRODUCT } from "../utils/queries";
@@ -65,31 +69,49 @@ function CartProduct({ product }) {
   };
 
   return (
-    <Card>
-      <Card.Header>
-        <Card.Title>{product.name}</Card.Title>
-      </Card.Header>
-      <ListGroup>
-        <InputGroup>
-          <InputGroup.Text>Quantity:</InputGroup.Text>
-          <FormControl
-            type="number"
-            placeholder="1"
-            value={product.purchaseQuantity}
-            onChange={quantityChange}
-            aria-label="Product quantity"
-          />
-          <InputGroup.Text>{product.unit}s</InputGroup.Text>
-        </InputGroup>
-        <ListGroup.Item>
-          <div className="removeContainer">
-          <Card.Title>Price: ${totalItemPrice(product)}</Card.Title>
-          <Button onClick={() => removeFromCart(product)} variant="danger" size="sm">
-            Remove From Cart
-          </Button>
-          </div>
-        </ListGroup.Item>
-      </ListGroup>
+    <Card className="background-center modalObject newBorder">
+      <Container>
+        <Row>
+          <Col md={6}>
+            <Image
+              className="cartImage roundedBorder"
+              // className="productImage"
+              src={product.imageLink}
+              alt="test"
+            />
+          </Col>
+          <Col md={5}>
+            <Card.Header>
+              <Card.Title>{product.name}</Card.Title>
+            </Card.Header>
+            <ListGroup>
+              <InputGroup>
+                <InputGroup.Text>Quantity:</InputGroup.Text>
+                <FormControl
+                  type="number"
+                  placeholder="1"
+                  value={product.purchaseQuantity}
+                  onChange={quantityChange}
+                  aria-label="Product quantity"
+                />
+                <InputGroup.Text>{product.unit}s</InputGroup.Text>
+              </InputGroup>
+              <ListGroup.Item>
+                <div className="removeContainer">
+                  <Card.Title>Price: ${totalItemPrice(product)}</Card.Title>
+                  <Button
+                    onClick={() => removeFromCart(product)}
+                    variant="danger"
+                    size="sm"
+                  >
+                    Remove From Cart
+                  </Button>
+                </div>
+              </ListGroup.Item>
+            </ListGroup>
+          </Col>
+        </Row>
+      </Container>
     </Card>
   );
 }
