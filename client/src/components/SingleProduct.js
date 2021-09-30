@@ -14,16 +14,8 @@ import { UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 
 function SingleProduct(item) {
-  const {
-    _id,
-    name,
-    description,
-    price,
-    stock,
-    unit,
-    categories,
-    imageLink,
-  } = item;
+  const { _id, name, description, price, stock, unit, categories, imageLink } =
+    item;
   const cart = useSelector((state) => state.cart);
   const itemInCart = cart.find((cartItem) => cartItem._id === _id);
   const [inputValue, setInputValue] = useState(1);
@@ -37,7 +29,7 @@ function SingleProduct(item) {
     if (itemInCart) {
       setStockValue(stockValue - itemInCart.purchaseQuantity);
     }
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const addToCart = () => {
@@ -84,7 +76,7 @@ function SingleProduct(item) {
         <Card
           key={name}
           style={{ width: "18rem", margin: "10px" }}
-          className="modalObject"
+          className="modalObject border border-dark"
         >
           <Image
             className="productImage"
