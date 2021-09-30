@@ -26,9 +26,9 @@ function Success() {
         const { data } = await addOrder({ variables: { products } });
         const productData = data.addOrder.products;
 
-        await updateProduct({
-          variables: { products: productIds, stock: quantity },
-        });
+        // await updateProduct({
+        //   variables: { products: productIds, stock: quantity },
+        // });
 
         productData.forEach((item) => {
           idbPromise("cart", "delete", item);
@@ -43,7 +43,7 @@ function Success() {
 
     console.log(addOrder);
     saveOrder();
-  }, [addOrder, updateProduct]);
+  }, [addOrder]);
 
   return (
     <div>
