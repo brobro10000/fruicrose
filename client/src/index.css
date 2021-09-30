@@ -856,7 +856,7 @@ code {
   padding-bottom: 5px;
 }
 
-/* #modalObject {
+#modalObject {
   border-radius: 5px;
   padding: 4px;
   background-image: linear-gradient(
@@ -867,7 +867,7 @@ code {
     #ff5a5a,
     #c660ff
   );
-} */
+}
 
 .modalObject {
   border-style: solid;
