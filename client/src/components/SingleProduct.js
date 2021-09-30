@@ -23,7 +23,6 @@ function SingleProduct(item) {
     unit,
     categories,
     imageLink,
-    count,
   } = item;
   const cart = useSelector((state) => state.cart);
   const itemInCart = cart.find((cartItem) => cartItem._id === _id);
@@ -38,6 +37,7 @@ function SingleProduct(item) {
     if (itemInCart) {
       setStockValue(stockValue - itemInCart.purchaseQuantity);
     }
+     // eslint-disable-next-line
   }, []);
 
   const addToCart = () => {
@@ -118,7 +118,7 @@ function SingleProduct(item) {
                   />
                   <label
                     className="quantityUnit"
-                    for={name.toLowerCase().replace(" ", "")}
+                    htmlFor={name.toLowerCase().replace(" ", "")}
                     value={name.toLowerCase().replace(" ", "")}
                   >
                     {unit}s

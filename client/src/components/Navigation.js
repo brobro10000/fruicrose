@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Nav, Navbar, Container,Image } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
@@ -50,6 +50,7 @@ function Navigation() {
   useEffect(() => {
     var randomIndex = getRandom(0, fruitIcons.length - 1);
     return setFruit(fruitIcons[randomIndex]);
+     // eslint-disable-next-line
   }, [fruit]);
 
   function showNavButtons() {

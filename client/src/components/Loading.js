@@ -4,13 +4,13 @@ function Loading() {
     <Container>
       <Row>
         <Col className="mt-5" xs s md lg={4}>
-          <div class="banana"></div>
+          <div className="banana"></div>
         </Col>
         <Col className="mt-5" xs s md lg={4}>
-          <div class="banana"></div>
+          <div className="banana"></div>
         </Col>
         <Col className="mt-5" xs s md lg={4}>
-          <div class="banana"></div>
+          <div className="banana"></div>
         </Col>
       </Row>
     </Container>
