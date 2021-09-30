@@ -13,6 +13,7 @@ function Quantity({productIDs,quantity}) {
             variables: {products:productIDs, stock:quantity}
         })
     }
+     // eslint-disable-next-line
     }, [productIDs, quantity])
  
     return (

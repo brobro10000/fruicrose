@@ -169,6 +169,7 @@ function Products() {
 
     allSorts.push(alphabetical, reverseAlphabetical, price, reversePrice);
     return selectSort(allSorts);
+     // eslint-disable-next-line
   }, [products]);
 
   function sortBy(e) {
@@ -219,8 +220,9 @@ function Products() {
   var increment = 0;
   return (
     <Container>
+      <div className="centerContainer">
       <h1 className="center">Shop fruits!</h1>
-
+      </div>
       <Nav className="justify-content-center margin" activeKey="/home">
         <Nav.Item>
           <Dropdown>

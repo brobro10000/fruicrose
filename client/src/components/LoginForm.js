@@ -53,7 +53,7 @@ function LoginForm() {
       </Form.Group>
       {error ? (
         <div>
-          <p class="login-error">
+          <p className="login-error">
             🍓 We're Berry Sorry, You Have Entered Invalid Information.🍓
           </p>
         </div>

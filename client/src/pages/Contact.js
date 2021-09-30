@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Row,Col } from "react-bootstrap";
 import { validateEmail, capitalizeFirstLetter } from "../utils/helpers";
 
-function Contact() {
+function Contact(props) {
   const [state, handleSubmit] = useForm("xyylldzy");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [home, isHome] = useState("formContainer")
+  useEffect(()=> {
+    if(props.home === 0){
+      return isHome("none")
+    }
+  },[])
   if (state.succeeded) {
     return <p id="returnMessage">We Received your Message!</p>;
   }
@@ -31,12 +36,12 @@ function Contact() {
     }
   }
   return (
-    <Container id="formContainer" className="formContainer">
+    <Container className={home}>
+      <Form className='formContent cardBackground' onSubmit={handleSubmit}>
       <h1 style={{ textAlign: "center", margin: "30px" }}>
-        Questions? Leave us a message!
+        Questions? <p>Leave us a message!</p>
       </h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
+        <Form.Group className='formContent'>
           <Form.Label className="form-labels" htmlFor="name">
             Full Name
           </Form.Label>
@@ -86,10 +91,12 @@ function Contact() {
             field="message"
             errors={state.errors}
           />
-          <Container className="buttonContainer">
+          <Container style={{textAlign:'center', margin: '5px'}} className="buttonContainer">
             <Button
               className="submitButton"
+              variant='success'
               type="submit"
+              style={{textAlign:'center'}}
               disabled={state.submitting}
             >
               Submit

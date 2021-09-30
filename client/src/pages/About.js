@@ -1,4 +1,4 @@
-import { Container, Card, Row, Col, Image, Nav } from "react-bootstrap";
+import { Container, Card, Row, Col, Image } from "react-bootstrap";
 import botanist from "../assets/images/Botanist.svg";
 import logo from "../assets/images/LogoFruicrose.png";
 function About() {
