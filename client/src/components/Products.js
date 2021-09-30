@@ -214,7 +214,9 @@ function Products() {
   return (
     <Container>
       <div className="centerContainer">
+
         <h1 className="center newBorder">Shop fruits!</h1>
+
       </div>
       <Nav className="justify-content-center margin" activeKey="/home">
         <Nav.Item>

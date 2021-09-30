@@ -854,15 +854,28 @@ code {
 }
 
 .navbarBackground {
-  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  background-image: linear-gradient(
+    to left,
+    #93ff68,
+    #e4ff55,
+    #ffb543,
+    #ff5a5a,
+    #c660ff
+  );
   padding-bottom: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
+
 
 .hero {
   border: solid 3px #333;
 }
 
 /* #modalObject {
+
   border-radius: 5px;
   padding: 4px;
   background-image: linear-gradient(
@@ -873,15 +886,17 @@ code {
     #ff5a5a,
     #c660ff
   );
-} */
+  margin-top: 120px;
+}
 
 .modalObject {
   border-style: solid;
   border-radius: 5px;
   padding: 4px;
   color: #000;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-}
+
+  box-shadow: 6px 6px 2px 1px rgba(70, 70, 209, 0.3);
+
 
 .modalBorder {
   border-style: solid;
@@ -934,4 +949,8 @@ code {
 
 .newBorder {
   border: 1px solid rgba(0, 0, 0, .5) !important;  
+}
+
+.marginBottom {
+  margin-bottom: 100px;
 }
