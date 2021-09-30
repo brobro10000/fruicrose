@@ -114,6 +114,7 @@ code {
   margin: 20px;
   color: #ff5a5a;
   font-weight: bolder;
+  font-size: 50px;
 }
 
 .banana {
@@ -868,7 +869,13 @@ code {
   z-index: 9999;
 }
 
-#modalObject {
+
+.hero {
+  border: solid 3px #333;
+}
+
+/* #modalObject {
+
   border-radius: 5px;
   padding: 4px;
   background-image: linear-gradient(
@@ -887,8 +894,9 @@ code {
   border-radius: 5px;
   padding: 4px;
   color: #000;
+
   box-shadow: 6px 6px 2px 1px rgba(70, 70, 209, 0.3);
-}
+
 
 .modalBorder {
   border-style: solid;
@@ -898,6 +906,7 @@ code {
 }
 .contactUsBtn {
   font-size: larger !important;
+  margin: 30px;
 }
 .formContent {
   margin: 5px;
@@ -941,6 +950,7 @@ code {
 .newBorder {
   border: 1px solid rgba(0, 0, 0, .5) !important;  
 }
+
 .marginBottom {
   margin-bottom: 100px;
 }
