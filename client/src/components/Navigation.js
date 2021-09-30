@@ -90,7 +90,6 @@ function Navigation() {
   }
 
   return (
-    <div className='navbarBackground'>
     <Navbar
       id="headerNav"
       collapseOnSelect
@@ -123,7 +122,6 @@ function Navigation() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    </div>
   );
 }
 

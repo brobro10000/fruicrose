@@ -71,7 +71,7 @@ function Cart() {
           {cart.length ? (
             <div>
               <div className="centerContainer">
-              <h1 className="center">Your Cart</h1>
+              <h1 className="center newBorder">Your Cart</h1>
               </div>
               <Container>
               {cart.map((product) => (

@@ -114,6 +114,7 @@ code {
   margin: 20px;
   color: #ff5a5a;
   font-weight: bolder;
+  font-size: 50px;
 }
 
 .banana {
@@ -851,12 +852,18 @@ code {
 #aboutText2 {
   align-self: center;
 }
+
 .navbarBackground {
   background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
   padding-bottom: 5px;
 }
 
-#modalObject {
+
+.hero {
+  border: solid 3px #333;
+}
+
+/* #modalObject {
   border-radius: 5px;
   padding: 4px;
   background-image: linear-gradient(
@@ -885,6 +892,7 @@ code {
 }
 .contactUsBtn {
   font-size: larger !important;
+  margin: 30px;
 }
 .formContent {
   margin: 5px;
