@@ -93,6 +93,14 @@ code {
   justify-content: space-between !important;
 }
 
+.checkoutContainer {
+  background-color: #fffcf3;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
 .centerContainer {
   display: flex !important;
   justify-content: center !important;
@@ -844,6 +852,22 @@ code {
   align-self: center;
 }
 
+.navbarBackground {
+  background-image: linear-gradient(
+    to left,
+    #93ff68,
+    #e4ff55,
+    #ffb543,
+    #ff5a5a,
+    #c660ff
+  );
+  padding-bottom: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
 #modalObject {
   border-radius: 5px;
   padding: 4px;
@@ -855,6 +879,7 @@ code {
     #ff5a5a,
     #c660ff
   );
+  margin-top: 120px;
 }
 
 .modalObject {
@@ -862,7 +887,7 @@ code {
   border-radius: 5px;
   padding: 4px;
   color: #000;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  box-shadow: 6px 6px 2px 1px rgba(70, 70, 209, 0.3);
 }
 
 .modalBorder {
@@ -915,4 +940,7 @@ code {
 
 .newBorder {
   border: 1px solid rgba(0, 0, 0, .5) !important;  
+}
+.marginBottom {
+  margin-bottom: 100px;
 }
