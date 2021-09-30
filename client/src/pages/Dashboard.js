@@ -39,7 +39,7 @@ function Dashboard() {
       {user && user.orders ? (
         <>
           <div className="centerContainer">
-          <h1 className="center">Hello {user.username}!</h1>
+          <h1 className="center newBorder">Hello {user.username}!</h1>
           </div>
           <h2>Orders:</h2>
           {user.orders.map((order) => (
