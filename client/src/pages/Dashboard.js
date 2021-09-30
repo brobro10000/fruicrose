@@ -41,7 +41,9 @@ function Dashboard() {
           <div className="centerContainer">
           <h1 className="center newBorder">Hello {user.username}!</h1>
           </div>
-          <h2>Orders:</h2>
+          <div className="centerContainer">
+          <h2 className="center newBorder">Orders:</h2>
+          </div>
           {user.orders.map((order) => (
             <Card key={order._id} className="dashboardCard">
               <Card.Header>
