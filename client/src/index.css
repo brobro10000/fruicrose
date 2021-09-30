@@ -850,12 +850,24 @@ code {
 #aboutText2 {
   align-self: center;
 }
+
 .navbarBackground {
-  background-image: linear-gradient(to left, 	#93ff68, #e4ff55, #ffb543, #ff5a5a, #c660ff);
+  background-image: linear-gradient(
+    to left,
+    #93ff68,
+    #e4ff55,
+    #ffb543,
+    #ff5a5a,
+    #c660ff
+  );
   padding-bottom: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
-/* #modalObject {
+#modalObject {
   border-radius: 5px;
   padding: 4px;
   background-image: linear-gradient(
@@ -866,7 +878,8 @@ code {
     #ff5a5a,
     #c660ff
   );
-} */
+  margin-top: 120px;
+}
 
 .modalObject {
   /* border-style: solid;
@@ -917,4 +930,8 @@ code {
 }
 .quantityCol {
   margin: 5px;
+}
+
+.marginBottom {
+  margin-bottom: 100px;
 }

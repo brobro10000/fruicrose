@@ -43,26 +43,28 @@ const client = new ApolloClient({
 function App() {
   return (
     <>
-    <div className='wrapper'>
-    <ApolloProvider client={client}>
-      <Router>
-        <Provider store={store}>
-          <Navigation />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/products" component={Products} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/cart" component={Cart} />
-          <Route exact path="/success" component={Success} />
-          <Route exact path="/slider" component={SimpleSlider} />
-        </Provider>
-      </Router>
-    </ApolloProvider>
-    </div>
-    <footer>
-      <Footer />
-    </footer>
+      <div className="wrapper">
+        <ApolloProvider client={client}>
+          <Router>
+            <Provider store={store}>
+              <div className='marginBottom'>
+                <Navigation />
+              </div>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/products" component={Products} />
+              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/cart" component={Cart} />
+              <Route exact path="/success" component={Success} />
+              <Route exact path="/slider" component={SimpleSlider} />
+            </Provider>
+          </Router>
+        </ApolloProvider>
+      </div>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
