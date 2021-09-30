@@ -74,6 +74,7 @@ code {
   width: 100% !important;
   height: 200px !important;
   object-fit: cover !important;
+  border-radius: 10px !important;
 }
 
 .login-error {
@@ -857,10 +858,10 @@ code {
 } */
 
 .modalObject {
-  /* border-style: solid;
+  border-style: solid;
   border-radius: 5px;
   padding: 4px;
-  color: #000; */
+  color: #000;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 }
 
@@ -905,4 +906,13 @@ code {
 }
 .quantityCol {
   margin: 5px;
+}
+
+.roundedBorder {
+  border-radius: 10px !important;
+  border: 2px solid rgba(0, 0, 0, 0.4) !important;
+}
+
+.newBorder {
+  border: 1px solid rgba(0, 0, 0, .5) !important;  
 }
