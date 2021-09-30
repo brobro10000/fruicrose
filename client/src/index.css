@@ -858,6 +858,7 @@ code {
   padding-bottom: 5px;
 }
 
+
 .hero {
   border: solid 3px #333;
 }
@@ -873,7 +874,7 @@ code {
     #ff5a5a,
     #c660ff
   );
-} */
+}
 
 .modalObject {
   border-style: solid;
