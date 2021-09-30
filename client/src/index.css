@@ -894,10 +894,6 @@ code {
     #ff5a5a,
     #c660ff
   );
-<<<<<<< HEAD
-  margin-top: 120px;
-=======
->>>>>>> 5951fbfdf2b62370d301c4080d35bccf64b17496
 }
 
 .modalObject {
@@ -905,10 +901,6 @@ code {
   border-radius: 5px;
   padding: 4px;
   color: #000;
-<<<<<<< HEAD
-  box-shadow: 6px 6px 2px 1px rgba(70, 70, 209, 0.3);
-=======
->>>>>>> main
 }
 
 .modalBorder {
@@ -964,11 +956,9 @@ code {
 .newBorder {
   border: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
-<<<<<<< HEAD
+
 .marginBottom {
   margin-bottom: 100px;
-=======
-
 .heroBorder {
   border: 1px solid rgba(0, 0, 0, 0.8) !important;
   border-radius: 3px !important;
@@ -986,5 +976,4 @@ code {
   border-radius: 10px !important;
   border: 1px solid rgba(0, 0, 0, 0.6) !important;
   box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 1) !important;
->>>>>>> main
 }
