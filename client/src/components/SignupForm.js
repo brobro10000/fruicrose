@@ -63,8 +63,7 @@ function SignupForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
       <Button variant="primary" type="submit">
         Submit
       </Button>

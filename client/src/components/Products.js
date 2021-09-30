@@ -3,7 +3,16 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import { Container, Row, Dropdown, Col, Button, Card, ButtonGroup, Navbar } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Dropdown,
+  Col,
+  Button,
+  Card,
+  ButtonGroup,
+  Navbar,
+} from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
 import banana from "../assets/images/banana.jpeg";
@@ -33,13 +42,18 @@ function Products() {
     watermelon,
     goodmeatloaf,
   ];
-  const sortByArr = ["Alphabetical", "Reverse Alphabetical", "Price Ascending", "Price Descending"];
+  const sortByArr = [
+    "Alphabetical",
+    "Reverse Alphabetical",
+    "Price Ascending",
+    "Price Descending",
+  ];
   const products = useSelector((state) => state.products);
   const [categoryList, updateCategoryList] = useState(0);
   const dispatch = useDispatch();
-  const allSorts = []
+  const allSorts = [];
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
-  const [sortType, selectSort] = useState(0)
+  const [sortType, selectSort] = useState(0);
   async function loadInitialData() {
     if (data) {
       var productArr = data.products;
@@ -61,7 +75,7 @@ function Products() {
       data.products.forEach((product) => {
         idbPromise("products", "put", product);
       });
-    } else if(!loading) {
+    } else if (!loading) {
       idbPromise("products", "get").then((products) => {
         dispatch({
           type: UPDATE_PRODUCTS,
@@ -108,11 +122,11 @@ function Products() {
   }, [products]);
 
   useEffect(() => {
-    var temp = []
-    var alphabetical = []
-    var reverseAlphabetical = []
-    var price = []
-    var reversePrice = []
+    var temp = [];
+    var alphabetical = [];
+    var reverseAlphabetical = [];
+    var price = [];
+    var reversePrice = [];
 
     products.forEach((element) => {
       temp.push(element.name);
@@ -126,7 +140,7 @@ function Products() {
         }
       });
     });
-    temp.sort().reverse()
+    temp.sort().reverse();
     temp.forEach((element) => {
       products.forEach((item) => {
         if (item.name === element) {
@@ -155,9 +169,9 @@ function Products() {
       });
     });
 
-    allSorts.push(alphabetical,reverseAlphabetical,price,reversePrice)
-    return selectSort(allSorts)
-  }, [products])
+    allSorts.push(alphabetical, reverseAlphabetical, price, reversePrice);
+    return selectSort(allSorts);
+  }, [products]);
 
   function sortBy(e) {
     const sortedParam = e.target.innerHTML;
@@ -182,98 +196,104 @@ function Products() {
         products: sortType[3],
       });
     }
-}
-
-function filterItem(e) {
-  const filterCategory = e.target.innerHTML;
-  if (filterCategory === "Reset") {
-    return loadInitialData();
   }
-  var filteredCategories = [];
-  products.forEach((element) => {
-    if (element.categories[0].name === filterCategory) {
-      filteredCategories.push(element);
+
+  function filterItem(e) {
+    const filterCategory = e.target.innerHTML;
+    if (filterCategory === "Reset") {
+      return loadInitialData();
     }
-  });
-  dispatch({
-    type: UPDATE_PRODUCTS,
-    products: filteredCategories,
-  });
-}
-
-if (!products?.length) {
-  return <Loading />;
-}
-var increment = 0
-return (
-  <Container>
-    <h1 className="center">Shop fruits!</h1>
-    <Navbar bg="dark" className="sortBar">
-      <Container>
-      <ButtonGroup>
-        <Dropdown>
-          <Dropdown.Toggle id="dropdown-button-dark" variant="success">
-            Category
-          </Dropdown.Toggle>
-          <Dropdown.Menu variant="dark">
-            {categoryList
-              ? categoryList.map((product) => {
-                return (
-                  <Dropdown.Item key={product} onClick={filterItem}>
-                    {product}
-                  </Dropdown.Item>
-                );
-              })
-              : null}
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle className="dropdown-button-dark" variant="success">
-            Sort By
-          </Dropdown.Toggle>
-          <Dropdown.Menu variant="dark">
-            {sortByArr
-              ? sortByArr.map((type) => {
-                return (
-                  <Dropdown.Item key={type.toLowerCase().replace(" ", "")} onClick={sortBy}>
-                    <Row>
-                      <Col>{type}</Col>
-                    </Row>
-                  </Dropdown.Item>
-                );
-              })
-              : null}
-          </Dropdown.Menu>
-        </Dropdown>
-
-        <Button variant='warning' onClick={filterItem}>Reset</Button>
-      </ButtonGroup>
-      </Container>
-    </Navbar>
-    <Row>
-      {products.map((product) => {
-
-        return (
-          <Col>
-            <SingleProduct
-              key={product._id}
-              _id={product._id}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-              stock={product.stock}
-              unit={product.unit}
-              categories={product.categories}
-              imageLink={product.imageLink}
-              count={increment++ % 3}
-            />
-          </Col>
-        );
-      })
+    var filteredCategories = [];
+    products.forEach((element) => {
+      if (element.categories[0].name === filterCategory) {
+        filteredCategories.push(element);
       }
-    </Row>
-  </Container>
-);
+    });
+    dispatch({
+      type: UPDATE_PRODUCTS,
+      products: filteredCategories,
+    });
+  }
+
+  if (!products?.length) {
+    return <Loading />;
+  }
+  var increment = 0;
+  return (
+    <Container>
+      <h1 className="center">Shop fruits!</h1>
+      <Navbar bg="dark" className="sortBar">
+        <Container>
+          <ButtonGroup>
+            <Dropdown>
+              <Dropdown.Toggle id="dropdown-button-dark" variant="success">
+                Category
+              </Dropdown.Toggle>
+              <Dropdown.Menu variant="dark">
+                {categoryList
+                  ? categoryList.map((product) => {
+                      return (
+                        <Dropdown.Item key={product} onClick={filterItem}>
+                          {product}
+                        </Dropdown.Item>
+                      );
+                    })
+                  : null}
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown>
+              <Dropdown.Toggle
+                className="dropdown-button-dark"
+                variant="success"
+              >
+                Sort By
+              </Dropdown.Toggle>
+              <Dropdown.Menu variant="dark">
+                {sortByArr
+                  ? sortByArr.map((type) => {
+                      return (
+                        <Dropdown.Item
+                          key={type.toLowerCase().replace(" ", "")}
+                          onClick={sortBy}
+                        >
+                          <Row>
+                            <Col>{type}</Col>
+                          </Row>
+                        </Dropdown.Item>
+                      );
+                    })
+                  : null}
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <Button variant="warning" onClick={filterItem}>
+              Reset
+            </Button>
+          </ButtonGroup>
+        </Container>
+      </Navbar>
+      <Row>
+        {products.map((product) => {
+          return (
+            <Col>
+              <SingleProduct
+                key={product._id}
+                _id={product._id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                stock={product.stock}
+                unit={product.unit}
+                categories={product.categories}
+                imageLink={product.imageLink}
+                count={increment++ % 3}
+              />
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
+  );
 }
 
 export default Products;

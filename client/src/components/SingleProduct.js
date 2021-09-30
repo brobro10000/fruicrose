@@ -1,18 +1,34 @@
 import { useState, useEffect, useRef } from "react";
-import { Card, Image, Button, Modal, Row, Container, Col, Overlay } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
 import {
-  UPDATE_CART_QUANTITY,
-  ADD_TO_CART,
-} from "../utils/actions";
+  Card,
+  Image,
+  Button,
+  Modal,
+  Row,
+  Container,
+  Col,
+  Overlay,
+} from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { UPDATE_CART_QUANTITY, ADD_TO_CART } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 
 function SingleProduct(item) {
-  const { _id, name, description, price, stock, unit, categories, imageLink, count } = item;
+  const {
+    _id,
+    name,
+    description,
+    price,
+    stock,
+    unit,
+    categories,
+    imageLink,
+    count,
+  } = item;
   const cart = useSelector((state) => state.cart);
   const itemInCart = cart.find((cartItem) => cartItem._id === _id);
   const [inputValue, setInputValue] = useState(1);
-  const [stockValue, setStockValue] = useState(stock)
+  const [stockValue, setStockValue] = useState(stock);
   const dispatch = useDispatch();
 
   const [showPop, setShowPop] = useState(false);
@@ -20,21 +36,21 @@ function SingleProduct(item) {
 
   useEffect(() => {
     if (itemInCart) {
-       setStockValue(stockValue - itemInCart.purchaseQuantity)
+      setStockValue(stockValue - itemInCart.purchaseQuantity);
     }
-  }, [])
+  }, []);
 
   const addToCart = () => {
     const numValue = parseInt(inputValue);
     setStockValue(stockValue - numValue);
-    setInputValue(1)
+    setInputValue(1);
 
     if (isNaN(numValue) || numValue === 0) {
-      console.log('sorry!')
+      console.log("sorry!");
       return;
     } else if (stockValue <= 0) {
-      setStockValue(0)
-      setShowPop(true)
+      setStockValue(0);
+      setShowPop(true);
     } else if (itemInCart && itemInCart.purchaseQuantity >= stock) {
       itemInCart.purchaseQuantity = stock;
       return <div>no more!!</div>;
@@ -62,69 +78,93 @@ function SingleProduct(item) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  
-
   return (
     <>
-    <Container className='background-center'>
-    <Card key={name} style={{ width: "18rem", margin: "10px" }} className="modalObject">
-      <Image className="productImage" alt={name} variant="top" src={imageLink} onClick={handleShow}/>
-      <Card.Body className='cardBackground'>
-        <Card.Title>{name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">
-          {categories[0].name}
-        </Card.Subtitle>
-        <Card.Text>Quantity: {stockValue}</Card.Text>
-        <Card.Text>
-          Price: ${price.toFixed(2)} per {unit}
-        </Card.Text>
-        <Container>
-        <Row>
-        <Col className ='quantityCol' md={12}>
-        <input ref={target}
-         type="number"
-         min="1"
-         max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
-         id={name.toLowerCase().replace(" ", "")}
-         value={inputValue}
-         onChange={(e) => setInputValue(e.target.value)}
-         />
-        <label className='quantityUnit' for={name.toLowerCase().replace(" ", "")} value={name.toLowerCase().replace(" ", "")}>{unit}s</label>
-         </Col>
-         <Col className ='quantityCol' md={12}>
-        <Button variant="success" onClick={addToCart}>Add to cart</Button>
-        </Col>
-        <Col className ='quantityCol' md={12}>
-        <Button variant="secondary" onClick={handleShow}>Details</Button>
-        </Col>
-        </Row>
-        </Container>
-      </Card.Body>
-    </Card>
-    </Container>
+      <Container className="background-center">
+        <Card
+          key={name}
+          style={{ width: "18rem", margin: "10px" }}
+          className="modalObject"
+        >
+          <Image
+            className="productImage"
+            alt={name}
+            variant="top"
+            src={imageLink}
+            onClick={handleShow}
+          />
+          <Card.Body className="cardBackground">
+            <Card.Title>{name}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">
+              {categories[0].name}
+            </Card.Subtitle>
+            <Card.Text>Quantity: {stockValue}</Card.Text>
+            <Card.Text>
+              Price: ${price.toFixed(2)} per {unit}
+            </Card.Text>
+            <Container>
+              <Row>
+                <Col className="quantityCol" md={12}>
+                  <input
+                    ref={target}
+                    type="number"
+                    min="1"
+                    max={
+                      itemInCart ? stock - itemInCart.purchaseQuantity : stock
+                    }
+                    id={name.toLowerCase().replace(" ", "")}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                  />
+                  <label
+                    className="quantityUnit"
+                    for={name.toLowerCase().replace(" ", "")}
+                    value={name.toLowerCase().replace(" ", "")}
+                  >
+                    {unit}s
+                  </label>
+                </Col>
+                <Col className="quantityCol" md={12}>
+                  <Button variant="success" onClick={addToCart}>
+                    Add to cart
+                  </Button>
+                </Col>
+                <Col className="quantityCol" md={12}>
+                  <Button variant="secondary" onClick={handleShow}>
+                    Details
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
+          </Card.Body>
+        </Card>
+      </Container>
 
-
-    <Modal show={show} onHide={handleClose} size="lg" id="modalObject">
+      <Modal show={show} onHide={handleClose} size="lg" id="modalObject">
         <Modal.Header>
           <Modal.Title>{name}</Modal.Title>
           <Modal.Title>{categories[0].name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <h5>Quantity: {stockValue}</h5>
-          <h5>Price: ${price.toFixed(2)} per {unit}</h5>
+          <h5>
+            Price: ${price.toFixed(2)} per {unit}
+          </h5>
           <p>{description}</p>
         </Modal.Body>
         <Modal.Footer>
           <input
-          type="number"
-          min="1"
-          max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
-          id={name.toLowerCase().replace(" ", "")}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+            type="number"
+            min="1"
+            max={itemInCart ? stock - itemInCart.purchaseQuantity : stock}
+            id={name.toLowerCase().replace(" ", "")}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
           <span>{unit}s</span>
-          <Button variant="success" onClick={addToCart}>Add To Cart</Button>
+          <Button variant="success" onClick={addToCart}>
+            Add To Cart
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
@@ -136,9 +176,9 @@ function SingleProduct(item) {
           <div
             {...props}
             style={{
-              backgroundColor: 'rgba(255, 100, 100, 0.85)',
-              padding: '2px 10px',
-              color: 'white',
+              backgroundColor: "rgba(255, 100, 100, 0.85)",
+              padding: "2px 10px",
+              color: "white",
               borderRadius: 3,
               ...props.style,
             }}
