@@ -8,7 +8,7 @@ const Home = () => {
   const toggleShowA = () => setShowA(!showA);
   const [home, setHome] = useState(0)
   return (
-    <div>
+    <div className="background">
       <Hero />
       <Products />
       <Container className='toastContainer'>

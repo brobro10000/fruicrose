@@ -70,7 +70,9 @@ function Cart() {
         <div>
           {cart.length ? (
             <div>
+              <div className="centerContainer">
               <h1 className="center">Your Cart</h1>
+              </div>
               <Container>
               {cart.map((product) => (
                 <CartProduct key={product._id} product={product} />
