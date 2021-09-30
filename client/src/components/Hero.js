@@ -8,7 +8,7 @@ function Hero() {
   const [hero, loadHero] = useState(<></>);
   useEffect(() => {
     return loadHero(
-      <Carousel controls={false} slide={true}>
+      <Carousel className='modalObject' controls={false} slide={true}>
         <Carousel.Item>
           <img className="d-block w-100" src={strawberry} alt="First slide" />
           <Carousel.Caption>
