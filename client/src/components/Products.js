@@ -3,14 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { QUERY_ALL_PRODUCTS } from "../utils/queries";
-import {
-  Container,
-  Row,
-  Dropdown,
-  Col,
-  Button,
-  Nav,
-} from "react-bootstrap";
+import { Container, Row, Dropdown, Col, Button, Nav } from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
 import banana from "../assets/images/banana.jpeg";
@@ -169,7 +162,7 @@ function Products() {
 
     allSorts.push(alphabetical, reverseAlphabetical, price, reversePrice);
     return selectSort(allSorts);
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [products]);
 
   function sortBy(e) {
@@ -221,12 +214,15 @@ function Products() {
   return (
     <Container>
       <div className="centerContainer">
-      <h1 className="center">Shop fruits!</h1>
+        <h1 className="center newBorder m-2">Shop fruits!</h1>
       </div>
       <Nav className="justify-content-center margin" activeKey="/home">
         <Nav.Item>
           <Dropdown>
-            <Dropdown.Toggle id="dropdown-button-dark" variant="success">
+            <Dropdown.Toggle
+              className="dropdown-button-dark newBorder m-2"
+              variant="success"
+            >
               Category
             </Dropdown.Toggle>
             <Dropdown.Menu variant="dark">
@@ -244,7 +240,10 @@ function Products() {
         </Nav.Item>
         <Nav.Item>
           <Dropdown>
-            <Dropdown.Toggle className="dropdown-button-dark" variant="success">
+            <Dropdown.Toggle
+              className="dropdown-button-dark newBorder m-2"
+              variant="success"
+            >
               Sort By
             </Dropdown.Toggle>
             <Dropdown.Menu variant="dark">
@@ -266,7 +265,11 @@ function Products() {
           </Dropdown>
         </Nav.Item>
         <Nav.Item>
-          <Button variant="warning" onClick={filterItem}>
+          <Button
+            variant="warning"
+            className="newBorder m-2"
+            onClick={filterItem}
+          >
             Reset
           </Button>
         </Nav.Item>
