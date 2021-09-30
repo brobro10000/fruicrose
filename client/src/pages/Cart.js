@@ -77,11 +77,13 @@ function Cart() {
               {cart.map((product) => (
                 <CartProduct key={product._id} product={product} />
               ))}
-              <h2>Total Price: ${totalCartPrice()}</h2>
               {completeCheckout === 0 ? (
+                <div className="checkoutContainer">
+                <h2>Total Price: ${totalCartPrice()}</h2>
                 <Button variant="success" onClick={submitCheckout} size="lg">
                   Checkout
                 </Button>
+                </div>
               ) : (
                 <Loading />
               )}
