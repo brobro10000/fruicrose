@@ -11,16 +11,8 @@ const Home = () => {
     <div>
       <Hero />
       <Products />
-      <Container style={{ textAlign: "center"}}>
-        <Button variant='success' onClick={toggleShowA} className="contactUsBtn mb-2">
-          Contact Us
-        </Button>
-        <Toast className='modalObject' show={showA} onClose={toggleShowA}>
-          <Toast.Body className='cardBackground'>
-            <Contact />
-          </Toast.Body>
-        </Toast>
-      </Container>
+      <Contact />
+       
     </div>
   );
 };
