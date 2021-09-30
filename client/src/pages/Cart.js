@@ -71,22 +71,28 @@ function Cart() {
           {cart.length ? (
             <div>
               <div className="centerContainer">
-              <h1 className="center">Your Cart</h1>
+                <h1 className="center roundedBorder">Your Cart</h1>
               </div>
               <Container>
-              {cart.map((product) => (
-                <CartProduct key={product._id} product={product} />
-              ))}
-              {completeCheckout === 0 ? (
-                <div className="checkoutContainer">
-                <h2>Total Price: ${totalCartPrice()}</h2>
-                <Button variant="success" onClick={submitCheckout} size="lg">
-                  Checkout
-                </Button>
-                </div>
-              ) : (
-                <Loading />
-              )}
+                <Row className="checkoutContainer newBorder text-center">
+                  {cart.map((product) => (
+                    <CartProduct key={product._id} product={product} />
+                  ))}
+                  {completeCheckout === 0 ? (
+                    <div>
+                      <h2>Total Price: ${totalCartPrice()}</h2>
+                      <Button
+                        variant="success"
+                        onClick={submitCheckout}
+                        size="lg"
+                      >
+                        Checkout
+                      </Button>
+                    </div>
+                  ) : (
+                    <Loading />
+                  )}
+                </Row>
               </Container>
             </div>
           ) : (
