@@ -96,6 +96,11 @@ code {
   background-color: #fffcf3;
 }
 
+.removeContainer {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
 .center {
   text-align: center;
   padding: 30px;
