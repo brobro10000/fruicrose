@@ -90,6 +90,7 @@ function Navigation() {
   }
 
   return (
+    <div className='navbarBackground'>
     <Navbar
       id="headerNav"
       collapseOnSelect
@@ -101,7 +102,7 @@ function Navigation() {
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           <h1 className="myName">
-            <i className={fruit}> Fruicrose{" "}</i>
+            <i className={fruit}></i> Fruicrose{" "}
           </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -121,6 +122,7 @@ function Navigation() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   );
 }
 

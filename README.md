@@ -2,7 +2,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/) 
   # Fruicrose 
   ## **Description**
-  We sell fruits
+  Welcome to Fruicrose, online marketplace allowing fellow produce lovers to bring to fruits into fruition. Shop our latest selection of all the best fruits, create an account and purchase your fruits! 
 
   ---
 
