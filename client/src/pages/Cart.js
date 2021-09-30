@@ -99,6 +99,7 @@ function Cart() {
           )}
         </div>
       </Row>
+      <div className="productContainer"></div>
     </Container>
   );
 }

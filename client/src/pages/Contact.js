@@ -97,6 +97,7 @@ function Contact() {
           </Container>
         </Form.Group>
       </Form>
+      <div className="productContainer"></div>
     </Container>
   );
 }
