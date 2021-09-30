@@ -70,20 +70,20 @@ function Cart() {
         <div>
           {cart.length ? (
             <div>
-              <h1>Your Cart</h1>
-
+              <h1 className="center">Your Cart</h1>
+              <Container>
               {cart.map((product) => (
                 <CartProduct key={product._id} product={product} />
               ))}
-
               <h2>Total Price: ${totalCartPrice()}</h2>
               {completeCheckout === 0 ? (
-                <Button variant="success" onClick={submitCheckout}>
+                <Button variant="success" onClick={submitCheckout} size="lg">
                   Checkout
                 </Button>
               ) : (
                 <Loading />
               )}
+              </Container>
             </div>
           ) : (
             <Col xs s md lg={{ span: 6, offset: 4 }}>
