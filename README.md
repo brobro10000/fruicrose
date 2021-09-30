@@ -60,15 +60,20 @@ You now have access to the same information as if directly acessing it from the 
 ---
 
   ## **Usage**
+  ![login](src/images/login.png)
   To use this application, sign up as a new user if you do not already have an account, otherwise log in. The buttons are located in the top left.
+
 
   You can add fruits to your cart by selecting the 'Add to Cart button'. The items will be added to your cart, where you can navigate to from the top left to checkout and purchase your items. It will redirect you to our third-party payment platform, [Stripe](https://stripe.com/), which will process your payment.
   
+  ![atc](src/images/addtocart.png)
+
   On successful payment, the page will be redirected back to Fruicrose to notify you of a successful purchase.
+  ![atc2](src/images/checkout.png)
 
-  Past orders may be be seen in your dashboard if you are logged in. 
+Past orders may be be seen in your dashboard if you are logged in. 
 
-
+![atc3](src/images/onsuccess.png)
 
 ---   
 
