@@ -913,6 +913,7 @@ code {
   text-align: -webkit-center;
 }
 .formContainer {
+  align-self: center;
   padding-bottom: 2.5px !important;
   padding-left: 2.5px !important;
   padding-right: 2.5px !important;
