@@ -57,7 +57,7 @@ const typeDefs = gql`
       email: String
       password: String
     ): User
-    updateProduct(products: [ID]!, stock: [Int]!): Product
+    updateProduct(products: [ID]!, stock: [Int]!): [Product]
     login(email: String!, password: String!): Auth
   }
 `;
