@@ -61,6 +61,7 @@ function Dashboard() {
           ))}
         </>
       ) : null}
+      <div className="productContainer"></div>
     </Container>
   );
 }

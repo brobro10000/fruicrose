@@ -38,6 +38,13 @@ code {
   justify-content: center !important;
 }
 
+.productContainer {
+  margin-bottom: 100px !important;
+}
+
+.margin {
+  margin-bottom: 50px !important;
+}
 
 .myName {
   background-image: linear-gradient(
@@ -94,6 +101,7 @@ code {
   padding: 30px;
   color: #ff5a5a;
   font-weight: bolder;
+  font-size: 60px;
 }
 
 .formContainer {

@@ -9,9 +9,7 @@ import {
   Dropdown,
   Col,
   Button,
-  Card,
-  ButtonGroup,
-  Navbar,
+  Nav,
 } from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
@@ -222,56 +220,56 @@ function Products() {
   return (
     <Container>
       <h1 className="center">Shop fruits!</h1>
-      <Navbar bg="dark" className="sortBar">
-        <Container>
-          <ButtonGroup>
-            <Dropdown>
-              <Dropdown.Toggle id="dropdown-button-dark" variant="success">
-                Category
-              </Dropdown.Toggle>
-              <Dropdown.Menu variant="dark">
-                {categoryList
-                  ? categoryList.map((product) => {
-                      return (
-                        <Dropdown.Item key={product} onClick={filterItem}>
-                          {product}
-                        </Dropdown.Item>
-                      );
-                    })
-                  : null}
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown>
-              <Dropdown.Toggle
-                className="dropdown-button-dark"
-                variant="success"
-              >
-                Sort By
-              </Dropdown.Toggle>
-              <Dropdown.Menu variant="dark">
-                {sortByArr
-                  ? sortByArr.map((type) => {
-                      return (
-                        <Dropdown.Item
-                          key={type.toLowerCase().replace(" ", "")}
-                          onClick={sortBy}
-                        >
-                          <Row>
-                            <Col>{type}</Col>
-                          </Row>
-                        </Dropdown.Item>
-                      );
-                    })
-                  : null}
-              </Dropdown.Menu>
-            </Dropdown>
 
-            <Button variant="warning" onClick={filterItem}>
-              Reset
-            </Button>
-          </ButtonGroup>
-        </Container>
-      </Navbar>
+      <Nav className="justify-content-center margin" activeKey="/home">
+        <Nav.Item>
+          <Dropdown>
+            <Dropdown.Toggle id="dropdown-button-dark" variant="success">
+              Category
+            </Dropdown.Toggle>
+            <Dropdown.Menu variant="dark">
+              {categoryList
+                ? categoryList.map((product) => {
+                    return (
+                      <Dropdown.Item key={product} onClick={filterItem}>
+                        {product}
+                      </Dropdown.Item>
+                    );
+                  })
+                : null}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav.Item>
+        <Nav.Item>
+          <Dropdown>
+            <Dropdown.Toggle className="dropdown-button-dark" variant="success">
+              Sort By
+            </Dropdown.Toggle>
+            <Dropdown.Menu variant="dark">
+              {sortByArr
+                ? sortByArr.map((type) => {
+                    return (
+                      <Dropdown.Item
+                        key={type.toLowerCase().replace(" ", "")}
+                        onClick={sortBy}
+                      >
+                        <Row>
+                          <Col>{type}</Col>
+                        </Row>
+                      </Dropdown.Item>
+                    );
+                  })
+                : null}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav.Item>
+        <Nav.Item>
+          <Button variant="warning" onClick={filterItem}>
+            Reset
+          </Button>
+        </Nav.Item>
+      </Nav>
+
       <Row>
         {products.map((product) => {
           return (
@@ -292,6 +290,7 @@ function Products() {
           );
         })}
       </Row>
+      <div className="productContainer"></div>
     </Container>
   );
 }
