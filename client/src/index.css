@@ -16,10 +16,14 @@ code {
     monospace;
 }
 
-/* .background {
-  background-image: url(./assets/images/fruitbackground.jpeg);
-  
-} */
+.success {
+  text-align: center;
+  background-color: #fffcf3;
+  width: fit-content;
+  margin: 30px;
+  border-radius: 5px;
+  padding: 10px;
+}
 
 #dancingFruit {
   background-image: linear-gradient(
