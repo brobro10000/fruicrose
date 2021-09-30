@@ -8,10 +8,10 @@ import Auth from "../utils/auth";
 
 function Navigation() {
   const fruitIcons = [
-    "fa-brands fa-apple",
+    "fas fa-apple-alt",
     "fas fa-lemon",
     "far fa-lemon",
-    "fa-solid fa-kiwi-fruit",
+    "fas fa-seedling",
   ];
   const isOpen = useSelector((state) => state.currentForm);
   const [show, setShow] = useState(isOpen);
@@ -100,7 +100,7 @@ function Navigation() {
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           <h1 className="myName">
-            Fruicrose{" "}
+            <i className={fruit}> Fruicrose{" "}</i>
           </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
