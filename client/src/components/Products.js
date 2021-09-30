@@ -169,6 +169,7 @@ function Products() {
 
     allSorts.push(alphabetical, reverseAlphabetical, price, reversePrice);
     return selectSort(allSorts);
+     // eslint-disable-next-line
   }, [products]);
 
   function sortBy(e) {
