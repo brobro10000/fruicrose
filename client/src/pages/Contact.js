@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Form, Button, Container, Row,Col } from "react-bootstrap";
 import { validateEmail, capitalizeFirstLetter } from "../utils/helpers";
 
-function Contact() {
+function Contact(props) {
   const [state, handleSubmit] = useForm("xyylldzy");
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [home, isHome] = useState("formContainer")
+  useEffect(()=> {
+    if(props.home === 0){
+      return isHome("none")
+    }
+  },[])
   if (state.succeeded) {
     return <p id="returnMessage">We Received your Message!</p>;
   }
@@ -31,9 +36,7 @@ function Contact() {
     }
   }
   return (
-    <Container className='formContainer'>
-      <Row>
-        <Col>
+    <Container className={home}>
       <Form className='formContent cardBackground' onSubmit={handleSubmit}>
       <h1 style={{ textAlign: "center", margin: "30px" }}>
         Questions? <p>Leave us a message!</p>
@@ -102,8 +105,6 @@ function Contact() {
         </Form.Group>
       </Form>
       <div className="productContainer"></div>
-      </Col>
-      </Row>
     </Container>
   );
 }
