@@ -38,7 +38,9 @@ function Dashboard() {
     <Container>
       {user && user.orders ? (
         <>
-          <h1>Hello {user.username}!</h1>
+          <div className="centerContainer">
+          <h1 className="center">Hello {user.username}!</h1>
+          </div>
           <h2>Orders:</h2>
           {user.orders.map((order) => (
             <Card key={order._id} className="dashboardCard">
@@ -47,7 +49,7 @@ function Dashboard() {
                   {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                 </Card.Title>
                 <Card.Subtitle>Order Number: #{order._id}</Card.Subtitle>
-                <br/>
+                <br />
                 <Card.Subtitle>Purchased Items</Card.Subtitle>
               </Card.Header>
               <ListGroup>
@@ -61,6 +63,7 @@ function Dashboard() {
           ))}
         </>
       ) : null}
+      <div className="productContainer"></div>
     </Container>
   );
 }
