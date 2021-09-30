@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container,Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { UPDATE_LOGIN } from "../utils/actions";
 import ModalObject from "./ModalObject";
@@ -8,10 +8,10 @@ import Auth from "../utils/auth";
 
 function Navigation() {
   const fruitIcons = [
-    "fas fa-apple-alt",
+    "fa-brands fa-apple",
     "fas fa-lemon",
     "far fa-lemon",
-    "fas fa-seedling",
+    "fa-solid fa-kiwi-fruit",
   ];
   const isOpen = useSelector((state) => state.currentForm);
   const [show, setShow] = useState(isOpen);
@@ -100,7 +100,7 @@ function Navigation() {
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           <h1 className="myName">
-            <i className={fruit}></i> Fruicrose{" "}
+            Fruicrose{" "}
           </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
