@@ -96,7 +96,7 @@ function Cart() {
               </Container>
             </div>
           ) : (
-            <Col xs s md lg={{ span: 6, offset: 4 }}>
+            <Col xs s md lg={{ span: 6 }}>
               <Image
                 id="dancingFruit"
                 className="mt-5"
