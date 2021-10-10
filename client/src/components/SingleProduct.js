@@ -90,11 +90,11 @@ function SingleProduct(item) {
 
   return (
     <>
-      <Container className="background-center">
+      <Container className="background-center" >
         <Card
           key={name}
           style={{ width: "18rem", margin: "10px" }}
-          className="modalObject roundedBorder"
+          className="animate__animated animate__bounceInUp modalObject roundedBorder"
         >
           <Image
             className="productImage"

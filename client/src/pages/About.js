@@ -5,7 +5,7 @@ function About() {
   return (
     <Container>
       <Row>
-        <Col md={6}>
+        <Col md={6} className='animate__animated animate__slideInLeft'>
           <Container id="aboutContainer1">
             <Card id="aboutCard1">
               <Row>
@@ -35,7 +35,7 @@ function About() {
             </Card>
           </Container>
         </Col>
-        <Col md={6}>
+        <Col md={6} className='animate__animated animate__slideInRight'>
           <Container id="aboutContainer2">
             <Card id="aboutCard2">
               <Row>

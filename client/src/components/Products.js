@@ -279,7 +279,7 @@ function Products() {
         {products.map((product) => {
           return (
             <Col>
-              <SingleProduct
+              <SingleProduct 
                 key={product._id}
                 _id={product._id}
                 name={product.name}
