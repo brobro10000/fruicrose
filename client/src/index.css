@@ -10,6 +10,7 @@ body {
 }
 .wrapper {
   margin-bottom: 100px;
+  text-align: -webkit-center;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
