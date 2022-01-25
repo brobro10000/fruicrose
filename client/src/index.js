@@ -6,7 +6,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 ReactDOM.render(
 
-    <App />
+  <App />
   ,
   document.getElementById('root')
 );
