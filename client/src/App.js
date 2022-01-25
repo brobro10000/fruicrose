@@ -23,7 +23,7 @@ import SimpleSlider from "./components/SimpleSlider";
 import Products from "./components/Products";
 // import Loading from "./components/Loading";
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
