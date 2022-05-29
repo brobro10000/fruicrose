@@ -100,7 +100,7 @@ function Cart() {
               <Image
                 id="dancingFruit"
                 className="mt-5"
-                src={dancingFruit}
+                src='https://cdn.dribbble.com/users/2281893/screenshots/6666369/ezgif-3-84737541ab01.gif'
                 roundedCircle
                 fluid
               />
