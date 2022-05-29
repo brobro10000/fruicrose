@@ -7,7 +7,7 @@ import { Container, Row, Dropdown, Col, Button, Nav } from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
 import banana from "../assets/images/bananaAVIF.avif";
-import blueberry from "../assets/images/blueberryAVIF.avif";
+import blueberry from "../assets/images/blueberryAVIF2.avif";
 import fujiapple from "../assets/images/fujiappleAVIF.avif";
 import honeycrispapple from "../assets/images/honeycrispappleAVIF.avif";
 import lemon from "../assets/images/lemonAVIF.avif";
@@ -15,7 +15,7 @@ import mango from "../assets/images/mangoAVIF.avif";
 import peach from "../assets/images/peachAVIF.avif";
 import raspberry from "../assets/images/raspberryAVIF.avif";
 import tangerine from "../assets/images/tangerineAVIF.avif";
-import watermelon from "../assets/images/watermelonAVIF.avif";
+import watermelon from "../assets/images/watermelonAVIF2.avif";
 import goodmeatloaf from "../assets/images/goodmeatloafAVIF.avif";
 import SingleProduct from "./SingleProduct";
 
