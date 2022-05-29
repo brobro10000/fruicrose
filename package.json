@@ -8,7 +8,8 @@
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "engines": {
     "node": "14.x"
@@ -23,8 +24,6 @@
   "dependencies": {
     "graphql": "^15.6.0",
     "if-env": "^1.0.4",
-    "react-redux": "^7.2.5",
-    "renamer": "^4.0.0",
-    "replace-in-file": "^6.3.3"
+    "react-redux": "^7.2.5"
   }
 }
