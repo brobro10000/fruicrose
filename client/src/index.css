@@ -6,12 +6,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(./assets/images/fruitbackground.jpeg);
+  background-image: url(./assets/images/fruitbackgroundAVIF.avif);
 }
+
 .wrapper {
   margin-bottom: 100px;
   text-align: -webkit-center;
 }
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -27,14 +29,12 @@ code {
 }
 
 #dancingFruit {
-  background-image: linear-gradient(
-    to left,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to left,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
   padding: 5px;
 }
 
@@ -53,14 +53,12 @@ code {
 }
 
 .myName {
-  background-image: linear-gradient(
-    to left,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to left,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -544,6 +542,7 @@ code {
       115px 155px #000, 115px 170px #000, 120px 120px #000, 120px 125px #000,
       120px 130px #000, 120px 160px #000, 120px 165px #000;
   }
+
   75% {
     box-shadow: 10px 110px #000, 10px 115px #000, 10px 120px #000,
       15px 105px #000, 15px 125px #000, 20px 105px #000, 20px 125px #000,
@@ -762,41 +761,42 @@ code {
   margin-top: 25px;
   border-radius: 5px;
   padding: 4px;
-  background-image: linear-gradient(
-    to top,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to top,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
 }
+
 #aboutCard1 {
-  background-image: linear-gradient(
-    to left,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to left,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
   border-style: ridge;
   background-clip: border-box;
 }
+
 #aboutCard1 {
   padding: 15px;
   border-width: 5px;
   background: #fffcf3;
 }
+
 .aboutImage {
   height: auto;
   width: 100%;
   max-width: 500px;
 }
+
 #aboutImage1 {
   height: auto;
   width: 100%;
 }
+
 #aboutTitle1 {
   margin: 5px;
   text-align: center;
@@ -805,6 +805,7 @@ code {
   text-decoration: underline;
   text-decoration-color: cornflowerblue;
 }
+
 #aboutText1 {
   align-self: center;
 }
@@ -813,36 +814,36 @@ code {
   margin-top: 25px;
   border-radius: 5px;
   padding: 4px;
-  background-image: linear-gradient(
-    to top,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to top,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
 }
+
 #aboutCard2 {
-  background-image: linear-gradient(
-    to left,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to left,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
   border-style: ridge;
   background-clip: border-box;
 }
+
 #aboutCard2 {
   padding: 15px;
   border-width: 5px;
   background: #fffcf3;
 }
+
 #aboutImage2 {
   height: auto;
   width: 100%;
 }
+
 #aboutTitle2 {
   margin: 5px;
   text-align: center;
@@ -851,19 +852,18 @@ code {
   text-decoration: underline;
   text-decoration-color: cornflowerblue;
 }
+
 #aboutText2 {
   align-self: center;
 }
 
 .navbarBackground {
-  background-image: linear-gradient(
-    to left,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to left,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
   padding-bottom: 5px;
   position: fixed;
   top: 0;
@@ -878,14 +878,12 @@ code {
 #modalObject {
   border-radius: 5px;
   padding: 4px;
-  background-image: linear-gradient(
-    to top,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to top,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
   margin-top: 120px;
 }
 
@@ -902,17 +900,21 @@ code {
   padding: 4px;
   place-content: center;
 }
+
 .contactUsBtn {
   font-size: larger !important;
   margin: 30px;
 }
+
 .formContent {
   margin: 5px;
   padding: 15px;
 }
+
 .toastContainer {
   text-align: -webkit-center;
 }
+
 .formContainer {
   padding-bottom: 2.5px !important;
   padding-left: 2.5px !important;
@@ -921,21 +923,22 @@ code {
   text-align: center;
   margin: 25px;
   border-radius: 10px;
-  background-image: linear-gradient(
-    to top,
-    #93ff68,
-    #e4ff55,
-    #ffb543,
-    #ff5a5a,
-    #c660ff
-  );
+  background-image: linear-gradient(to top,
+      #93ff68,
+      #e4ff55,
+      #ffb543,
+      #ff5a5a,
+      #c660ff);
 }
+
 .background-center {
   text-align: -webkit-center;
 }
+
 .quantityUnit {
   padding: 10px;
 }
+
 .quantityCol {
   margin: 5px;
 }
@@ -958,7 +961,7 @@ code {
 .cartImage {
   flex: content;
   justify-content: space-around;
-  height: auto !important ;
+  height: auto !important;
   width: 100% !important;
   max-width: 400px !important;
 }
