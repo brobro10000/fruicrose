@@ -8,8 +8,7 @@
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed",
-    "heroku-postbuild": "cd client && npm install renamer replace-in-file && npm install && npm run build"
+    "seed": "cd server && npm run seed"
   },
   "engines": {
     "node": "14.x"

@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3a6e0f22.chunk.css",
+    "main.js": "/static/js/main.e7c549f8.chunk.js",
+    "main.js.map": "/static/js/main.e7c549f8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.js.map": "/static/js/runtime-main.5fc0559f.js.map",
+    "static/css/2.9d7e9738.chunk.css": "/static/css/2.9d7e9738.chunk.css",
+    "static/js/2.ed8018b3.chunk.js": "/static/js/2.ed8018b3.chunk.js",
+    "static/js/2.ed8018b3.chunk.js.map": "/static/js/2.ed8018b3.chunk.js.map",
+    "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "service-worker.js.map": "/service-worker.js.map",
+    "static/css/2.9d7e9738.chunk.css.map": "/static/css/2.9d7e9738.chunk.css.map",
+    "static/css/main.3a6e0f22.chunk.css.map": "/static/css/main.3a6e0f22.chunk.css.map",
+    "static/js/2.ed8018b3.chunk.js.LICENSE.txt": "/static/js/2.ed8018b3.chunk.js.LICENSE.txt",
+    "static/media/bananaAVIF.c5c91de7.avif": "/static/media/bananaAVIF.c5c91de7.avif",
+    "static/media/blueberryAVIF.c9ccd42c.avif": "/static/media/blueberryAVIF.c9ccd42c.avif",
+    "static/media/index.css": "/static/media/fruitbackgroundAVIF.61f307e7.avif",
+    "static/media/fujiappleAVIF.869d8c9f.avif": "/static/media/fujiappleAVIF.869d8c9f.avif",
+    "static/media/goodmeatloafAVIF.bb647fbe.avif": "/static/media/goodmeatloafAVIF.bb647fbe.avif",
+    "static/media/honeycrispappleAVIF.061732ba.avif": "/static/media/honeycrispappleAVIF.061732ba.avif",
+    "static/media/lemonAVIF.fa9eb381.avif": "/static/media/lemonAVIF.fa9eb381.avif",
+    "static/media/mangoAVIF.43023355.avif": "/static/media/mangoAVIF.43023355.avif",
+    "static/media/orangeheroAVIF.a2875d78.avif": "/static/media/orangeheroAVIF.a2875d78.avif",
+    "static/media/peachAVIF.0491d5b6.avif": "/static/media/peachAVIF.0491d5b6.avif",
+    "static/media/peachheroAVIF.894904c4.avif": "/static/media/peachheroAVIF.894904c4.avif",
+    "static/media/raspberryAVIF.bd16b7fb.avif": "/static/media/raspberryAVIF.bd16b7fb.avif",
+    "static/media/slick-theme.css": "/static/media/slick.c94f7671.ttf",
+    "static/media/strawberryheroAVIF.a1d505ba.avif": "/static/media/strawberryheroAVIF.a1d505ba.avif",
+    "static/media/tangerineAVIF.086edd6b.avif": "/static/media/tangerineAVIF.086edd6b.avif",
+    "static/media/watermelonAVIF.fdd6f10a.avif": "/static/media/watermelonAVIF.fdd6f10a.avif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5fc0559f.js",
+    "static/css/2.9d7e9738.chunk.css",
+    "static/js/2.ed8018b3.chunk.js",
+    "static/css/main.3a6e0f22.chunk.css",
+    "static/js/main.e7c549f8.chunk.js"
+  ]
+}
