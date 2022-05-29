@@ -1,6 +1,6 @@
 import { Container, Card, Row, Col, Image } from "react-bootstrap";
-import botanist from "../assets/images/Botanist.svg";
-import logo from "../assets/images/LogoFruicrose.png";
+import botanist from "../assets/images/BotanistAVIF.avif";
+import logo from "../assets/images/LogoFruicroseAVIF.avif";
 function About() {
   return (
     <Container>

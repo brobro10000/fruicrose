@@ -6,7 +6,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { idbPromise } from "../utils/helpers";
 import CartProduct from "../components/CartProduct";
 import Loading from "../components/Loading";
-import dancingFruit from "../assets/images/dancing-fruit.gif";
 import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
 import { Container, Image, Row, Col, Button } from "react-bootstrap";
 

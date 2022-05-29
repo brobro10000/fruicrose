@@ -12,7 +12,6 @@ const Home = () => {
     setShowA(!showA)
     console.log(showA)
   }
-  const [home, setHome] = useState(0)
   return (
     <div className="background">
       <Hero />
@@ -23,9 +22,7 @@ const Home = () => {
         </Button>
         <Toast id='contact-toast' className='modalObject' show={showA} onClose={toggleShowA}>
           <Toast.Body className='cardBackground'>
-            <Contact
-            home={home} 
-            />
+            <Contact />
           </Toast.Body>
         </Toast>
       </Container>
