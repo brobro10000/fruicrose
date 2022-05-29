@@ -96,7 +96,7 @@ function Navigation() {
       expand="lg"
       bg="dark"
       variant="dark"
-      sticky="top"
+      fixed="top"
     >
       <Container fluid>
         <Navbar.Brand as={Link} to="/">

@@ -916,6 +916,7 @@ code {
 }
 
 .formContainer {
+  align-self: center;
   padding-bottom: 2.5px !important;
   padding-left: 2.5px !important;
   padding-right: 2.5px !important;
@@ -953,6 +954,10 @@ code {
   border: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
 
+.marginBottom {
+  margin-bottom: 100px;
+}
+
 .heroBorder {
   border: 1px solid rgba(0, 0, 0, 0.8) !important;
   border-radius: 3px !important;
@@ -961,9 +966,11 @@ code {
 .cartImage {
   flex: content;
   justify-content: space-around;
+
   height: auto !important;
   width: 100% !important;
   max-width: 400px !important;
+
 }
 
 .cartBorder {
