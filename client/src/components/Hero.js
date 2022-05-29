@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Carousel, Container } from "react-bootstrap";
-import strawberry from "../assets/images/strawberryhero.jpg";
-import orange from "../assets/images/orangehero.jpg";
-import peach from "../assets/images/peachhero.jpg";
+import strawberry from "../assets/images/strawberryheroAVIF.avif";
+import orange from "../assets/images/orangeheroAVIF.avif";
+import peach from "../assets/images/peachheroAVIF.avif";
 
 function Hero() {
   const [hero, loadHero] = useState(<></>);

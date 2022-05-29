@@ -6,17 +6,17 @@ import { QUERY_ALL_PRODUCTS } from "../utils/queries";
 import { Container, Row, Dropdown, Col, Button, Nav } from "react-bootstrap";
 import { idbPromise } from "../utils/helpers";
 import Loading from "./Loading";
-import banana from "../assets/images/banana.jpeg";
-import blueberry from "../assets/images/blueberry.jpeg";
-import fujiapple from "../assets/images/fujiapple.jpg";
-import honeycrispapple from "../assets/images/honeycrispapple.jpg";
-import lemon from "../assets/images/lemon.jpeg";
-import mango from "../assets/images/mango.jpeg";
-import peach from "../assets/images/peach.jpeg";
-import raspberry from "../assets/images/raspberry.jpeg";
-import tangerine from "../assets/images/tangerine.jpeg";
-import watermelon from "../assets/images/watermelon.jpeg";
-import goodmeatloaf from "../assets/images/goodmeatloaf.jpeg";
+import banana from "../assets/images/bananaAVIF.avif";
+import blueberry from "../assets/images/blueberryAVIF.avif";
+import fujiapple from "../assets/images/fujiappleAVIF.avif";
+import honeycrispapple from "../assets/images/honeycrispappleAVIF.avif";
+import lemon from "../assets/images/lemonAVIF.avif";
+import mango from "../assets/images/mangoAVIF.avif";
+import peach from "../assets/images/peachAVIF.avif";
+import raspberry from "../assets/images/raspberryAVIF.avif";
+import tangerine from "../assets/images/tangerineAVIF.avif";
+import watermelon from "../assets/images/watermelonAVIF.avif";
+import goodmeatloaf from "../assets/images/goodmeatloafAVIF.avif";
 import SingleProduct from "./SingleProduct";
 
 function Products() {
@@ -228,12 +228,12 @@ function Products() {
             <Dropdown.Menu variant="dark">
               {categoryList
                 ? categoryList.map((product) => {
-                    return (
-                      <Dropdown.Item key={product} onClick={filterItem}>
-                        {product}
-                      </Dropdown.Item>
-                    );
-                  })
+                  return (
+                    <Dropdown.Item key={product} onClick={filterItem}>
+                      {product}
+                    </Dropdown.Item>
+                  );
+                })
                 : null}
             </Dropdown.Menu>
           </Dropdown>
@@ -249,17 +249,17 @@ function Products() {
             <Dropdown.Menu variant="dark">
               {sortByArr
                 ? sortByArr.map((type) => {
-                    return (
-                      <Dropdown.Item
-                        key={type.toLowerCase().replace(" ", "")}
-                        onClick={sortBy}
-                      >
-                        <Row>
-                          <Col>{type}</Col>
-                        </Row>
-                      </Dropdown.Item>
-                    );
-                  })
+                  return (
+                    <Dropdown.Item
+                      key={type.toLowerCase().replace(" ", "")}
+                      onClick={sortBy}
+                    >
+                      <Row>
+                        <Col>{type}</Col>
+                      </Row>
+                    </Dropdown.Item>
+                  );
+                })
                 : null}
             </Dropdown.Menu>
           </Dropdown>
@@ -279,7 +279,7 @@ function Products() {
         {products.map((product) => {
           return (
             <Col>
-              <SingleProduct 
+              <SingleProduct
                 key={product._id}
                 _id={product._id}
                 name={product.name}

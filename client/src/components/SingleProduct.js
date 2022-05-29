@@ -76,18 +76,18 @@ function SingleProduct(item) {
       idbPromise("cart", "put", { ...item, purchaseQuantity: numValue });
     }
     setTimeout(() => {
-      if(popoverDialogue === 'No more items in stock!')
-      setShowPop(true);
+      if (popoverDialogue === 'No more items in stock!')
+        setShowPop(true);
       else
-      setShowPop(false);
-    },1500)
+        setShowPop(false);
+    }, 1500)
   };
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  console.log(imageLink)
   return (
     <>
       <Container className="background-center" >
